@@ -1,4 +1,4 @@
-# Australian Imaging Serivce
+# Australian Imaging Service
 
 ### Project
 As part of the ARDC 2019 Project's scheme, we are building a distributed, national federation for securely managing and analyzing imaging data for research, with a focus on radiology and biomedical applications. 
