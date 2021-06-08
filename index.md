@@ -24,7 +24,7 @@ The Florey,
 
 - [Documentation overview](documentation/index)
 - [AIS Repositories](documentation/repositories)
-
+- [User Guide](documentation/userguide)
 
 
 ### Supporting Technologies
