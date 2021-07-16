@@ -4,8 +4,6 @@ linkTitle: User guides
 weight: 2
 ---
 
-# AIS User guides
-
 ## How to Use XNAT
 
 <https://wiki.xnat.org/documentation/how-to-use-xnat>
