@@ -9,18 +9,18 @@ weight: 10
     Add a new `checkout` step for the repository, replacing **`REPOSITORY_NAME`** with the name of the repository
     
     ```toml {linenos=table,linenostart=28}
-        - name: Checkout REPOSITORY_NAME repo
+          - name: Checkout REPOSITORY_NAME repo
             uses: actions/checkout@v2
             with:
-            repository: 'Australian-Imaging-Service/REPOSITORY_NAME'
-            path: REPOSITORY_NAME
+              repository: 'Australian-Imaging-Service/REPOSITORY_NAME'
+              path: REPOSITORY_NAME
     ```
 3. Edit the [config.toml](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/config.toml) file in the [main docs repository](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io)
     
     Add a new module import section to the end of the file, replacing **`REPOSITORY_NAME`** with the name of the repository
     
     ```toml
-    [[module.imports]]
+     [[module.imports]]
         path = "github.com/Australian-Imaging-Service/REPOSITORY_NAME/docs"
         disable = false
     ```
