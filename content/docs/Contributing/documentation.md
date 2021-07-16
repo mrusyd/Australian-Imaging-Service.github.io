@@ -6,7 +6,7 @@ weight: 10
 
 NB: This is for Public facing documents.
 
-All MarkDown documents located under the `docs' folder in the root of the repo will be published to a public site at {{ site.url }}.
+All MarkDown documents located under the `docs' folder in the root of the repo will be published to a public site at [{{< param baseURL >}}]({{< param baseURL >}}).
 
 If you are adding a new document create a file with a .md extension.
 

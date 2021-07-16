@@ -57,7 +57,7 @@ anchor = "smart"
 section = ["HTML"]
 
 [params]
-baseURL = "https://Australian-Imaging-Service.github.io/"
+baseURL = "https://australian-imaging-service.github.io/"
 
 # copyright = "The Docsy Authors"
 # privacy_policy = "https://policies.google.com/privacy"

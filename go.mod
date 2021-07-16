@@ -8,6 +8,8 @@ go 1.12
 // This is also handy for local editing of the documentation,
 // however, it also requires all the child repositories to be
 // checked out locally.
+
 replace github.com/Australian-Imaging-Service/charts/docs => ../charts/docs
+require github.com/Australian-Imaging-Service/charts/docs v0.0.0
 
 require github.com/Australian-Imaging-Service/charts/docs v0.0.0-20210702062413-df2c10ddbcc1
