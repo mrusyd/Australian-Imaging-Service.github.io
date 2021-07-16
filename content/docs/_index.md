@@ -1,4 +1,12 @@
-# AIS Documentation project
+
+---
+title: "Documentation"
+linkTitle: "Documentation"
+weight: 20
+menu:
+  main:
+    weight: 20
+---
 
 ## Background
 
@@ -51,3 +59,5 @@ $ echo "gem 'github-pages', group: :jekyll_plugins" > Gemfile
 $ bundle exec jekyll build
 $ bundle exec jekyll serve
 ```
+
+
