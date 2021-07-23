@@ -3,7 +3,9 @@ title: Integrating a new repository
 weight: 10
 ---
 
-1. Copy the `.github` and `docs` folder to the target repository from [skeleton](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/skeleton)
+## Setup
+
+1. Copy the `.github` and `docs` folder to the target repository from [skeleton](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/tree/master/skeleton)
 2. Edit the [gh-pages.yml](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/.github/workflows/gh-pages.yml) workflow
     
     Add a new `checkout` step for the repository, replacing **`REPOSITORY_NAME`** with the name of the repository
@@ -15,11 +17,11 @@ weight: 10
               repository: 'Australian-Imaging-Service/REPOSITORY_NAME'
               path: REPOSITORY_NAME
     ```
-3. Edit the [config.toml](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/config.toml) file in the [main docs repository](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io)
+3. Edit the [config.toml](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/config.toml#L101) file in the [main docs repository](https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io)
     
     Add a new module import section to the end of the file, replacing **`REPOSITORY_NAME`** with the name of the repository
     
-    ```toml
+    ```toml {linenos=table,linenostart=101}
      [[module.imports]]
         path = "github.com/Australian-Imaging-Service/REPOSITORY_NAME/docs"
         disable = false
@@ -32,3 +34,13 @@ weight: 10
     replace github.com/Australian-Imaging-Service/REPOSITORY_NAME/docs => ../REPOSITORY_NAME/docs
     require github.com/Australian-Imaging-Service/REPOSITORY_NAME/docs v0.0.0
     ```
+
+## Troubleshooting
+
+### Error: Parameter token or opts.auth is required
+
+Usually indicative that either:
+
+* The workflow is running in a fork, the actions cannot access the organisation secrets in a fork
+* The repository doesn't have access to the `GITHUBPAGES_KEY` organisation secret
+    * Contact the Australian-Imaging-Service organisation admin to request the repository be added
