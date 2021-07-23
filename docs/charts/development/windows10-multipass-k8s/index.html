@@ -22,13 +22,13 @@
 <meta itemprop=name content="Windows 10+Multipass">
 <meta itemprop=description content="Development workstation with Multipass on Windows 10 Requirements:
  An enabled Hypervisor, either Hyper-V (recommended) or VirtualBox (introduces certain networking issues, if you are using VirtualBox on Windows 10 then use the VirtualBox UI directly or another package such as Vagrant)  Install Hyper-V on Windows 10 Oracle VirtualBox install on Windows hosts  Oracle VirtualBox Downloads     Administrative access to Windows 10 workstation. This is required for:  Enabling Hyper-V if not already configured, or installing Oracle VirtualBox Installing Multipass Altering the local DNS override file c:\Windows\Ssytem32\drivers\etc\hosts    Windows PowerShell console as Administrator Right click Windows PowerShell and select Run as Administrator, enter your Admin credentials.">
-<meta itemprop=wordCount content="467">
+<meta itemprop=wordCount content="469">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Windows 10+Multipass">
 <meta name=twitter:description content="Development workstation with Multipass on Windows 10 Requirements:
  An enabled Hypervisor, either Hyper-V (recommended) or VirtualBox (introduces certain networking issues, if you are using VirtualBox on Windows 10 then use the VirtualBox UI directly or another package such as Vagrant)  Install Hyper-V on Windows 10 Oracle VirtualBox install on Windows hosts  Oracle VirtualBox Downloads     Administrative access to Windows 10 workstation. This is required for:  Enabling Hyper-V if not already configured, or installing Oracle VirtualBox Installing Multipass Altering the local DNS override file c:\Windows\Ssytem32\drivers\etc\hosts    Windows PowerShell console as Administrator Right click Windows PowerShell and select Run as Administrator, enter your Admin credentials.">
-<link rel=preload href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css as=style>
-<link href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css rel=stylesheet integrity>
+<link rel=preload href=/scss/main.min.5419b25d80b653329e5e4289f61e83c2e1a212a94f70b03b4bd27f4bfe56fdf3.css as=style>
+<link href=/scss/main.min.5419b25d80b653329e5e4289f61e83c2e1a212a94f70b03b4bd27f4bfe56fdf3.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
 </head>
@@ -46,7 +46,7 @@
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a479c3a300ca055c92b0ef19535619d5.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -56,7 +56,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a479c3a300ca055c92b0ef19535619d5.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -230,22 +230,22 @@
 </ul>
 </li>
 </ul>
-<pre><code class=language-console data-lang=console>PS C:\&gt; notepad.exe C:\Windows\System32\drivers\etc\hosts
-</code></pre><ul>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\&gt;</span> <span style=color:#000>notepad</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>exe</span> <span style=color:#000>C:</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>Windows</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>System32</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>drivers</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>etc</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>hosts</span>
+</code></pre></div><ul>
 <li>Verify Hyper-V state; the bellow shows that Hyper-V is Enabled on this workstation</li>
 </ul>
-<pre><code class=language-console data-lang=console>PS C:\&gt; Get-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\&gt;</span> <span style=color:#204a87>Get-WindowsOptionalFeature</span> <span style=color:#000>-FeatureName</span> <span style=color:#204a87>Microsoft-Hyper</span><span style=color:#000>-V-All</span> <span style=color:#000>-Online</span>
 
-FeatureName      : Microsoft-Hyper-V-All
-DisplayName      : Hyper-V
-Description      : Provides services and management tools for creating and running virtual machines and their
-                   resources.
-RestartRequired  : Possible
-State            : Enabled
-CustomProperties :
-</code></pre><p>If this is not the case!</p>
-<pre><code class=language-console data-lang=console>PS C:\&gt; Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-</code></pre><h2 id=download-install-and-setup-multipass>Download, install and setup Multipass</h2>
+<span style=color:#000>FeatureName</span>      <span style=color:#a40000>:</span> <span style=color:#204a87>Microsoft-Hyper</span><span style=color:#000>-V-All</span>
+<span style=color:#000>DisplayName</span>      <span style=color:#a40000>:</span> <span style=color:#204a87>Hyper-V</span>
+<span style=color:#000>Description</span>      <span style=color:#a40000>:</span> <span style=color:#000>Provides</span> <span style=color:#000>services</span> <span style=color:#000>and</span> <span style=color:#000>management</span> <span style=color:#000>tools</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>creating</span> <span style=color:#000>and</span> <span style=color:#000>running</span> <span style=color:#000>virtual</span> <span style=color:#000>machines</span> <span style=color:#000>and</span> <span style=color:#000>their</span>
+                   <span style=color:#000>resources</span><span style=color:#000;font-weight:700>.</span>
+<span style=color:#000>RestartRequired</span>  <span style=color:#a40000>:</span> <span style=color:#000>Possible</span>
+<span style=color:#000>State</span>            <span style=color:#a40000>:</span> <span style=color:#000>Enabled</span>
+<span style=color:#000>CustomProperties</span> <span style=color:#a40000>:</span>
+</code></pre></div><p>If this is not the case!</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\&gt;</span> <span style=color:#204a87>Enable-WindowsOptionalFeature</span> <span style=color:#000>-Online</span> <span style=color:#000>-FeatureName</span> <span style=color:#204a87>Microsoft-Hyper</span><span style=color:#000>-V</span> <span style=color:#000>-All</span>
+</code></pre></div><h2 id=download-install-and-setup-multipass>Download, install and setup Multipass</h2>
 <p>From the <a href=https://multipass.run/>Multipass website</a>, verify that your Windows 10 workstation meets the minimum requirements and then download the Windows installation file.</p>
 <ol>
 <li>Select <code>Start</code> button and then select Settings.</li>
@@ -257,16 +257,22 @@ CustomProperties :
 <h2 id=edit-the-workstations-local-dns-lookupoverride-file>Edit the workstations local DNS lookup/override file</h2>
 <p>This is required to direct your workstations browser and other clients to the development VM which runs your CTP and/or XNAT service.</p>
 <p>For each service requiring a DNS entry you will need to add an entry into your <code>hosts</code> file. From your Notepad application opened as an Administrator you will need to enter the following.</p>
-<pre><code class=language-C:\Windows\System32\drivers\etc\hosts data-lang=C:\Windows\System32\drivers\etc\hosts>IP_Address_of_the_VM	fqdn.service.name fqdn2.service.name
-</code></pre><p>Get the IP address of your VM</p>
-<pre><code class=language-console data-lang=console>PS C:\&gt; multipass exec vm-name -- ip addr
-</code></pre><p>So if your VM&rsquo;s IP address is <code>192.168.11.93</code> and your service FQDN is <code>xnat.cmca.dev.local</code> add the following entry into <code>C:\Windows\System32\drivers\etc\hosts</code> file and save.</p>
-<pre><code class=language-C:\Windows\System32\drivers\etc\hosts data-lang=C:\Windows\System32\drivers\etc\hosts>192.168.11.93	xnat.cmca.dev.local
-</code></pre><h2 id=launch-ubuntu-2004-lts-focal-with-ais-development-tools>Launch Ubuntu 20.04 LTS (Focal) with AIS development tools</h2>
+<div>
+<pre class=filename>C:\Windows\System32\drivers\etc\hosts</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>IP_Address_of_the_VM	fqdn.service.name fqdn2.service.name</code></pre></div>
+</div>
+<p>Get the IP address of your VM</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\&gt;</span> <span style=color:#000>multipass</span> <span style=color:#000>exec</span> <span style=color:#204a87>vm-name</span> <span style=color:#000;font-weight:700>--</span> <span style=color:#000>ip</span> <span style=color:#000>addr</span>
+</code></pre></div><p>So if your VM&rsquo;s IP address is <code>192.168.11.93</code> and your service FQDN is <code>xnat.cmca.dev.local</code> add the following entry into <code>C:\Windows\System32\drivers\etc\hosts</code> file and save.</p>
+<div>
+<pre class=filename>C:\Windows\System32\drivers\etc\hosts</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>192.168.11.93	xnat.cmca.dev.local</code></pre></div>
+</div>
+<h2 id=launch-ubuntu-2004-lts-focal-with-ais-development-tools>Launch Ubuntu 20.04 LTS (Focal) with AIS development tools</h2>
 <p>NB: This may take some time</p>
-<pre><code class=language-console data-lang=console>PS C:\Users\00078081\ais&gt; Invoke-WebRequest https://raw.githubusercontent.com/Australian-Imaging-Service/charts/main/contrib/cloud-init/user-data-dev-microk8s.yaml -OutFile user-data-dev-microk8s.yaml
-PS C:\Users\00078081\ais&gt; multipass launch --cpus 4 --mem 2G -nais-dev --cloud-init .\user-data-dev-microk8s.yaml
-</code></pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>Users</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>00078081</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>ais</span><span style=color:#000;font-weight:700>&gt;</span> <span style=color:#204a87>Invoke-WebRequest</span> <span style=color:#000>https</span><span style=color:#a40000>:</span><span style=color:#000;font-weight:700>//</span><span style=color:#000>raw</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>githubusercontent</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>com</span><span style=color:#000;font-weight:700>/</span><span style=color:#204a87>Australian-Imaging</span><span style=color:#000>-Service</span><span style=color:#000;font-weight:700>/</span><span style=color:#000>charts</span><span style=color:#000;font-weight:700>/</span><span style=color:#000>main</span><span style=color:#000;font-weight:700>/</span><span style=color:#000>contrib</span><span style=color:#000;font-weight:700>/</span><span style=color:#204a87>cloud-init</span><span style=color:#000;font-weight:700>/</span><span style=color:#204a87>user-data</span><span style=color:#000>-dev-microk8s</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>yaml</span> <span style=color:#000>-OutFile</span> <span style=color:#204a87>user-data</span><span style=color:#000>-dev-microk8s</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>yaml</span>
+<span style=color:#204a87>PS </span><span style=color:#000>C:</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>Users</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>00078081</span><span style=color:#000;font-weight:700>\</span><span style=color:#000>ais</span><span style=color:#000;font-weight:700>&gt;</span> <span style=color:#000>multipass</span> <span style=color:#000>launch</span> <span style=color:#000;font-weight:700>-</span><span style=color:#000>-cpus</span> <span style=color:#000>4</span> <span style=color:#000;font-weight:700>-</span><span style=color:#000>-mem</span> <span style=color:#000>2G</span> <span style=color:#000>-nais-dev</span> <span style=color:#000;font-weight:700>-</span><span style=color:#000>-cloud-init</span> <span style=color:#000;font-weight:700>.\</span><span style=color:#204a87>user-data</span><span style=color:#000>-dev-microk8s</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>yaml</span>
+</code></pre></div>
 <div class="text-muted mt-5 pt-3 border-top">
 </div>
 </div>
