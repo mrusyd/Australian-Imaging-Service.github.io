@@ -1,11 +1,222 @@
-<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.85.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>External-PGSQL-DB-Connection | Australian Imaging Service</title><meta name=description content><meta property="og:title" content="External-PGSQL-DB-Connection"><meta property="og:description" content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.86.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>External-PGSQL-DB-Connection | Australian Imaging Service</title>
+<meta name=description content><meta property="og:title" content="External-PGSQL-DB-Connection">
+<meta property="og:description" content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
 If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.
-Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database."><meta property="og:type" content="article"><meta property="og:url" content="/docs/charts/operations/external-pgsql-db-connection/"><meta property="article:section" content="docs"><meta itemprop=name content="External-PGSQL-DB-Connection"><meta itemprop=description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
+Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/docs/charts/operations/external-pgsql-db-connection/"><meta property="article:section" content="docs">
+<meta itemprop=name content="External-PGSQL-DB-Connection">
+<meta itemprop=description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
 If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.
-Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database."><meta itemprop=wordCount content="514"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="External-PGSQL-DB-Connection"><meta name=twitter:description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
+Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.">
+<meta itemprop=wordCount content="514">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="External-PGSQL-DB-Connection">
+<meta name=twitter:description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
 If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.
-Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database."><link rel=preload href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css as=style><link href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script><script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script></head><body class=td-page><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=/><span class=navbar-logo></span><span class="text-uppercase font-weight-bold">Australian Imaging Service</span></a><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0"><a class="nav-link active" href=/docs/ target=_blank><span class=active>Documentation</span></a></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="collapse td-sidebar-nav" id=td-section-nav><ul class="td-sidebar-nav__section pr-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li><a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgetting-started-li><a href=/docs/getting-started/ title="AIS User guides" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgetting-started><span>User guides</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrepositories-li><a href=/docs/repositories/ title="Top level overview of the AIS repositories" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsrepositories><span>Repositories</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docscharts-li><a href=/docs/charts/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscharts><span>Charts</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docschartsdeployment-li><a href=/docs/charts/deployment/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsdeployment><span>Deployment</span></a><ul class="ul-3 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentalb-ingress-controller-li><a href=/docs/charts/deployment/alb-ingress-controller/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentalb-ingress-controller><span>ALB Ingress Controller</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentazure-setup-full-li><a href=/docs/charts/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentazure-setup-full><span>Azure Setup Full</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentreadme-li><a href=/docs/charts/deployment/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentreadme><span></span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docschartsdevelopment-li><a href=/docs/charts/development/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsdevelopment><span>Development</span></a><ul class="ul-3 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentcicd-li><a href=/docs/charts/development/cicd/ title="Continuous Integration / Continuous Delivery" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentcicd><span>CI/CD</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentmacos-multipass-k8s-li><a href=/docs/charts/development/macos-multipass-k8s/ title="Development workstation with Multipass on MacOS" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentmacos-multipass-k8s><span>MacOS+Multipass</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentubuntu-microk8s-li><a href=/docs/charts/development/ubuntu-microk8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentubuntu-microk8s><span>microk8s-Ubuntu</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentnixos-minikube-li><a href=/docs/charts/development/nixos-minikube/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentnixos-minikube><span>NixOS + Minikube</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentreferences-li><a href=/docs/charts/development/references/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentreferences><span>References</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentwindows10-multipass-k8s-li><a href=/docs/charts/development/windows10-multipass-k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentwindows10-multipass-k8s><span>Windows 10+Multipass</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentxnat-chart-readme-li><a href=/docs/charts/development/xnat-chart-readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentxnat-chart-readme><span>XNAT chart README</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentreadme-li><a href=/docs/charts/development/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentreadme><span></span></a></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docschartsoperations-li><a href=/docs/charts/operations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsoperations><span>Operations</span></a><ul class="ul-3 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsaaf-integration-li><a href=/docs/charts/operations/aaf-integration/ title="Integrating AAF with AIS Kubernetes XNAT Deployment" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsaaf-integration><span>AAF Integration</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsautoscaling-xnat-kubernetes-with-eks-li><a href=/docs/charts/operations/autoscaling-xnat-kubernetes-with-eks/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsautoscaling-xnat-kubernetes-with-eks><span>Autoscaling XNAT on Kubernetes with EKS</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docschartsoperationsexternal-pgsql-db-connection-li><a href=/docs/charts/operations/external-pgsql-db-connection/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsexternal-pgsql-db-connection><span class=td-sidebar-nav-active-item>External-PGSQL-DB-Connection</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsrecommendations-li><a href=/docs/charts/operations/recommendations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsreadme-li><a href=/docs/charts/operations/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsreadme><span></span></a></li></ul></li></ul></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li><a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a><ul class="ul-2 foldable"><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingdocumentation-li><a href=/docs/contributing/documentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingdocumentation><span>Documentation</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributinggh-pages-li><a href=/docs/contributing/gh-pages/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinggh-pages><span>GitHub Pages</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingnew-repo-li><a href=/docs/contributing/new-repo/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingnew-repo><span>Integrating a new repository</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingreadme-li><a href=/docs/contributing/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingreadme><span></span></a></li></ul></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ml-2 pb-1 pt-2 mb-0"></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#updating-helm-charts-values-files-to-point-to-an-external-database>Updating Helm charts values files to point to an external Database</a><ul><li><a href=#values-devyaml>values-dev.yaml</a></li><li><a href=#top-level-valuesyaml>Top level values.yaml</a></li><li><a href=#xnat-web-valuesyaml>xnat-web values.yaml</a></li></ul></li><li><a href=#creating-an-encrypted-connection-to-an-external-postgresql-database>Creating an encrypted connection to an external Postgresql Database</a><ul><li><a href=#update-your-helm-configuration>Update your Helm Configuration:</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><nav aria-label=breadcrumb class="d-none d-md-block d-print-none"><ol class="breadcrumb spb-1"><li class=breadcrumb-item><a href=/docs/>Documentation</a></li><li class=breadcrumb-item><a href=/docs/charts/>Charts</a></li><li class=breadcrumb-item><a href=/docs/charts/operations/>Operations</a></li><li class="breadcrumb-item active" aria-current=page><a href=/docs/charts/operations/external-pgsql-db-connection/>External-PGSQL-DB-Connection</a></li></ol></nav><div class=td-content><h1>External-PGSQL-DB-Connection</h1><header class=article-meta></header><h1 id=connecting-ais-xnat-helm-deployment-to-an-external-postgresql-database>Connecting AIS XNAT Helm Deployment to an External Postgresql Database</h1><p>By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.<br>If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.<br>Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.</p><h2 id=updating-helm-charts-values-files-to-point-to-an-external-database>Updating Helm charts values files to point to an external Database</h2><p>Firstly, clone the AIS Charts Helm template:</p><p><em><strong>git clone <a href=https://github.com/Australian-Imaging-Service/charts.git>https://github.com/Australian-Imaging-Service/charts.git</a></strong></em></p><h3 id=values-devyaml>values-dev.yaml</h3><p>This file is located in <em><strong>charts/releases/xnat</strong></em></p><p>Current default configuration:</p><pre><code>global:
+Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.">
+<link rel=preload href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css as=style>
+<link href=/scss/main.min.650bdee92aa16b3ae39822dd8dfd62356c714a590c397f4abe76572440c62901.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
+</head>
+<body class=td-page>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo></span><span class="text-uppercase font-weight-bold">Australian Imaging Service</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/docs/ target=_blank><span class=active>Documentation</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<form class="td-sidebar__search d-flex align-items-center">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.05944c5654a46cbcf412be7ed448eff6.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
+<a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Documentation</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgetting-started-li>
+<a href=/docs/getting-started/ title="AIS User guides" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgetting-started><span>User guides</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsrepositories-li>
+<a href=/docs/repositories/ title="Top level overview of the AIS repositories" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsrepositories><span>Repositories</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docscharts-li>
+<a href=/docs/charts/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscharts><span>Charts</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docschartsdeployment-li>
+<a href=/docs/charts/deployment/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsdeployment><span>Deployment</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentalb-ingress-controller-li>
+<a href=/docs/charts/deployment/alb-ingress-controller/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentalb-ingress-controller><span>ALB Ingress Controller</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentazure-setup-full-li>
+<a href=/docs/charts/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentazure-setup-full><span>Azure Setup Full</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentreadme-li>
+<a href=/docs/charts/deployment/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentreadme><span></span></a>
+</li>
+</ul>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docschartsdevelopment-li>
+<a href=/docs/charts/development/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsdevelopment><span>Development</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentcicd-li>
+<a href=/docs/charts/development/cicd/ title="Continuous Integration / Continuous Delivery" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentcicd><span>CI/CD</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentmacos-multipass-k8s-li>
+<a href=/docs/charts/development/macos-multipass-k8s/ title="Development workstation with Multipass on MacOS" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentmacos-multipass-k8s><span>MacOS+Multipass</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentubuntu-microk8s-li>
+<a href=/docs/charts/development/ubuntu-microk8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentubuntu-microk8s><span>microk8s-Ubuntu</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentnixos-minikube-li>
+<a href=/docs/charts/development/nixos-minikube/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentnixos-minikube><span>NixOS + Minikube</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentreferences-li>
+<a href=/docs/charts/development/references/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentreferences><span>References</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentwindows10-multipass-k8s-li>
+<a href=/docs/charts/development/windows10-multipass-k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentwindows10-multipass-k8s><span>Windows 10+Multipass</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentxnat-chart-readme-li>
+<a href=/docs/charts/development/xnat-chart-readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentxnat-chart-readme><span>XNAT chart README</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdevelopmentreadme-li>
+<a href=/docs/charts/development/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdevelopmentreadme><span></span></a>
+</li>
+</ul>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docschartsoperations-li>
+<a href=/docs/charts/operations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docschartsoperations><span>Operations</span></a>
+<ul class="ul-3 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsaaf-integration-li>
+<a href=/docs/charts/operations/aaf-integration/ title="Integrating AAF with AIS Kubernetes XNAT Deployment" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsaaf-integration><span>AAF Integration</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsautoscaling-xnat-kubernetes-with-eks-li>
+<a href=/docs/charts/operations/autoscaling-xnat-kubernetes-with-eks/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsautoscaling-xnat-kubernetes-with-eks><span>Autoscaling XNAT on Kubernetes with EKS</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docschartsoperationsexternal-pgsql-db-connection-li>
+<a href=/docs/charts/operations/external-pgsql-db-connection/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsexternal-pgsql-db-connection><span class=td-sidebar-nav-active-item>External-PGSQL-DB-Connection</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsrecommendations-li>
+<a href=/docs/charts/operations/recommendations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsreadme-li>
+<a href=/docs/charts/operations/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsreadme><span></span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docscontributing-li>
+<a href=/docs/contributing/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docscontributing><span>Contributing</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingdocumentation-li>
+<a href=/docs/contributing/documentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingdocumentation><span>Documentation</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributinggh-pages-li>
+<a href=/docs/contributing/gh-pages/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributinggh-pages><span>GitHub Pages</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingnew-repo-li>
+<a href=/docs/contributing/new-repo/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingnew-repo><span>Integrating a new repository</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docscontributingreadme-li>
+<a href=/docs/contributing/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docscontributingreadme><span></span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#updating-helm-charts-values-files-to-point-to-an-external-database>Updating Helm charts values files to point to an external Database</a>
+<ul>
+<li><a href=#values-devyaml>values-dev.yaml</a></li>
+<li><a href=#top-level-valuesyaml>Top level values.yaml</a></li>
+<li><a href=#xnat-web-valuesyaml>xnat-web values.yaml</a></li>
+</ul>
+</li>
+<li><a href=#creating-an-encrypted-connection-to-an-external-postgresql-database>Creating an encrypted connection to an external Postgresql Database</a>
+<ul>
+<li><a href=#update-your-helm-configuration>Update your Helm Configuration:</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
+<ol class="breadcrumb spb-1">
+<li class=breadcrumb-item>
+<a href=/docs/>Documentation</a>
+</li>
+<li class=breadcrumb-item>
+<a href=/docs/charts/>Charts</a>
+</li>
+<li class=breadcrumb-item>
+<a href=/docs/charts/operations/>Operations</a>
+</li>
+<li class="breadcrumb-item active" aria-current=page>
+<a href=/docs/charts/operations/external-pgsql-db-connection/>External-PGSQL-DB-Connection</a>
+</li>
+</ol>
+</nav>
+<div class=td-content>
+<h1>External-PGSQL-DB-Connection</h1>
+<header class=article-meta>
+</header>
+<h1 id=connecting-ais-xnat-helm-deployment-to-an-external-postgresql-database>Connecting AIS XNAT Helm Deployment to an External Postgresql Database</h1>
+<p>By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.<br>
+If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.<br>
+Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.</p>
+<h2 id=updating-helm-charts-values-files-to-point-to-an-external-database>Updating Helm charts values files to point to an external Database</h2>
+<p>Firstly, clone the AIS Charts Helm template:</p>
+<p><em><strong>git clone <a href=https://github.com/Australian-Imaging-Service/charts.git>https://github.com/Australian-Imaging-Service/charts.git</a></strong></em></p>
+<h3 id=values-devyaml>values-dev.yaml</h3>
+<p>This file is located in <em><strong>charts/releases/xnat</strong></em></p>
+<p>Current default configuration:</p>
+<pre><code>global:
   postgresql:
     postgresqlPassword: &quot;xnat&quot;
 
@@ -14,14 +225,23 @@ postgresqlExternalName: &quot;&quot;
 postgresqlExternalIPs:
   - 139.95.25.8
   - 130.95.25.9
-</code></pre><p>this line:</p><p><em><strong>postgresqlEnabled: true</strong></em></p><p>Needs to be changed to <em><strong>false</strong></em> to disable creation of the Postgresql pod and create an external database connection.
-The other details are relatively straightforward - Generally you would only specify either:<br><em><strong>postgresqlExternalName</strong></em> or <em><strong>postgresqlExternalIPs</strong></em><br><em><strong>postgresqlPassword</strong></em> will be your database user password.</p><p>An example configuration using a sample AWS RDS instance would look like this:</p><pre><code>global:
+</code></pre><p>this line:</p>
+<p><em><strong>postgresqlEnabled: true</strong></em></p>
+<p>Needs to be changed to <em><strong>false</strong></em> to disable creation of the Postgresql pod and create an external database connection.
+The other details are relatively straightforward - Generally you would only specify either:<br>
+<em><strong>postgresqlExternalName</strong></em> or <em><strong>postgresqlExternalIPs</strong></em><br>
+<em><strong>postgresqlPassword</strong></em> will be your database user password.</p>
+<p>An example configuration using a sample AWS RDS instance would look like this:</p>
+<pre><code>global:
   postgresql:
     postgresqlPassword: &quot;yourpassword&quot;
 
 postgresqlEnabled: false
 postgresqlExternalName: &quot;xnat.randomstring.ap-southeast-2.rds.amazonaws.com&quot;
-</code></pre><h3 id=top-level-valuesyaml>Top level values.yaml</h3><p>This file is also located in <em><strong>charts/releases/xnat</strong></em></p><p>Current default configuration:</p><pre><code>global:
+</code></pre><h3 id=top-level-valuesyaml>Top level values.yaml</h3>
+<p>This file is also located in <em><strong>charts/releases/xnat</strong></em></p>
+<p>Current default configuration:</p>
+<pre><code>global:
   postgresql:
     postgresqlDatabase: &quot;xnat&quot;
     postgresqlUsername: &quot;xnat&quot;
@@ -31,7 +251,8 @@ postgresqlExternalName: &quot;xnat.randomstring.ap-southeast-2.rds.amazonaws.com
 postgresqlEnabled: true
 postgresqlExternalName: &quot;&quot;
 postgresqlExternalIPs: []
-</code></pre><p>An example configuration using a sample AWS RDS instance would look like this:</p><pre><code>global:
+</code></pre><p>An example configuration using a sample AWS RDS instance would look like this:</p>
+<pre><code>global:
   postgresql:
     postgresqlDatabase: &quot;yourdatabase&quot;
     postgresqlUsername: &quot;yourusername&quot;
@@ -40,8 +261,61 @@ postgresqlExternalIPs: []
 
 postgresqlEnabled: false
 postgresqlExternalName: &quot;xnat.randomstring.ap-southeast-2.rds.amazonaws.com&quot;
-</code></pre><p>Please change the database, username, password and External DNS (or IP) details to match your environment.</p><h3 id=xnat-web-valuesyaml>xnat-web values.yaml</h3><p>This file is also located in <em><strong>charts/releases/xnat/charts/xnat-web</strong></em></p><p>Current default configuration:</p><pre><code>postgresql:
+</code></pre><p>Please change the database, username, password and External DNS (or IP) details to match your environment.</p>
+<h3 id=xnat-web-valuesyaml>xnat-web values.yaml</h3>
+<p>This file is also located in <em><strong>charts/releases/xnat/charts/xnat-web</strong></em></p>
+<p>Current default configuration:</p>
+<pre><code>postgresql:
   postgresqlDatabase: &quot;xnat&quot;
   postgresqlUsername: &quot;xnat&quot;
   postgresqlPassword: &quot;xnat&quot;
-</code></pre><p>Change to match your environment as with the other values.yaml.</p><p>You should now be able to connect your XNAT application Kubernetes deployment to your external Postgresql DB to provide a suitable environment for production.</p><p>For more details about deployment have a look at the README.md here:<br><em><strong><a href=https://github.com/Australian-Imaging-Service/charts/tree/main/releases/xnat>https://github.com/Australian-Imaging-Service/charts/tree/main/releases/xnat</a></strong></em></p><h2 id=creating-an-encrypted-connection-to-an-external-postgresql-database>Creating an encrypted connection to an external Postgresql Database</h2><p>The database connection string for XNAT is found in the XNAT home directory - usually<br><em><strong>/data/xnat/home/config/xnat-conf.properties</strong></em></p><p>By default the connection is unencrypted. If you wish to encrypt this connection you must append to the end of the Database connection string.</p><p>Usual string:<br><em><strong>datasource.url=jdbc:postgresql://xnat-postgresql/yourdatabase</strong></em></p><p>Options:<br><em><strong>ssl=true</strong></em> - use SSL encryption<br><em><strong>sslmode=require</strong></em> - require SSL encryption<br><em><strong>sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em> - Do not require validation of Certificate Authority.</p><p>The last option is useful as otherwise you will need to import the CA cert into your Java keystone on the docker container.<br>This means updating and rebuilding the XNAT docker image before being deployed to the Kubernetes Pod and this can be impractical.</p><p>Complete string would look like this ( all on one line):<br><em><strong>datasource.url=jdbc:postgresql://xnat-postgresql/yourdatabase?ssl=true&sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em></p><h3 id=update-your-helm-configuration>Update your Helm Configuration:</h3><p>Update the following line in <em><strong>charts/releases/xnat/charts/xnat-web/templates/secrets.yaml</strong></em> from:</p><p><em><strong>datasource.url=jdbc:postgresql://{{ template &ldquo;xnat-web.postgresql.fullname&rdquo; . }}/{{ template &ldquo;xnat-web.postgresql.postgresqlDatabase&rdquo; . }}</strong></em></p><p>to:</p><p><em><strong>datasource.url=jdbc:postgresql://{{ template &ldquo;xnat-web.postgresql.fullname&rdquo; . }}/{{ template &ldquo;xnat-web.postgresql.postgresqlDatabase&rdquo; . }}?ssl=true&sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em></p><p>Then deploy / redeploy.</p><p><em>It should be noted that the Database you are connecting to needs to be encrypted in the first place for this to be successful.</em><br><em>This is outside the scope of this document.</em></p><div class="text-muted mt-5 pt-3 border-top"></div></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"></div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script><script src=/js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js integrity="sha256-OxcsE7YsK+qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin=anonymous></script></body></html>
+</code></pre><p>Change to match your environment as with the other values.yaml.</p>
+<p>You should now be able to connect your XNAT application Kubernetes deployment to your external Postgresql DB to provide a suitable environment for production.</p>
+<p>For more details about deployment have a look at the README.md here:<br>
+<em><strong><a href=https://github.com/Australian-Imaging-Service/charts/tree/main/releases/xnat>https://github.com/Australian-Imaging-Service/charts/tree/main/releases/xnat</a></strong></em></p>
+<h2 id=creating-an-encrypted-connection-to-an-external-postgresql-database>Creating an encrypted connection to an external Postgresql Database</h2>
+<p>The database connection string for XNAT is found in the XNAT home directory - usually<br>
+<em><strong>/data/xnat/home/config/xnat-conf.properties</strong></em></p>
+<p>By default the connection is unencrypted. If you wish to encrypt this connection you must append to the end of the Database connection string.</p>
+<p>Usual string:<br>
+<em><strong>datasource.url=jdbc:postgresql://xnat-postgresql/yourdatabase</strong></em></p>
+<p>Options:<br>
+<em><strong>ssl=true</strong></em> - use SSL encryption<br>
+<em><strong>sslmode=require</strong></em> - require SSL encryption<br>
+<em><strong>sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em> - Do not require validation of Certificate Authority.</p>
+<p>The last option is useful as otherwise you will need to import the CA cert into your Java keystone on the docker container.<br>
+This means updating and rebuilding the XNAT docker image before being deployed to the Kubernetes Pod and this can be impractical.</p>
+<p>Complete string would look like this ( all on one line):<br>
+<em><strong>datasource.url=jdbc:postgresql://xnat-postgresql/yourdatabase?ssl=true&sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em></p>
+<h3 id=update-your-helm-configuration>Update your Helm Configuration:</h3>
+<p>Update the following line in <em><strong>charts/releases/xnat/charts/xnat-web/templates/secrets.yaml</strong></em> from:</p>
+<p><em><strong>datasource.url=jdbc:postgresql://{{ template &ldquo;xnat-web.postgresql.fullname&rdquo; . }}/{{ template &ldquo;xnat-web.postgresql.postgresqlDatabase&rdquo; . }}</strong></em></p>
+<p>to:</p>
+<p><em><strong>datasource.url=jdbc:postgresql://{{ template &ldquo;xnat-web.postgresql.fullname&rdquo; . }}/{{ template &ldquo;xnat-web.postgresql.postgresqlDatabase&rdquo; . }}?ssl=true&sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory</strong></em></p>
+<p>Then deploy / redeploy.</p>
+<p><em>It should be noted that the Database you are connecting to needs to be encrypted in the first place for this to be successful.</em><br>
+<em>This is outside the scope of this document.</em></p>
+<div class="text-muted mt-5 pt-3 border-top">
+</div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script>
+<script src=/js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js integrity="sha256-OxcsE7YsK+qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin=anonymous></script>
+</body>
+</html>
