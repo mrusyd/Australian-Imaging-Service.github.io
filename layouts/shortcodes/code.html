@@ -1,0 +1,5 @@
+<div>
+<pre class="filename">{{ .Get 1 }}</pre>
+{{ if len .Params | eq 3 }}{{ highlight (trim .Inner "\n\r") (.Get 0) (.Get 2) }}{{ else }}{{ highlight (trim .Inner
+"\n\r") (.Get 0) "" }}{{ end }}
+</div>
