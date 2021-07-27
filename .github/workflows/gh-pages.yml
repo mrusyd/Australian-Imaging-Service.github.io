@@ -20,8 +20,7 @@ jobs:
       - name: Checkout charts repo
         uses: actions/checkout@v2
         with:
-          repository: 'Prepultrue/charts'  # TODO FIXME remove this
-          # repository: 'Australian-Imaging-Service/charts'
+          repository: 'Australian-Imaging-Service/charts'
           # fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
           path: charts
 
