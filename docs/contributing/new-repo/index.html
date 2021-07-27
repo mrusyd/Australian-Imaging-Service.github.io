@@ -16,27 +16,27 @@
 <title>Integrating a new repository | Australian Imaging Service</title>
 <meta name=description content><meta property="og:title" content="Integrating a new repository">
 <meta property="og:description" content="Setup   Copy the .github and docs folder to the target repository from skeleton
-  Edit the gh-pages.yml workflow
+  Edit the gh-pages.yml workflow in the main docs repository
 Add a new checkout step for the repository, replacing REPOSITORY_NAME with the name of the repository
-28 29 30 31 32  - name: Checkout REPOSITORY_NAME repo uses: actions/checkout@v2 with: repository: 'Australian-Imaging-Service/REPOSITORY_NAME' path: REPOSITORY_NAME     Edit the config.toml file in the main docs repository
+28 29 30 31 32  - name:Checkout REPOSITORY_NAME repouses:actions/checkout@v2with:repository:'Australian-Imaging-Service/REPOSITORY_NAME'path:REPOSITORY_NAME    Edit the config.toml file in the main docs repository
 Add a new module import section to the end of the file, replacing REPOSITORY_NAME with the name of the repository">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/contributing/new-repo/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-07-23T11:55:46+10:00">
+<meta property="article:modified_time" content="2021-07-27T11:36:52+10:00">
 <meta itemprop=name content="Integrating a new repository">
 <meta itemprop=description content="Setup   Copy the .github and docs folder to the target repository from skeleton
-  Edit the gh-pages.yml workflow
+  Edit the gh-pages.yml workflow in the main docs repository
 Add a new checkout step for the repository, replacing REPOSITORY_NAME with the name of the repository
-28 29 30 31 32  - name: Checkout REPOSITORY_NAME repo uses: actions/checkout@v2 with: repository: 'Australian-Imaging-Service/REPOSITORY_NAME' path: REPOSITORY_NAME     Edit the config.toml file in the main docs repository
+28 29 30 31 32  - name:Checkout REPOSITORY_NAME repouses:actions/checkout@v2with:repository:'Australian-Imaging-Service/REPOSITORY_NAME'path:REPOSITORY_NAME    Edit the config.toml file in the main docs repository
 Add a new module import section to the end of the file, replacing REPOSITORY_NAME with the name of the repository">
-<meta itemprop=dateModified content="2021-07-23T11:55:46+10:00">
-<meta itemprop=wordCount content="170">
+<meta itemprop=dateModified content="2021-07-27T11:36:52+10:00">
+<meta itemprop=wordCount content="165">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Integrating a new repository">
 <meta name=twitter:description content="Setup   Copy the .github and docs folder to the target repository from skeleton
-  Edit the gh-pages.yml workflow
+  Edit the gh-pages.yml workflow in the main docs repository
 Add a new checkout step for the repository, replacing REPOSITORY_NAME with the name of the repository
-28 29 30 31 32  - name: Checkout REPOSITORY_NAME repo uses: actions/checkout@v2 with: repository: 'Australian-Imaging-Service/REPOSITORY_NAME' path: REPOSITORY_NAME     Edit the config.toml file in the main docs repository
+28 29 30 31 32  - name:Checkout REPOSITORY_NAME repouses:actions/checkout@v2with:repository:'Australian-Imaging-Service/REPOSITORY_NAME'path:REPOSITORY_NAME    Edit the config.toml file in the main docs repository
 Add a new module import section to the end of the file, replacing REPOSITORY_NAME with the name of the repository">
 <link rel=preload href=/scss/main.min.5419b25d80b653329e5e4289f61e83c2e1a212a94f70b03b4bd27f4bfe56fdf3.css as=style>
 <link href=/scss/main.min.5419b25d80b653329e5e4289f61e83c2e1a212a94f70b03b4bd27f4bfe56fdf3.css rel=stylesheet integrity>
@@ -57,7 +57,7 @@ Add a new module import section to the end of the file, replacing REPOSITORY_NAM
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.74bcf6ab5442f521912f67a5a0651586.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.024aab5ec081ded5f24f64b01be55926.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -67,7 +67,7 @@ Add a new module import section to the end of the file, replacing REPOSITORY_NAM
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.74bcf6ab5442f521912f67a5a0651586.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.024aab5ec081ded5f24f64b01be55926.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -211,7 +211,7 @@ Add a new module import section to the end of the file, replacing REPOSITORY_NAM
 <p>Copy the <code>.github</code> and <code>docs</code> folder to the target repository from <a href=https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/tree/master/skeleton>skeleton</a></p>
 </li>
 <li>
-<p>Edit the <a href=https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/.github/workflows/gh-pages.yml>gh-pages.yml</a> workflow</p>
+<p>Edit the <a href=https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/blob/master/.github/workflows/gh-pages.yml>gh-pages.yml</a> workflow in the main docs repository</p>
 <p>Add a new <code>checkout</code> step for the repository, replacing <strong><code>REPOSITORY_NAME</code></strong> with the name of the repository</p>
 <div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
@@ -222,12 +222,12 @@ Add a new module import section to the end of the file, replacing REPOSITORY_NAM
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>      <span style=color:#000>-</span> <span style=color:#000>name</span><span style=color:#a40000>:</span> <span style=color:#000>Checkout</span> <span style=color:#000>REPOSITORY_NAME</span> <span style=color:#000>repo</span>
-        <span style=color:#000>uses</span><span style=color:#a40000>:</span> <span style=color:#000>actions</span><span style=color:#a40000>/</span><span style=color:#000>checkout</span><span style=color:#a40000>@</span><span style=color:#000>v2</span>
-        <span style=color:#000>with</span><span style=color:#a40000>:</span>
-          <span style=color:#000>repository</span><span style=color:#a40000>:</span> <span style=color:#4e9a06>&#39;Australian-Imaging-Service/REPOSITORY_NAME&#39;</span>
-          <span style=color:#000>path</span><span style=color:#a40000>:</span> <span style=color:#000>REPOSITORY_NAME</span>
-</code></pre></td></tr></table>
+<pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f8f8f8;text-decoration:underline>      </span>- <span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Checkout REPOSITORY_NAME repo</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>uses</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>actions/checkout@v2</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>with</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>repository</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#39;Australian-Imaging-Service/REPOSITORY_NAME&#39;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>path</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>REPOSITORY_NAME</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -257,7 +257,7 @@ Add a new module import section to the end of the file, replacing REPOSITORY_NAM
 <h3 id=error-parameter-token-or-optsauth-is-required>Error: Parameter token or opts.auth is required</h3>
 <p>Usually indicative that either:</p>
 <ul>
-<li>The workflow is running in a fork, the actions cannot access the organisation secrets in a fork</li>
+<li>The workflow is running in a fork, actions cannot access organisation secrets in a fork</li>
 <li>The repository doesn&rsquo;t have access to the <code>GITHUBPAGES_KEY</code> organisation secret
 <ul>
 <li>Contact the Australian-Imaging-Service organisation admin to request the repository be added</li>
