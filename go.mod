@@ -12,4 +12,3 @@ go 1.12
 replace github.com/Australian-Imaging-Service/charts/docs => ../charts/docs
 require github.com/Australian-Imaging-Service/charts/docs v0.0.0
 
-require github.com/Australian-Imaging-Service/charts/docs v0.0.0-20210702062413-df2c10ddbcc1

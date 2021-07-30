@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://australian-imaging-service.github.io/"
 title = "Australian Imaging Service"
 
 enableRobotsTXT = true

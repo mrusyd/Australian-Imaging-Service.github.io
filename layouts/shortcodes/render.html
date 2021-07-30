@@ -1,0 +1,1 @@
+{{ .Get 0 | readFile | .Page.RenderString (dict "markup" (.Get 1)) }}
