@@ -35,7 +35,7 @@ renders to:
 An extension of the Hugo shortcode `relref` to instead return an absolute URL based on the `baseURL` in `config.toml`.
 
 {{% alert color="primary" %}}
-The path is relative to the **current file** in virtual `content` tree mounted from all repositories.
+The path is relative to the **current file** in the virtual `content` tree mounted from all repositories.
 {{% /alert %}}
 
 ```go-html-template
@@ -106,7 +106,7 @@ The path is relative to the virtual `content` directory mounted from all reposit
 
 ## Docsy shortcodes
 
-This is only a subset of the shortcodes available from Docsy, see the Docsy documentation for more details.
+This is only a subset of the shortcodes available from Docsy, see the [Docsy documentation](https://www.docsy.dev/docs/adding-content/shortcodes/) for more details.
 
 ### `alert`
 
