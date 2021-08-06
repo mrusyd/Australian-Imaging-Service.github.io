@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.86.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.87.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -24,7 +24,7 @@ They will ask you these questions:
 <meta itemprop=description content="Applying for AAF Integration ClientId and Secret AAF have several services they offer which authenticate users, for example, Rapid Connect. We are interested in the AAF OIDC RP service. Please contact AAF Support via email at support@aaf.net.au to apply for a ClientId and Secret.
 They will ask you these questions:
  The service’s redirect URL - a redirect URL based on an actual URL rather than IP address and must use HTTPS.">
-<meta itemprop=wordCount content="1149">
+<meta itemprop=wordCount content="1146">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Integrating AAF with AIS Kubernetes XNAT Deployment">
 <meta name=twitter:description content="Applying for AAF Integration ClientId and Secret AAF have several services they offer which authenticate users, for example, Rapid Connect. We are interested in the AAF OIDC RP service. Please contact AAF Support via email at support@aaf.net.au to apply for a ClientId and Secret.
@@ -49,7 +49,7 @@ They will ask you these questions:
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -59,7 +59,7 @@ They will ask you these questions:
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -133,7 +133,7 @@ They will ask you these questions:
 <a href=/docs/charts/operations/external-pgsql-db-connection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsexternal-pgsql-db-connection><span>External-PGSQL-DB-Connection</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsrecommendations-li>
-<a href=/docs/charts/operations/recommendations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
+<a href=/docs/charts/operations/recommendations/ title="Operational recommendations" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsreadme-li>
 <a href=/docs/charts/operations/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsreadme><span></span></a>
@@ -245,16 +245,22 @@ Submitting <a href=https://xnat.example.com>https://xnat.example.com</a> will le
 <p><a href=https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin>https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin</a></p>
 <p>To deploy to XNAT, navigate to the XNAT home/ plugins folder on your XNAT Application Server – normally /data/xnat/home/plugins and then download. Assuming Linux:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin/releases/download/1.0.2/xnat-openid-auth-plugin-all-1.0.2.jar
-</code></pre></div><p>Please note this was the latest version at the time of writing this document. Please check here to see if there have been updated versions:</p>
+</code></pre></div>
+<div class="alert alert-primary" role=alert>
+<p>Please note this was the latest version at the time of writing this document. Please check here to see if there have been updated versions:</p>
 <p><a href=https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin/releases>https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin/releases</a></p>
+</div>
 <p>You now have <code>xnat-openid-auth-plugin-all-1.0.2.jar</code> in /data/xnat/home/plugins.<br>
 You now need the configuration file which will be (assuming previous location for XNAT Home directory):</p>
 <p><code>/data/xnat/home/config/auth/openid-provider.properties</code></p>
 <p>You will need to create this file.</p>
 <p>Review this sample file and tailor to your needs:</p>
 <p><a href=https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin/blob/master/src/main/resources/openid-provider-sample-AAF.properties>https://github.com/Australian-Imaging-Service/xnat-openid-auth-plugin/blob/master/src/main/resources/openid-provider-sample-AAF.properties</a></p>
-<p>I will provide an example filled out properties file with some caveats below.
-Please note all of the bold italics are case sensitive, incorrectly capitalised entries will result in non-working AAF integration!</p>
+<p>I will provide an example filled out properties file with some caveats below.</p>
+<div class="alert alert-warning" role=alert>
+<h4 class=alert-heading>Warning</h4>
+All of the keys are case sensitive, incorrectly capitalised entries will result in non-working AAF integration!
+</div>
 <p>These need to be left as is</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>auth.method</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>openid  </span>
 <span style=color:#c4a000>type</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>openid  </span>
@@ -286,10 +292,8 @@ These are fake details but an example – no “ (quotation marks) required.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.link</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&lt;p&gt;To sign-in using your AAF credentials, please click on the button below.&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;/openid-login?providerId=aaf&#34;&gt;&lt;img src=&#34;/images/aaf_service_223x54.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</span>
 </code></pre></div><p>Flag that sets if we should be checking email domains</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.shouldFilterEmailDomains</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>false</span>
-
-<span style=color:#c4a000>Domains below are allowed to login, only checked when &#39;shouldFilterEmailDomains&#39; is true  </span>
-<span style=color:#c4a000>```ini</span>
-<span style=color:#c4a000>openid.aaf.allowedEmailDomains</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>example.com  </span>
+</code></pre></div><p>Domains below are allowed to login, only checked when <code>shouldFilterEmailDomains</code> is true</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.allowedEmailDomains</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>example.com  </span>
 </code></pre></div><p>Flag to force the user creation process, normally this should be set to true</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.forceUserCreate</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>true</span>
 </code></pre></div><p>Flag to set the enabled property of new users, set to false to allow admins to manually enable users before allowing logins, set to true to allow access right away</p>
@@ -313,8 +317,10 @@ Prerequisites:
 git clone <a href=https://github.com/Australian-Imaging-Service/charts.git>https://github.com/Australian-Imaging-Service/charts.git</a></p>
 <p>then edit the following file:<br>
 <code>charts/releases/xnat/charts/xnat-web/values.yaml</code></p>
-<p>And update the following entries underneath openid:<br>
-NB> These entries DO require being placed within “”</p>
+<p>And update the following entries underneath openid:</p>
+<div class="alert alert-primary" role=alert>
+NB> These entries DO require being placed within “”
+</div>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>preEstablishedRedirUri</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;/openid-login&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>siteUrl</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#8f5902;font-style:italic>#List of providers that appear on the login page</span><span style=color:#f8f8f8;text-decoration:underline>

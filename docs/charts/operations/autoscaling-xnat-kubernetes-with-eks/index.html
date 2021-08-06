@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.86.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.87.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -28,7 +28,7 @@ Vertical Pod Autoscaling (VPA) increases or decreases the resources to each pod 
 Horizontal Pod Autoscaling (HPA) is a technology that scales up or down the number of replica pods for an application based on resource limits specified in a values file.
   Vertical Pod Autoscaling
 Vertical Pod Autoscaling (VPA) increases or decreases the resources to each pod when it gets to a certain percentage to help you best deal with your resources.">
-<meta itemprop=wordCount content="1261">
+<meta itemprop=wordCount content="1262">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Autoscaling XNAT on Kubernetes with EKS">
 <meta name=twitter:description content="There are three types of autoscaling that Kubernetes offers:
@@ -55,7 +55,7 @@ Vertical Pod Autoscaling (VPA) increases or decreases the resources to each pod 
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -65,7 +65,7 @@ Vertical Pod Autoscaling (VPA) increases or decreases the resources to each pod 
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -139,7 +139,7 @@ Vertical Pod Autoscaling (VPA) increases or decreases the resources to each pod 
 <a href=/docs/charts/operations/external-pgsql-db-connection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsexternal-pgsql-db-connection><span>External-PGSQL-DB-Connection</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsrecommendations-li>
-<a href=/docs/charts/operations/recommendations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
+<a href=/docs/charts/operations/recommendations/ title="Operational recommendations" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsreadme-li>
 <a href=/docs/charts/operations/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsreadme><span></span></a>
@@ -233,11 +233,13 @@ Cluster-autoscaling is where the Kubernetes cluster itself spins up or down new 
 <br>
 <br></p>
 <h2 id=prerequisites>Prerequisites</h2>
-<p><strong>Running Kubernetes Cluster and XNAT Helm Chart AIS Deployment</strong><br>
-<strong>AWS Application Load Balancer (ALB) as an Ingress Controller with some specific annotations</strong><br>
-<strong>Resources (requests and limits) need to specified in your values file</strong><br>
-<strong>Metrics Server</strong><br>
-<strong>Cluster-Autoscaler</strong></p>
+<ul>
+<li>Running Kubernetes Cluster and XNAT Helm Chart AIS Deployment</li>
+<li>AWS Application Load Balancer (ALB) as an Ingress Controller with some specific annotations</li>
+<li>Resources (requests and limits) need to specified in your values file</li>
+<li>Metrics Server</li>
+<li>Cluster-Autoscaler</li>
+</ul>
 <p><br>
 <br>
 <br>
@@ -254,7 +256,7 @@ Without stickiness, after logging in, the Database thinks you have logged but th
 </span></code></pre></div><p><strong>Change the Load Balancing Algorithm for best performance:</strong></p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#000>load_balancing.algorithm.type=least_outstanding_requests</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><p><strong>Change the Target type:</strong><br>
-Not sure why but if target-type is set to <em><strong>instance</strong></em> and not <em><strong>ip</strong></em>, it disregards the stickiness rules.</p>
+Not sure why but if target-type is set to <code>instance</code> and not <code>ip</code>, it disregards the stickiness rules.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>alb.ingress.kubernetes.io/target-type</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>ip</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><p><br>
 <br>
@@ -275,7 +277,7 @@ This makes sense because how can you know when you are running out of resources 
 <p><a href=https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/>https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/</a></p>
 <p>From my research with HPA, I discovered a few important facts.</p>
 <ol>
-<li>Horizontal Podautoscaler doesn&rsquo;t care about limits, it bases autoscaling on requests. Requests are meant to be the minimum needed to safely run a pod and limits are the maximum. However, this is completely irrelevant for HPA as it ignores the limits altogether so I specify the same resources for requests and limits. See this issue for more details:</li>
+<li>Horizontal Pod Autoscaler doesn&rsquo;t care about limits, it bases autoscaling on requests. Requests are meant to be the minimum needed to safely run a pod and limits are the maximum. However, this is completely irrelevant for HPA as it ignores the limits altogether so I specify the same resources for requests and limits. See this issue for more details:</li>
 </ol>
 <p><a href=https://github.com/kubernetes/kubernetes/issues/72811>https://github.com/kubernetes/kubernetes/issues/72811</a></p>
 <ol start=2>

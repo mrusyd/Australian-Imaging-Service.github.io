@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.86.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.87.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -46,7 +46,7 @@ You can do this via the console if you want.">
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -56,7 +56,7 @@ You can do this via the console if you want.">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.e30b7ae950c219e2489ce49e7f75cbdb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.dcf5ca0b5e46c47b091a2bfe2c32847b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -130,7 +130,7 @@ You can do this via the console if you want.">
 <a href=/docs/charts/operations/external-pgsql-db-connection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsexternal-pgsql-db-connection><span>External-PGSQL-DB-Connection</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsrecommendations-li>
-<a href=/docs/charts/operations/recommendations/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
+<a href=/docs/charts/operations/recommendations/ title="Operational recommendations" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsrecommendations><span>Recommendations</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsoperationsreadme-li>
 <a href=/docs/charts/operations/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsoperationsreadme><span></span></a>
@@ -179,7 +179,7 @@ You can do this via the console if you want.">
 </li>
 <li><a href=#update-our-override-values-file-for-our-helm-chart>Update our override values file for our Helm chart.</a>
 <ul>
-<li><a href=#creat-a-static-public-ip-an-ingress-controller-letsencrypt-certififcates-and-point-it-to-our-helm-chart>Creat a static public IP, an ingress controller, LetsEncrypt certififcates and point it to our Helm chart</a></li>
+<li><a href=#create-a-static-public-ip-an-ingress-controller-letsencrypt-certificates-and-point-it-to-our-helm-chart>Create a static public IP, an ingress controller, LetsEncrypt certificates and point it to our Helm chart</a></li>
 <li><a href=#install-cert-manager-and-attach-to-the-helm-chart-and-ingress-controller>Install Cert-Manager and attach to the Helm chart and Ingress Controller</a></li>
 <li><a href=#update-your-override-values-file-to-point-to-your-ingress-controller-and-letsencrypt-cluster-issuer>Update your override values file to point to your ingress controller and Letsencrypt Cluster issuer</a></li>
 </ul>
@@ -254,7 +254,7 @@ We need to make a small change to the storageClass configuration for the ReadWri
 <span style=color:#c4a000>AKS_PERS_RESOURCE_GROUP</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&lt;your resource group&gt;</span>
 <span style=color:#c4a000>AKS_PERS_LOCATION</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&lt;your region&gt;</span>
 <span style=color:#c4a000>AKS_PERS_SHARE_NAME</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>archive-xnat-xnat-web</span>
-</code></pre></div><p><em><strong>archive-xnat-xnat-web</strong></em> will need to be used or the Helm chart won&rsquo;t be able to find the mount.</p>
+</code></pre></div><p><code>archive-xnat-xnat-web</code> will need to be used or the Helm chart won&rsquo;t be able to find the mount.</p>
 <p>Create a storage account:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>az storage account create -n <span style=color:#000>$AKS_PERS_STORAGE_ACCOUNT_NAME</span> -g <span style=color:#000>$AKS_PERS_RESOURCE_GROUP</span> -l <span style=color:#000>$AKS_PERS_LOCATION</span> --sku Standard_LRS
 </code></pre></div><p>Export the connection string as an environment variable, this is used when creating the Azure file share:</p>
@@ -268,7 +268,7 @@ We need to make a small change to the storageClass configuration for the ReadWri
 <span style=color:#204a87>echo</span> Storage account key: <span style=color:#000>$STORAGE_KEY</span>
 </code></pre></div><p>Make a note of the Storage account name and key as you will need them.</p>
 <p>Now repeat this process but update the Share name to prearchive-xnat-xnat-web. Run this first and then repeat the rest of the commands:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#000>AKS_PERS_SHARE_NAME</span><span style=color:#ce5c00;font-weight:700>=</span>prearchive-xnat-xnat-web***
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#000>AKS_PERS_SHARE_NAME</span><span style=color:#ce5c00;font-weight:700>=</span>prearchive-xnat-xnat-web
 </code></pre></div><h3 id=create-a-kubernetes-secret>Create a Kubernetes Secret</h3>
 <p>In order to mount the volumes, you need to create a secret. As we have created our Helm chart in the xnat namespace, we need to make sure that is added into the following command (not in the original Microsoft guide):</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl -nxnat create secret generic azure-secret --from-literal<span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>azurestorageaccountname</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>$AKS_PERS_STORAGE_ACCOUNT_NAME</span> --from-literal<span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>azurestorageaccountkey</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>$STORAGE_KEY</span>
@@ -337,7 +337,7 @@ Create two files</p>
 kubectl apply -f pv_prearchive.yaml
 </code></pre></div><p>We should now have two newly created volumes our Helm chart can mount.</p>
 <h2 id=update-our-override-values-file-for-our-helm-chart>Update our override values file for our Helm chart.</h2>
-<p>Edit your values-aks.yaml file from above and add the following in (postgresl entries already added):</p>
+<p>Edit your values-aks.yaml file from above and add the following in (postgresql entries already added):</p>
 <p>Paste the following:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>xnat-web</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>persistence</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
@@ -385,7 +385,7 @@ kubectl -nxnat get all
 kubectl -nxnat get pvc,pv
 </code></pre></div><p>Check that the XNAT service comes up:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl -nxnat logs xnat-xnat-web-0 -f
-</code></pre></div><h3 id=creat-a-static-public-ip-an-ingress-controller-letsencrypt-certififcates-and-point-it-to-our-helm-chart>Creat a static public IP, an ingress controller, LetsEncrypt certififcates and point it to our Helm chart</h3>
+</code></pre></div><h3 id=create-a-static-public-ip-an-ingress-controller-letsencrypt-certificates-and-point-it-to-our-helm-chart>Create a static public IP, an ingress controller, LetsEncrypt certificates and point it to our Helm chart</h3>
 <p>OK so all good so far but we can&rsquo;t actually access our XNAT environment from outside of our cluster so we need to create an Ingress Controller.</p>
 <p>You can follow the URL here from Microsoft for more detailed information:</p>
 <p><a href=https://docs.microsoft.com/en-us/azure/aks/ingress-static-ip>https://docs.microsoft.com/en-us/azure/aks/ingress-static-ip</a></p>
