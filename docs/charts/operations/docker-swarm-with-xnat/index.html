@@ -15,7 +15,7 @@
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
 <title>Docker-Swarm-with-XNAT | Australian Imaging Service</title>
 <meta name=description content><meta property="og:title" content="Docker-Swarm-with-XNAT">
-<meta property="og:description" content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside of this document but you can find some useful articles here:
+<meta property="og:description" content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside the scope of this document but you can find some useful articles here:
 https://scalified.com/2018/10/08/building-jenkins-pipelines-docker-swarm/
 https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 https://docs.docker.com/engine/swarm/ingress/
@@ -26,7 +26,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://australian-imaging-service.github.io/docs/charts/operations/docker-swarm-with-xnat/"><meta property="article:section" content="docs">
 <meta itemprop=name content="Docker-Swarm-with-XNAT">
-<meta itemprop=description content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside of this document but you can find some useful articles here:
+<meta itemprop=description content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside the scope of this document but you can find some useful articles here:
 https://scalified.com/2018/10/08/building-jenkins-pipelines-docker-swarm/
 https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 https://docs.docker.com/engine/swarm/ingress/
@@ -34,10 +34,10 @@ Setting up with AWS:
 https://semaphoreci.com/community/tutorials/bootstrapping-a-docker-swarm-mode-cluster
 Pipelines XNAT uses pipelines to perform various different processes - mostly converting image types to other image types (DICOM to NIFTI for example).
 In the past this was handled on the instance as part of the XNAT program, then as a docker server on the instance and finally, externally as an external docker server, either directly or using Docker swarm.">
-<meta itemprop=wordCount content="1371">
+<meta itemprop=wordCount content="1373">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Docker-Swarm-with-XNAT">
-<meta name=twitter:description content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside of this document but you can find some useful articles here:
+<meta name=twitter:description content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside the scope of this document but you can find some useful articles here:
 https://scalified.com/2018/10/08/building-jenkins-pipelines-docker-swarm/
 https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 https://docs.docker.com/engine/swarm/ingress/
@@ -64,7 +64,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c71796a1b37d2157349eaa44d81b8d7c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.04e40529c1a62e264916fd3c19b31da9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -74,7 +74,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.c71796a1b37d2157349eaa44d81b8d7c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.04e40529c1a62e264916fd3c19b31da9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -226,7 +226,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 <header class=article-meta>
 </header>
 <h1 id=setting-up-docker-swarm>Setting up Docker Swarm</h1>
-<p>A complete explanation of how to setup Docker Swarm is outside of this document but you can find some useful articles here:<br>
+<p>A complete explanation of how to setup Docker Swarm is outside the scope of this document but you can find some useful articles here:<br>
 <a href=https://scalified.com/2018/10/08/building-jenkins-pipelines-docker-swarm/>https://scalified.com/2018/10/08/building-jenkins-pipelines-docker-swarm/</a><br>
 <a href=https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/>https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/</a><br>
 <a href=https://docs.docker.com/engine/swarm/ingress/>https://docs.docker.com/engine/swarm/ingress/</a></p>
@@ -244,7 +244,7 @@ You should lock access to port 2376 to the Kubernetes XNAT subnets only using fi
 If the certificates are not provided by a known CA, you will need to add the certificates (server, CA and client) to your XNAT container build so choosing a proper certificate from a known CA will make your life easier.<br>
 If you do use self signed certificates, you will need create a folder, add the certificates and then specify that folder in the XNAT GUI > Administer > Plugin Settings > Container Server Setup > Edit Host Name. In our example case:</p>
 <pre><code>Certificate Path: /usr/local/tomcat/certs
-</code></pre><p>Access from the Docker Swarm to the XNAT shared filesystem - at a minimum Archive and build. The AIS Helm chart doesn&rsquo;t have /data/xnat/build setup by default but without this Docker Swarm can write the temporaray files it needs and fails.</p>
+</code></pre><p>Access from the Docker Swarm to the XNAT shared filesystem - at a minimum Archive and build. The AIS Helm chart doesn&rsquo;t have /data/xnat/build setup by default but without this Docker Swarm can&rsquo;t write the temporaray files it needs and fails.</p>
 <h3 id=setup-dns-and-external-certificates>Setup DNS and external certificates</h3>
 <p>Whether you will need to create self signed certificates or public CA verified ones, you will need a fully qualified domain name to create them against.<br>
 I suggest you set an A record to point to the Manager node IP address, or a Load Balancer which points to all nodes. Then create the certificates against your FQDN - e.g. swarm.example.com.</p>
