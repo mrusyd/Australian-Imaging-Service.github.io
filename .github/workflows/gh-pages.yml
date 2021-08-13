@@ -46,6 +46,9 @@ jobs:
       - run: npm ci
         working-directory: ./docs_root
 
+      - name: Install python dependencies
+        run: pip install toml
+
       - name: Collect git modification info
         run: python annotate.py
         working-directory: ./docs_root
