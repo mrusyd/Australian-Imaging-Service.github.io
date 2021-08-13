@@ -46,8 +46,9 @@ jobs:
       - run: npm ci
         working-directory: ./docs_root
 
-      - run: Collect git modification info
-        working-directory: python annotate.py
+      - name: Collect git modification info
+        run: python annotate.py
+        working-directory: ./docs_root
 
       - name: Build
         working-directory: ./docs_root
