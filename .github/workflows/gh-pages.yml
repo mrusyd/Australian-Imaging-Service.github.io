@@ -46,6 +46,9 @@ jobs:
       - run: npm ci
         working-directory: ./docs_root
 
+      - run: Collect git modification info
+        working-directory: python annotate.py
+
       - name: Build
         working-directory: ./docs_root
         run: hugo --minify

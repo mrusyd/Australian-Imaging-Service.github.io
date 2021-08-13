@@ -1,0 +1,24 @@
+<div class="text-muted mt-5 pt-3 border-top">
+{{ if .GitInfo }}
+    {{ T "post_last_mod"}}
+    {{ .Lastmod.Format .Site.Params.time_format_default }}
+    {{ if .Site.Params.github_repo }}
+    {{ with .GitInfo }}: <a  href="{{ $.Site.Params.github_repo }}/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{ end }}
+    {{ end }}
+{{ else if hasPrefix .FileInfo.Meta.Module "github.com" }}
+    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .FileInfo.Meta.Module }}
+    {{ if reflect.IsMap $repo_filemap }}
+        {{ $repo_filemap := $repo_filemap.files }}
+        {{ $commit_info := index $repo_filemap .File.Path }}
+        {{ $hash_full := index $commit_info 0 }}
+        {{ $hash_short := index $commit_info 1 }}
+        {{ $commit_msg := index $commit_info 2 }}
+        {{ $commit_time := index $commit_info 5 | time }}
+        {{ $gh_repo := delimit (split (.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
+        
+        {{ T "post_last_mod" }}
+        {{ $commit_time.Format .Site.Params.time_format_default }}
+        : <a href="{{ $gh_repo }}/commit/{{ $hash_full }}">{{ $commit_msg }} ({{ $hash_short }})</a>
+    {{ end }}
+{{ end }}
+</div>
