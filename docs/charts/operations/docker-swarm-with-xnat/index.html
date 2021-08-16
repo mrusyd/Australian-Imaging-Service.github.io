@@ -34,7 +34,7 @@ Setting up with AWS:
 https://semaphoreci.com/community/tutorials/bootstrapping-a-docker-swarm-mode-cluster
 Pipelines XNAT uses pipelines to perform various different processes - mostly converting image types to other image types (DICOM to NIFTI for example).
 In the past this was handled on the instance as part of the XNAT program, then as a docker server on the instance and finally, externally as an external docker server, either directly or using Docker swarm.">
-<meta itemprop=wordCount content="1373">
+<meta itemprop=wordCount content="1444">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Docker-Swarm-with-XNAT">
 <meta name=twitter:description content="Setting up Docker Swarm A complete explanation of how to setup Docker Swarm is outside the scope of this document but you can find some useful articles here:
@@ -64,7 +64,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.04e40529c1a62e264916fd3c19b31da9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.951ac65c0a51db6cfe0a6045db51f45d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -74,7 +74,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.04e40529c1a62e264916fd3c19b31da9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.951ac65c0a51db6cfe0a6045db51f45d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -276,7 +276,17 @@ Create a volume outside the Helm Chart and then present it in your values file. 
       persistentVolumeClaim:
         claimName: &quot;build-xnat-xnat-web&quot;
       size: 10Gi
-</code></pre><p>Apply the Kubernetes volume file first and then apply the Helm chart and values file. You should now see something like the following:</p>
+</code></pre><p>You would need to create the custom-class storageclass and apply it first or the volume won&rsquo;t be created. In this case, create a file - storageclass.yaml and add the followinng contents:</p>
+<pre><code>apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: custom-class
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+</code></pre><p>You can then apply it:</p>
+<pre><code>kubectl apply -f storageclass.yaml
+</code></pre><p>Of course you may want to use an existing Storage Class so this maybe unnecessary, it is just an example.</p>
+<p>Apply the Kubernetes volume file first and then apply the Helm chart and values file. You should now see something like the following:</p>
 <pre><code>kubectl get -nxnat pvc,pv
 NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/archive-xnat-xnat-web      Bound    archive-xnat-xnat-web                      10Gi       RWX            custom-class   5d1h
@@ -329,8 +339,8 @@ UDP port 4789 for overlay network traffic (container ingress networking).</p>
 <p><a href=https://docs.docker.com/engine/swarm/admin_guide/>https://docs.docker.com/engine/swarm/admin_guide/</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-August 9, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/96610beac8c1dcd57e0e1cefd05057df1202213f>Fix a couple of typos to the Docker Swarm documentation (96610be)</a>
+August 16, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/87ab541876216c5cbfacb3b4659b7662ea8d14a5>Update Docker Swarm documentation to detail storageclass options (87ab541)</a>
 </div>
 </div>
 </main>
