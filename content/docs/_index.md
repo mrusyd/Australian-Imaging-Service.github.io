@@ -26,8 +26,8 @@ standardised, versions and readable documentation.
 
 ## Documentation
 
-- should be written in Markdown
-- should be in a directory called docs in the top level of the repository. We have chosen this methodology as it allows for versioned documentation that matches the code base.
-- each repository will need to visit settings, scroll down to the Github Pages section, and make the necessary changes.
-- either add themselves to the main site or ask an administrator to add them.
+- Should be written in Markdown
+- Should be in a directory called docs in the top level of each repository. We have chosen this methodology as it allows for versioned documentation that matches the code base.
+- Either add themselves to the main site or ask an administrator to add them.
+  - [Integrating a new repository]({{< ref "Contributing/new-repo.md" >}})
 
