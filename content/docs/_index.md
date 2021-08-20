@@ -19,9 +19,10 @@ standardised, versions and readable documentation.
 
 ## Strategy
 
- - main AIS documentation to be at the top level [https://australian-imaging-service.github.io/](https://australian-imaging-service.github.io/)
- - each repository will self document  
- - using [submodules](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/using-submodules-with-github-pages) the documentation for each repository will be integrated into the main documentation, which link out to the repositories as necessary - see the [repository list](repositories) for examples.
+ - Main AIS documentation to be at the top level [https://australian-imaging-service.github.io/](https://australian-imaging-service.github.io/)
+ - Each repository will self document
+ - Using Hugo modules the documentation for each repository will be integrated into the main documentation, which link out to the repositories as necessary - see [Integrating a new repository]({{< ref "Contributing/new-repo.md" >}}) for more details.
+   - Documentation from each repository is effectively mounted in a virtual file tree where the documentation is then generated from. See the [hugo docs](https://gohugo.io/hugo-modules/) for more info.
 
 
 ## Documentation

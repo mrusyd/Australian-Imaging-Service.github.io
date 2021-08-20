@@ -77,4 +77,6 @@ The front matter YAML will tell Hugo that this is a page to publish and the Titl
 
 Thats it!
 
-NB: Only documentation within the main branch will be published to the official AIS Charts Pages.
+{{% alert %}}
+Only documentation within the `master` or `main` branch will be published to the official AIS documentation.
+{{% /alert %}}
