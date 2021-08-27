@@ -64,8 +64,11 @@ Add a YAML front matter block:
 
 ```yaml
 ---
-title: "Title of Page"
-weight: 10
+title: "Long Page Title"
+linkTitle: "Short Nav Title"
+weight: 100
+description: >-
+     Page description for heading and indexes.
 ---
 
 add your markdown here
