@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.87.0"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.88.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -64,7 +64,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d1583180210dc3ec6c036da0f33fd10f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d9b5c6f5a59a5661109120b21fe03804.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -74,7 +74,7 @@ In the past this was handled on the instance as part of the XNAT program, then a
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d1583180210dc3ec6c036da0f33fd10f.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.d9b5c6f5a59a5661109120b21fe03804.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -119,6 +119,9 @@ In the past this was handled on the instance as part of the XNAT program, then a
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentazure-setup-full-li>
 <a href=/docs/charts/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentazure-setup-full><span>Azure Setup Full</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentlinode-setup-li>
+<a href=/docs/charts/deployment/linode-setup/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentlinode-setup><span></span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docschartsdeploymentreadme-li>
 <a href=/docs/charts/deployment/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docschartsdeploymentreadme><span></span></a>
@@ -265,7 +268,7 @@ Standard port is TCP 2376. With Docker Swarm enabled you can send jobs to any of
 You should lock access to port 2376 to the Kubernetes XNAT subnets only using firewalls or Security Group settings. You can also use an external Load balancer with certificates which maybe preferred.<br>
 If the certificates are not provided by a known CA, you will need to add the certificates (server, CA and client) to your XNAT container build so choosing a proper certificate from a known CA will make your life easier.<br>
 If you do use self signed certificates, you will need create a folder, add the certificates and then specify that folder in the XNAT GUI > Administer > Plugin Settings > Container Server Setup > Edit Host Name. In our example case:</p>
-<pre><code>Certificate Path: /usr/local/tomcat/certs
+<pre tabindex=0><code>Certificate Path: /usr/local/tomcat/certs
 </code></pre><p>Access from the Docker Swarm to the XNAT shared filesystem - at a minimum Archive and build. The AIS Helm chart doesn&rsquo;t have /data/xnat/build setup by default but without this Docker Swarm can&rsquo;t write the temporaray files it needs and fails.</p>
 <h3 id=setup-dns-and-external-certificates>Setup DNS and external certificates</h3>
 <p>Whether you will need to create self signed certificates or public CA verified ones, you will need a fully qualified domain name to create them against.<br>
@@ -273,11 +276,11 @@ I suggest you set an A record to point to the Manager node IP address, or a Load
 <h3 id=allow-remote-access-to-docker-api-endpoint-on-tcp-2376>Allow remote access to Docker API endpoint on TCP 2376</h3>
 <p>To enable docker to listen on port 2376 edit the service file or create /etc/docker/daemon.json.</p>
 <p>We will edit the docker service file. Remember to specify whatever certificates you will be using in here. They will be pointing to your FQDN - in our case above, swarm.example.com.</p>
-<pre><code>systemctl edit docker
-</code></pre><pre><code>[Service]
+<pre tabindex=0><code>systemctl edit docker
+</code></pre><pre tabindex=0><code>[Service]
 ExecStart=
 ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2376 --tlsverify --tlscacert /root/.docker/ca.pem --tlscert /root/.docker/server-cert.pem -tlskey /root/.docker/server-key.pem -H unix:///var/run/docker.sock
-</code></pre><pre><code>systemctl restart docker
+</code></pre><pre tabindex=0><code>systemctl restart docker
 </code></pre><p>Repeat on all nodes. Docker Swarm is now listening remotely on TCP 2376.</p>
 <h3 id=secure-access-to-tcp-port-2376>Secure access to TCP port 2376</h3>
 <p>Add a firewall rule to only allow access to TCP port 2376 from the Kubernetes subnets.</p>
@@ -285,7 +288,7 @@ ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2376 --tlsverify --tlscacert /root/.
 <p>Without access to the Archive shared filesystem Docker cannot run any pipeline conversions. This seems pretty obvious. Less obvious however is that the XNAT Docker Swarm requires access to the Build shared filesystem to run temporary jobs before writing back to Archive upon completion.<br>
 This presents a problem as the AIS Helm Chart does not come with a persistent volume for the Build directory, so we need to create one.<br>
 Create a volume outside the Helm Chart and then present it in your values file. In this example I created a custom class. Make sure accessMode is ReadWriteMany so Docker Swarm nodes can access.</p>
-<pre><code>  volumes:
+<pre tabindex=0><code>  volumes:
     build:
       accessMode: ReadWriteMany
       mountPath: /data/xnat/build
@@ -296,17 +299,17 @@ Create a volume outside the Helm Chart and then present it in your values file. 
         claimName: &quot;build-xnat-xnat-web&quot;
       size: 10Gi
 </code></pre><p>You would need to create the custom-class storageclass and apply it first or the volume won&rsquo;t be created. In this case, create a file - storageclass.yaml and add the followinng contents:</p>
-<pre><code>apiVersion: storage.k8s.io/v1
+<pre tabindex=0><code>apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: custom-class
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 </code></pre><p>You can then apply it:</p>
-<pre><code>kubectl apply -f storageclass.yaml
+<pre tabindex=0><code>kubectl apply -f storageclass.yaml
 </code></pre><p>Of course you may want to use an existing Storage Class so this maybe unnecessary, it is just an example.</p>
 <p>Apply the Kubernetes volume file first and then apply the Helm chart and values file. You should now see something like the following:</p>
-<pre><code>kubectl get -nxnat pvc,pv
+<pre tabindex=0><code>kubectl get -nxnat pvc,pv
 NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/archive-xnat-xnat-web      Bound    archive-xnat-xnat-web                      10Gi       RWX            custom-class   5d1h
 persistentvolumeclaim/build-xnat-xnat-web        Bound    build-xnat-xnat-web                        10Gi       RWX            custom-class   5d1h
@@ -335,11 +338,11 @@ The Image hosts section should also now have a status of Up.</p>
 <p>You can now start adding your Images & Commands in the Administer > Plugin Settings > Images & Commands section.</p>
 <h2 id=troubleshooting>Troubleshooting</h2>
 <p>If you have configured docker swarm to listen on port 2376 but status says down, firstly check you can telnet or netcat to the port first locally, then remotely. From one of the nodes:</p>
-<pre><code>nc -zv 127.0.0.1 2376
+<pre tabindex=0><code>nc -zv 127.0.0.1 2376
 </code></pre><p>or</p>
-<pre><code>telnet 127.0.0.1 2376
+<pre tabindex=0><code>telnet 127.0.0.1 2376
 </code></pre><p>If you can, try remotely from a location that has firewall ingress access. In our example previously, try:</p>
-<pre><code>nc -zv swarm.example.com 2376
+<pre tabindex=0><code>nc -zv swarm.example.com 2376
 telnet swarm.example.com 2376
 </code></pre><p>Make sure the correct ports are open and accessible on the Docker swarm manager:</p>
 <p>The network ports required for a Docker Swarm to function correctly are:<br>
@@ -350,9 +353,9 @@ UDP port 4789 for overlay network traffic (container ingress networking).</p>
 <p>Make sure docker service is started on all docker swarm nodes.</p>
 <p>If Status is set to Up and the container automations are failing, confirm the archive AND build shared filesystems are properly mounted on all servers - XNAT and Docker swarm. A Failed (Rejected) status for a pipeline is likely due to this error.</p>
 <p>In this case, as a service can&rsquo;t be created you won&rsquo;t have enough time to see the service logs with the usual:</p>
-<pre><code>docker service ls
+<pre tabindex=0><code>docker service ls
 </code></pre><p>command followed by looking at the service in question, so stop the docker service on the Docker swarm node and start in the foreground, using our service example above:</p>
-<pre><code>dockerd -H tcp://0.0.0.0:2376 --tlsverify --tlscacert /root/.docker/ca.pem --tlscert /root/.docker/server-cert.pem --tlskey /root/.docker/server-key.pem -H unix:///var/run/docker.sock
+<pre tabindex=0><code>dockerd -H tcp://0.0.0.0:2376 --tlsverify --tlscacert /root/.docker/ca.pem --tlscert /root/.docker/server-cert.pem --tlskey /root/.docker/server-key.pem -H unix:///var/run/docker.sock
 </code></pre><p>Then upload some dicoms and watch the processing run in the foreground.</p>
 <p>Docker Swarm admin guide:</p>
 <p><a href=https://docs.docker.com/engine/swarm/admin_guide/>https://docs.docker.com/engine/swarm/admin_guide/</a></p>
