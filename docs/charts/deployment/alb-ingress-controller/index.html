@@ -24,7 +24,7 @@ Before we begin One thing that you need to know when we want to create new ALB f
 <meta itemprop=description content="Creating an Application Load Balancer to connect to the AIS Helm chart XNAT Implementation We will be following this AWS Guide:
 https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
 Before we begin One thing that you need to know when we want to create new ALB from EKS is service spec type can only support LoadBalancer and NodePort. It won&rsquo;t support ClusterIP.  The Charts Repo has the service defined as ClusterIP so some changes need to be made to make this work.">
-<meta itemprop=wordCount content="922">
+<meta itemprop=wordCount content="939">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="ALB Ingress Controller">
 <meta name=twitter:description content="Creating an Application Load Balancer to connect to the AIS Helm chart XNAT Implementation We will be following this AWS Guide:
@@ -49,7 +49,7 @@ Before we begin One thing that you need to know when we want to create new ALB f
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.aa775d452fa23c029578b07a4feedc0d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9a9bf3918f57caf668fb2be8d8500e64.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -59,7 +59,7 @@ Before we begin One thing that you need to know when we want to create new ALB f
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.aa775d452fa23c029578b07a4feedc0d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.9a9bf3918f57caf668fb2be8d8500e64.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -263,7 +263,10 @@ One thing that you need to know when we want to create new ALB from EKS is servi
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>eksctl create iamserviceaccount --cluster<span style=color:#ce5c00;font-weight:700>=</span>xnat --namespace<span style=color:#ce5c00;font-weight:700>=</span>kube-system --name<span style=color:#ce5c00;font-weight:700>=</span>aws-load-balancer-controller --attach-policy-arn<span style=color:#ce5c00;font-weight:700>=</span>arn:aws:iam::XXXXXXXXX:policy/AWSLoadBalancerControllerIAMPolicy --override-existing-serviceaccounts --approve
 </code></pre></div><p>Install <code>TargetGroupBinding</code>:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -k <span style=color:#4e9a06>&#34;github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master&#34;</span>
-</code></pre></div><p>Install the AWS Load Balancer Controller:</p>
+</code></pre></div><p>Download the EKS Helm Chart and update repo information:</p>
+<pre tabindex=0><code>helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+</code></pre><p>Install the AWS Load Balancer Controller:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller --set <span style=color:#000>clusterName</span><span style=color:#ce5c00;font-weight:700>=</span>xnat --set serviceAccount.create<span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87>false</span> --set serviceAccount.name<span style=color:#ce5c00;font-weight:700>=</span>aws-load-balancer-controller -n kube-system
 </code></pre></div><p>Confirm it is installed:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get deployment -n kube-system aws-load-balancer-controller
@@ -389,8 +392,8 @@ It is important to set a stickiness time on the load balancer or you can get an 
 </ul>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-August 6, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/36a9880f8d3d5f2542fa9e1017c70717add59f40>Docs: Add alert+warnings blocks and minor reformatting (36a9880)</a>
+September 24, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/fa94a568f597e3787db28ffa44cec8790f36886c>Add two lines to ALB-Ingress documentation that were missing when running through setup again (fa94a56)</a>
 </div>
 </div>
 </main>
