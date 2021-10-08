@@ -21,13 +21,13 @@ The path is relative to the virtual `content` directory mounted from all reposit
 {{% /alert %}}
 
 ```go-html-template
-{{</* absref "docs/charts" */>}}
+{{</* absref "docs/Repositories" */>}}
 ```
 
 renders to:
 
 ```html
-{{< absref "docs/charts" >}}
+{{< absref "docs/Repositories" >}}
 ```
 
 ### `absrelref`
@@ -39,13 +39,13 @@ The path is relative to the **current file** in the virtual `content` tree mount
 {{% /alert %}}
 
 ```go-html-template
-{{</* absrelref "../../charts" */>}}
+{{</* absrelref "../../Repositories" */>}}
 ```
 
 renders to:
 
 ```html
-{{< absrelref "../../charts" >}}
+{{< absrelref "../../Repositories" >}}
 ```
 
 ### `code`

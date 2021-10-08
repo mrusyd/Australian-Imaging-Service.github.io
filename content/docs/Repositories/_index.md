@@ -20,7 +20,7 @@ This is an alternative deployment process utilising Helm and Kubernetes. This is
 
 Code: [charts](https://github.com/australian-imaging-service/charts)
 
-Documentation: [{{< absref "docs/charts" >}}]({{< ref "docs/charts" >}})
+Documentation: [{{< absref "docs" >}}]({{< ref "docs" >}})
 
 ## XNATUtils
 
