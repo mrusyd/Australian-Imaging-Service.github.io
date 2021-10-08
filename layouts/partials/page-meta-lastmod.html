@@ -10,15 +10,17 @@
     {{ if reflect.IsMap $repo_filemap }}
         {{ $repo_filemap := $repo_filemap.files }}
         {{ $commit_info := index $repo_filemap .File.Path }}
-        {{ $hash_full := index $commit_info 0 }}
-        {{ $hash_short := index $commit_info 1 }}
-        {{ $commit_msg := index $commit_info 2 }}
-        {{ $commit_time := index $commit_info 5 | time }}
-        {{ $gh_repo := delimit (split (.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
-        
-        {{ T "post_last_mod" }}
-        {{ $commit_time.Format .Site.Params.time_format_default }}
-        : <a href="{{ $gh_repo }}/commit/{{ $hash_full }}">{{ $commit_msg }} ({{ $hash_short }})</a>
+        {{ if $commit_info }}
+            {{ $hash_full := index $commit_info 0 }}
+            {{ $hash_short := index $commit_info 1 }}
+            {{ $commit_msg := index $commit_info 2 }}
+            {{ $commit_time := index $commit_info 5 | time }}
+            {{ $gh_repo := delimit (split (.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
+            
+            {{ T "post_last_mod" }}
+            {{ $commit_time.Format .Site.Params.time_format_default }}
+            : <a href="{{ $gh_repo }}/commit/{{ $hash_full }}">{{ $commit_msg }} ({{ $hash_short }})</a>
+        {{ end }}
     {{ end }}
 {{ end }}
 </div>
