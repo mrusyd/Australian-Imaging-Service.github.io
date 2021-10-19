@@ -1,4 +1,0 @@
-[module]
-[[module.mounts]]
-source = ""
-target = "content/docs"
