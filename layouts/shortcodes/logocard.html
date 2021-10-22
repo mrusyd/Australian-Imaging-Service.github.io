@@ -4,7 +4,7 @@
 {{ $docs_url := .Get "docs" }}
 <div class="col logo">
 	<div class="card-img-top">
-		<img class="logo" src="{{ $image.RelPermalink }}" height="{{ $image.Height }}">
+		<img class="logo" src="{{ $image.RelPermalink }}" height="{{ $image.Height }}"{{ with .Get "alt" }} alt="{{ . }}"{{ end }}>
 	</div>
 	{{ if or $xnat_url $docs_url }}
 	<div class="mb-2">
