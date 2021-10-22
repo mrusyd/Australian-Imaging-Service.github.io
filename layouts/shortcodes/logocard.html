@@ -1,0 +1,19 @@
+{{ $original := (.Site.GetPage "/logos").Resources.GetMatch (printf "**%s*" (.Get "img")) }}
+{{ $image := $original.Fit "512x512" }}
+{{ $xnat_url := .Get "xnat" }}
+{{ $docs_url := .Get "docs" }}
+<div class="col logo">
+	<div class="card-img-top">
+		<img class="logo" src="{{ $image.RelPermalink }}" height="{{ $image.Height }}">
+	</div>
+	{{ if or $xnat_url $docs_url }}
+	<div class="mb-2">
+		{{ if $docs_url }}
+		<a href="{{ $docs_url }}" class="btn btn-primary">Docs<i class="fas fa-book ml-2"></i></a>
+		{{ end }}
+		{{ if $xnat_url }}
+		<a href="{{ $xnat_url }}" class="btn btn-primary float-right">XNAT<i class="fas fa-arrow-alt-circle-right ml-2"></i></a>
+		{{ end }}
+	</div>
+	{{ end }}
+</div>

@@ -14,21 +14,23 @@ Add styles or override variables from the theme here.
     border-radius: 0.25rem;
 }
 
-.logo {
-    width: 256px;
-    height: 192px;
+.logo-container {
+    max-width: 90%;
+}
 
-    .card, .card-text, img {
-        width: 100%;
-        height: 100%;
-    }
-    .card-body {
-        padding: 0.5rem;
+.col.logo {
+    min-width: 205px;
+}
+
+div.logo {
+    .card-img-top {
+        height: 12em;
     }
 
     img {
         object-fit: contain;
-        margin: auto;
-        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0.75em;
     }
 }
