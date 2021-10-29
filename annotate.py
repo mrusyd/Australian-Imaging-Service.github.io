@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import os
 import re
 import subprocess
 from typing import Dict, List
@@ -70,6 +71,40 @@ def get_hugo_imports() -> List[str]:
     return [x["path"] for x in config["module"]["imports"]]
 
 
+def find_repo_root(path: str):
+    for _ in range(max(path.count("/"), path.count("\\"))):
+        if os.path.isdir(os.path.join(path, ".git")):
+            return os.path.normpath(path)
+
+        path = os.path.join(path, os.pardir)
+
+    return None
+
+
+class HugoRepoContent:
+    def __init__(self, repo: str, repo_dir: str) -> None:
+        self.repo = repo
+        self.repo_dir = repo_dir
+        self.repo_root = find_repo_root(repo_dir)
+        assert self.repo_dir.startswith(self.repo_root)
+        self.docs_subdir = self.repo_dir[len(self.repo_root) + 1 :]
+        """typically 'docs'"""
+
+    def get_annot_info(self):
+        """
+        Returns a dict with info about this repo
+
+        "branch" currently checked out branch
+
+        "files" a map of files to git last modification info
+        """
+        
+        return {
+            "branch": git(["-C", self.repo_dir, "branch", "--show-current"]).strip(),
+            "files": {k[len(self.docs_subdir) + 1 :]: v for k, v in get_git_filemap(self.repo_dir).items() if k.startswith(self.docs_subdir)},
+        }
+
+
 def main():
     hugo_imports = get_hugo_imports()
     mod_mappings = get_go_mod_mappings()
@@ -81,17 +116,14 @@ def main():
             print(f"Missing path mapping for {repo!r}")
             continue
 
-        repo_dir = mod_mappings[repo]
+        repo_content = HugoRepoContent(repo, mod_mappings[repo])
 
-        print(repo, repo_dir)
+        print(repo, repo_content.repo_dir)
 
-        annot_map[repo] = {
-            "branch": git(["-C", repo_dir, "branch", "--show-current"]).strip(),
-            "files": get_git_filemap(repo_dir),
-        }
+        annot_map[repo] = repo_content.get_annot_info()
 
     with open("git_info.json", "w") as f:
-        json.dump(annot_map, f)
+        json.dump(annot_map, f, indent=4)
 
 
 if __name__ == "__main__":
