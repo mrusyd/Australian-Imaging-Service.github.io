@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.88.1"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.89.2"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -13,29 +13,23 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Australian Imaging Service</title>
-<meta name=description content><meta property="og:title" content>
+<title>Linode setup | Australian Imaging Service</title>
+<meta name=description content><meta property="og:title" content="Linode setup">
 <meta property="og:description" content="List of steps to be followed to deploy XNAT in Linode LKE using Helm charts
-1.LKE Cluster Setup:
-Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/ (Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon)
-2.Preparing for Tweaks pertaining to Linode:
-As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the adding AIS helm chart repository.">
+1. LKE Cluster Setup Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/
+Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon  2. Preparing for Tweaks pertaining to Linode As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the AIS helm chart repository.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://australian-imaging-service.github.io/docs/deployment/linode-setup/"><meta property="article:section" content="docs">
-<meta itemprop=name content>
+<meta itemprop=name content="Linode setup">
 <meta itemprop=description content="List of steps to be followed to deploy XNAT in Linode LKE using Helm charts
-1.LKE Cluster Setup:
-Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/ (Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon)
-2.Preparing for Tweaks pertaining to Linode:
-As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the adding AIS helm chart repository.">
-<meta itemprop=wordCount content="743">
+1. LKE Cluster Setup Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/
+Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon  2. Preparing for Tweaks pertaining to Linode As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the AIS helm chart repository.">
+<meta itemprop=wordCount content="662">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content>
+<meta name=twitter:title content="Linode setup">
 <meta name=twitter:description content="List of steps to be followed to deploy XNAT in Linode LKE using Helm charts
-1.LKE Cluster Setup:
-Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/ (Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon)
-2.Preparing for Tweaks pertaining to Linode:
-As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the adding AIS helm chart repository.">
+1. LKE Cluster Setup Set up the Linode LKE cluster using the link https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/
+Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon  2. Preparing for Tweaks pertaining to Linode As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the AIS helm chart repository.">
 <link rel=preload href=/scss/main.min.2d9c4decd76e333e7b4c06f7eebe05ad37b2a71daa5073ae08f431cb802c2a6e.css as=style>
 <link href=/scss/main.min.2d9c4decd76e333e7b4c06f7eebe05ad37b2a71daa5073ae08f431cb802c2a6e.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
@@ -58,7 +52,7 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.ea7868e12d0907bd9b37d8d19807f692.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b30fb3e0583ef7db857642d97e7944cc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -68,7 +62,7 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.ea7868e12d0907bd9b37d8d19807f692.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b30fb3e0583ef7db857642d97e7944cc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -104,7 +98,7 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <a href=/docs/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentazure-setup-full><span>Azure Setup Full</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsdeploymentlinode-setup-li>
-<a href=/docs/deployment/linode-setup/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentlinode-setup><span class=td-sidebar-nav-active-item></span></a>
+<a href=/docs/deployment/linode-setup/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentlinode-setup><span class=td-sidebar-nav-active-item>Linode setup</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentreadme-li>
 <a href=/docs/deployment/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentreadme><span></span></a>
@@ -118,22 +112,22 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <a href=/docs/development/cicd/ title="Continuous Integration / Continuous Delivery" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentcicd><span>CI/CD</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentmacos-multipass-k8s-li>
-<a href=/docs/development/macos-multipass-k8s/ title="Development workstation with Multipass on MacOS" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentmacos-multipass-k8s><span>MacOS+Multipass</span></a>
-</li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentubuntu-microk8s-li>
-<a href=/docs/development/ubuntu-microk8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentubuntu-microk8s><span>microk8s-Ubuntu</span></a>
+<a href=/docs/development/macos-multipass-k8s/ title="Development workstation with Multipass on MacOS" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentmacos-multipass-k8s><span>MacOS: Multipass</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentnixos-minikube-li>
-<a href=/docs/development/nixos-minikube/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentnixos-minikube><span>NixOS + Minikube</span></a>
+<a href=/docs/development/nixos-minikube/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentnixos-minikube><span>NixOS: Minikube</span></a>
 </li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentreferences-li>
-<a href=/docs/development/references/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentreferences><span>References</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentubuntu-microk8s-li>
+<a href=/docs/development/ubuntu-microk8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentubuntu-microk8s><span>Ubuntu: microk8s</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentwindows10-multipass-k8s-li>
-<a href=/docs/development/windows10-multipass-k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentwindows10-multipass-k8s><span>Windows 10+Multipass</span></a>
+<a href=/docs/development/windows10-multipass-k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentwindows10-multipass-k8s><span>Windows 10: Multipass</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentxnat-chart-readme-li>
 <a href=/docs/development/xnat-chart-readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentxnat-chart-readme><span>XNAT chart README</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentreferences-li>
+<a href=/docs/development/references/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentreferences><span>References</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdevelopmentreadme-li>
 <a href=/docs/development/readme/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdevelopmentreadme><span></span></a>
@@ -150,10 +144,10 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <a href=/docs/operations/autoscaling-xnat-kubernetes-with-eks/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsautoscaling-xnat-kubernetes-with-eks><span>Autoscaling XNAT on Kubernetes with EKS</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsoperationsdocker-swarm-with-xnat-li>
-<a href=/docs/operations/docker-swarm-with-xnat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsdocker-swarm-with-xnat><span>Docker-Swarm-with-XNAT</span></a>
+<a href=/docs/operations/docker-swarm-with-xnat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsdocker-swarm-with-xnat><span>Docker Swarm with XNAT</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsoperationsexternal-pgsql-db-connection-li>
-<a href=/docs/operations/external-pgsql-db-connection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsexternal-pgsql-db-connection><span>External-PGSQL-DB-Connection</span></a>
+<a href=/docs/operations/external-pgsql-db-connection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsexternal-pgsql-db-connection><span>External PGSQL DB Connection</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsoperationsrecommendations-li>
 <a href=/docs/operations/recommendations/ title="Operational recommendations" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsoperationsrecommendations><span>Recommendations</span></a>
@@ -192,8 +186,29 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/Australian-Imaging-Service/charts/edit/main/docs/Charts/Deployment/Linode-setup.md target=_blank><i class="fa fa-edit fa-fw"></i> Edit this page</a>
 <a href="https://github.com/Australian-Imaging-Service/charts/new/main/docs/Charts/Deployment/Linode-setup.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i> Create child page</a>
-<a href="https://github.com/Australian-Imaging-Service/charts/issues/new?title=" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/Australian-Imaging-Service/charts/issues/new?title=Linode%20setup" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 </div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#1-lke-cluster-setup>1. LKE Cluster Setup</a></li>
+<li><a href=#2-preparing-for-tweaks-pertaining-to-linode>2. Preparing for Tweaks pertaining to Linode</a></li>
+<li><a href=#3-actual-tweaks>3. Actual Tweaks</a></li>
+<li><a href=#4-dependency-update>4. Dependency Update</a></li>
+<li><a href=#5-xnat-initial-installation>5. XNAT Initial Installation</a></li>
+<li><a href=#6-ingress-controllerload-balancer-installation>6. Ingress Controller/Load balancer Installation</a></li>
+<li><a href=#7-domain-mapping>7. Domain Mapping</a></li>
+<li><a href=#8-http-traffic-routing-via-ingress>8. HTTP Traffic Routing via Ingress</a></li>
+<li><a href=#9-delete-the-http-ingress-project>9. Delete the HTTP Ingress project</a></li>
+<li><a href=#10-install-cert-manager-for-secure-connection-https>10. Install cert-manager for Secure Connection HTTPS</a></li>
+<li><a href=#11-creation-of-clusterissuer-to-issue-certificates>11. Creation of ClusterIssuer to Issue certificates</a></li>
+<li><a href=#12-https-routing-with-ingress-object-leveraging-clusterissuer>12. HTTPS Routing with Ingress object leveraging ClusterIssuer</a></li>
+</ul>
+</li>
+<li><a href=#reference-links>Reference Links</a></li>
+</ul>
+</nav></div>
 </aside>
 <main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
@@ -205,180 +220,170 @@ As we are tweaking XNAT Values related to PV access modes, let us check out the 
 <a href=https://australian-imaging-service.github.io/docs/deployment/>Deployment</a>
 </li>
 <li class="breadcrumb-item active" aria-current=page>
-<a href=https://australian-imaging-service.github.io/docs/deployment/linode-setup/></a>
+<a href=https://australian-imaging-service.github.io/docs/deployment/linode-setup/>Linode setup</a>
 </li>
 </ol>
 </nav>
 <div class=td-content>
-<h1></h1>
+<h1>Linode setup</h1>
 <header class=article-meta>
 </header>
-<p><strong>List of steps to be followed to deploy XNAT in Linode LKE using Helm charts</strong></p>
-<p><strong>1.LKE Cluster Setup:</strong><br>
-Set up the Linode LKE cluster using the link <a href=https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/>https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/</a> <strong>(Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon)</strong></p>
-<p><strong>2.Preparing for Tweaks pertaining to Linode:</strong><br>
-As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the adding
-AIS helm chart repository.</p>
-<pre><code>     git clone https://github.com/Australian-Imaging-Service/charts.git
-</code></pre>
-<p><strong>3.Actual Tweaks:</strong><br>
-Replace the access modes of all Volumes from &ldquo;ReadWriteMany&rdquo; to &ldquo;ReadWriteOnce&rdquo; in charts/releases/xnat/charts/xnat-web
-This is because Linode storage only supports &ldquo;ReadWriteOnce&rdquo; at this point of time.</p>
-<p><strong>4.Dependency Update:</strong><br>
-Update the dependency by switching to charts/releases/xnat and execute the following</p>
-<pre><code>     helm dependency update
-</code></pre>
-<p><strong>5.XNAT Initial Installation:</strong><br>
-Go to charts/releases and install xnat using helm.</p>
-<pre><code>       kubectl create namespace xnat
+<p>List of steps to be followed to deploy XNAT in Linode LKE using Helm charts</p>
+<h3 id=1-lke-cluster-setup>1. LKE Cluster Setup</h3>
+<p>Set up the Linode LKE cluster using the link <a href=https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/>https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/</a></p>
+<div class="alert alert-primary" role=alert>
+Please note that a separate documentation for setting up LKE Cluster using Terraform will be coming up soon
+</div>
+<h3 id=2-preparing-for-tweaks-pertaining-to-linode>2. Preparing for Tweaks pertaining to Linode</h3>
+<p>As we are tweaking XNAT Values related to PV access modes, let us check out the charts repo rather than using the AIS helm chart repository.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/Australian-Imaging-Service/charts.git
+</code></pre></div><h3 id=3-actual-tweaks>3. Actual Tweaks</h3>
+<p>Replace the access modes of all Volumes from <code>ReadWriteMany</code> to <code>ReadWriteOnce</code> in <code>charts/releases/xnat/charts/xnat-web</code></p>
+<p>This is because Linode storage only supports <code>ReadWriteOnce</code> at this point of time.</p>
+<h3 id=4-dependency-update>4. Dependency Update</h3>
+<p>Update the dependency by switching to <code>charts/releases/xnat</code> and execute the following</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm dependency update
+</code></pre></div><h3 id=5-xnat-initial-installation>5. XNAT Initial Installation</h3>
+<p>Go to <code>charts/releases</code> and install xnat using helm.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create namespace xnat
 
-       helm install xnat-deployment xnat --values YOUR-VALUES-FILE --namespace=xnat
-</code></pre>
-<p>The XNAT & POSTGRES service should be up & running fine. Linode Storage Class &ldquo;linode-block-storage-retain&rdquo; should have automatically
+helm install xnat-deployment xnat --values YOUR-VALUES-FILE --namespace<span style=color:#ce5c00;font-weight:700>=</span>xnat
+</code></pre></div><p>The XNAT & POSTGRES service should be up and running fine. Linode Storage Class <code>linode-block-storage-retain</code> should have automatically
 come in place & PVs will be auto created to be consumed by our mentioned PVCs.</p>
-<p><strong>6.Ingress Controller/Load balancer Installation:</strong><br>
-Install Ingress Controller and provision a Load balancer (Nodebalancer in Linode) by executing these commands</p>
-<pre><code>        helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+<h3 id=6-ingress-controllerload-balancer-installation>6. Ingress Controller/Load balancer Installation</h3>
+<p>Install Ingress Controller and provision a Load balancer (Nodebalancer in Linode) by executing these commands</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
-        helm repo update
+helm repo update
 
-        helm install ingress-nginx ingress-nginx/ingress-nginx
-</code></pre>
-<p>You may see an output like below</p>
-<blockquote>
-<p>NAME: ingress-nginx<br>
-LAST DEPLOYED: Mon Aug 2 11:51:32 2021<br>
-NAMESPACE: default<br>
-STATUS: deployed<br>
-REVISION: 1<br>
-TEST SUITE: None<br>
-NOTES:<br>
-The ingress-nginx controller has been installed.<br>
-It may take a few minutes for the LoadBalancer IP to be available.</p>
-</blockquote>
-<p><strong>7.Domain Mapping:</strong><br>
-Get the External IP address of the Loadbalancer by running the below command and assign it to any domain or subdomain.</p>
-<blockquote>
-<p><strong>Example: cloud.neura.edu.au is the subdomain for which the loadbalancer IP is assigned in my case. Please replace it with your domain in this and all upcoming steps</strong></p>
-</blockquote>
-<pre><code>        kubectl --namespace default get services -o wide -w ingress-nginx-controller
-</code></pre>
-<p><strong>8.HTTP Traffic Routing via Ingress:</strong><br>
-It is time to create a Ingress object that directs the traffic based on the host/domain to the already available XNAT service.
-Get the XNAT service name by issuing the below command and choose the service name that says TYPE as ClusterIP</p>
-<pre><code>      kubectl get svc -nxnat -l &quot;app.kubernetes.io/name=xnat-web&quot;
-</code></pre>
-<p>Example: xnat-deployment-xnat-web</p>
+helm install ingress-nginx ingress-nginx/ingress-nginx
+</code></pre></div><p>You may see an output like below</p>
+<pre tabindex=0><code>&gt;NAME: ingress-nginx
+LAST DEPLOYED: Mon Aug  2 11:51:32 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The ingress-nginx controller has been installed.
+It may take a few minutes for the LoadBalancer IP to be available.
+</code></pre><h3 id=7-domain-mapping>7. Domain Mapping</h3>
+<p>Get the External IP address of the Loadbalancer by running the below command and assign it to any domain or subdomain.</p>
+<div class="alert alert-primary" role=alert>
+<strong>Example:</strong> <code>cloud.neura.edu.au</code> is the subdomain for which the loadbalancer IP is assigned in my case.
+Please replace it with your domain in this and all upcoming steps
+</div>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl --namespace default get services -o wide -w ingress-nginx-controller
+</code></pre></div><h3 id=8-http-traffic-routing-via-ingress>8. HTTP Traffic Routing via Ingress</h3>
+<p>It is time to create a Ingress object that directs the traffic based on the host/domain to the already available XNAT service.</p>
+<p>Get the XNAT service name by issuing the below command and choose the service name that says TYPE as <code>ClusterIP</code></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get svc -nxnat -l <span style=color:#4e9a06>&#34;app.kubernetes.io/name=xnat-web&#34;</span>
+</code></pre></div><p>Example: <code>xnat-deployment-xnat-web</code></p>
 <p>Using the above service name, write an ingress object to route the external traffic based on the domain name.</p>
-<pre><code>     apiVersion: networking.k8s.io/v1
-     kind: Ingress
-     metadata:
-       name: xnat-ingress
-       namespace: xnat
-       annotations:
-         kubernetes.io/ingress.class: nginx
-     spec:
-       rules:
-       - host: cloud.neura.edu.au
-         http:
-           paths:
-           - pathType: Prefix
-             path: &quot;/&quot;
-             backend:
-               service:
-                 name: xnat-deployment-xnat-web
-                 port:
-                   number: 80
-</code></pre>
-<p><strong>9.Delete the HTTP Ingress project:</strong><br>
-After the creation of this Ingress object, make sure cloud.neura.edu.au is routed to the XNAT application over HTTP successfully.Let us delete the ingress object after checking because we will be creating another one with TLS to use HTTPS.</p>
-<pre><code>    kubectl delete ingress xnat-ingress -nxnat
-</code></pre>
-<p><strong>10.Install cert-manager for Secure Connection HTTPS</strong><br>
-Install cert-manager’s CRDs.</p>
-<pre><code>     kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.crds.yaml
-</code></pre>
-<p>Create a cert-manager namespace.</p>
-<pre><code>     kubectl create namespace cert-manager
-</code></pre>
-<p>Add the Helm repository which contains the cert-manager Helm chart.</p>
-<pre><code>     helm repo add jetstack https://charts.jetstack.io
-</code></pre>
-<p>Update your Helm repositories.</p>
-<pre><code>     helm repo update
-</code></pre>
-<p>Install the cert-manager Helm chart.</p>
-<pre><code>     helm install \
-     cert-manager jetstack/cert-manager \
-     --namespace cert-manager \
-     --version v1.3.1
-</code></pre>
-<p>Verify that the corresponding cert-manager pods are now running.</p>
-<pre><code>     kubectl get pods --namespace cert-manager
-</code></pre>
-<p>You should see a similar output:</p>
-<blockquote>
-<p>NAME READY STATUS RESTARTS AGE<br>
-cert-manager-579d48dff8-84nw9 1/1 Running 3 1m<br>
-cert-manager-cainjector-789955d9b7-jfskr 1/1 Running 3 1m<br>
-cert-manager-webhook-64869c4997-hnx6n 1/1 Running 0 1m</p>
-</blockquote>
-<p><strong>11.Creation of ClusterIssuer to Issue certificates:</strong><br>
-Create a manifest file named acme-issuer-prod.yaml that will be used to create a ClusterIssuer resource on your cluster. Ensure you replace <a href=mailto:user@example.com>user@example.com</a> with your own email address.</p>
-<pre><code>     apiVersion: cert-manager.io/v1
-     kind: ClusterIssuer
-     metadata:
-       name: letsencrypt-prod
-       namespace: xnat
-     spec:
-       acme:
-         email: user@example.com
-         server: https://acme-v02.api.letsencrypt.org/directory
-         privateKeySecretRef:
-           name: letsencrypt-secret-prod
-         solvers:
-         - http01:
-             ingress:
-               class: nginx
-</code></pre>
-<p><strong>12.HTTPS Routing with Ingress object leveraging ClusterIssuer:</strong><br>
-Provision a new Ingress object to use the clusterIssuer for the generation of the certificate and use it</p>
-<pre><code>     apiVersion: networking.k8s.io/v1
-     kind: Ingress
-     metadata:
-       name: xnat-ingress-https
-       namespace: xnat
-       annotations:
-         kubernetes.io/ingress.class: &quot;nginx&quot;
-         cert-manager.io/cluster-issuer: &quot;letsencrypt-prod&quot;
-     spec:
-       tls:
-       - hosts:
-         - cloud.neura.edu.au
-         secretName: xnat-tls
-       rules:
-       - host: cloud.neura.edu.au
-         http:
-           paths:
-           - pathType: Prefix
-             path: &quot;/&quot;
-             backend:
-               service:
-                 name: xnat-deployment-xnat-web
-                 port:
-                   number: 80
-</code></pre>
-<p>After the creation of the above ingress <a href=https://cloud.neura.edu.au/>https://cloud.neura.edu.au/</a> should bring up the XNAT application in the web browser</p>
-<p><strong>Reference Links</strong><br>
-LKE set up using Cloud Manager - <a href=https://www.linode.com/docs/guides/deploy-and-manage-a-cluster-with-linode-kubernetes-engine-a-tutorial/>https://www.linode.com/docs/guides/deploy-and-manage-a-cluster-with-linode-kubernetes-engine-a-tutorial/</a><br>
-LKE set up using Terraform - <a href=https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/>https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/</a><br>
-Linode Storage Class - <a href=https://www.linode.com/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver/>https://www.linode.com/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver/</a><br>
-Ingress Controller & Loadbalancer- <a href=https://www.linode.com/docs/guides/how-to-deploy-nginx-ingress-on-linode-kubernetes-engine/>https://www.linode.com/docs/guides/how-to-deploy-nginx-ingress-on-linode-kubernetes-engine/</a><br>
-HTTP to HTTPS using cert-manager - <a href=https://www.linode.com/docs/guides/how-to-configure-load-balancing-with-tls-encryption-on-a-kubernetes-cluster>https://www.linode.com/docs/guides/how-to-configure-load-balancing-with-tls-encryption-on-a-kubernetes-cluster</a></p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>networking.k8s.io/v1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Ingress</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-ingress</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>annotations</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>kubernetes.io/ingress.class</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>nginx</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span>- <span style=color:#204a87;font-weight:700>host</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>cloud.neura.edu.au</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>http</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>paths</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span>- <span style=color:#204a87;font-weight:700>pathType</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Prefix</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>path</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;/&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>backend</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>service</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-deployment-xnat-web</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>port</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>              </span><span style=color:#204a87;font-weight:700>number</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>80</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=9-delete-the-http-ingress-project>9. Delete the HTTP Ingress project</h3>
+<p>After the creation of this Ingress object, make sure <code>cloud.neura.edu.au</code> is routed to the XNAT application over HTTP successfully.Let us delete the ingress object after checking because we will be creating another one with TLS to use HTTPS.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl delete ingress xnat-ingress -nxnat
+</code></pre></div><h3 id=10-install-cert-manager-for-secure-connection-https>10. Install cert-manager for Secure Connection HTTPS</h3>
+<p>Install <code>cert-manager</code>&rsquo;s CRDs.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.crds.yaml
+</code></pre></div><p>Create a <code>cert-manager</code> namespace.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create namespace cert-manager
+</code></pre></div><p>Add the Helm repository which contains the <code>cert-manager</code> Helm chart.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm repo add jetstack https://charts.jetstack.io
+</code></pre></div><p>Update your Helm repositories.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm repo update
+</code></pre></div><p>Install the <code>cert-manager</code> Helm chart.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>  cert-manager jetstack/cert-manager <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>  --namespace cert-manager <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>  --version v1.3.1
+</code></pre></div><p>Verify that the corresponding <code>cert-manager</code> pods are now running.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get pods --namespace cert-manager
+</code></pre></div><p>You should see a similar output:</p>
+<pre tabindex=0><code>&gt;NAME                                       READY   STATUS    RESTARTS   AGE
+cert-manager-579d48dff8-84nw9              1/1     Running   3          1m
+cert-manager-cainjector-789955d9b7-jfskr   1/1     Running   3          1m
+cert-manager-webhook-64869c4997-hnx6n      1/1     Running   0          1m
+</code></pre><h3 id=11-creation-of-clusterissuer-to-issue-certificates>11. Creation of ClusterIssuer to Issue certificates</h3>
+<p>Create a manifest file named <code>acme-issuer-prod.yaml</code> that will be used to create a <code>ClusterIssuer</code> resource on your cluster. Ensure you replace <code>user@example.com</code> with your own email address.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>cert-manager.io/v1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>ClusterIssuer</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>letsencrypt-prod</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>acme</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>email</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>user@example.com</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>server</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>https://acme-v02.api.letsencrypt.org/directory</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>privateKeySecretRef</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>letsencrypt-secret-prod</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>solvers</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>- <span style=color:#204a87;font-weight:700>http01</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>ingress</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>class</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>nginx</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><h3 id=12-https-routing-with-ingress-object-leveraging-clusterissuer>12. HTTPS Routing with Ingress object leveraging ClusterIssuer</h3>
+<p>Provision a new Ingress object to use the <code>clusterIssuer</code> for the generation of the certificate and use it</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>networking.k8s.io/v1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Ingress</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-ingress-https</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>annotations</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>kubernetes.io/ingress.class</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;nginx&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>cert-manager.io/cluster-issuer</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;letsencrypt-prod&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>tls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span>- <span style=color:#204a87;font-weight:700>hosts</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>- <span style=color:#000>cloud.neura.edu.au</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>secretName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-tls</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span>- <span style=color:#204a87;font-weight:700>host</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>cloud.neura.edu.au</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>http</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>paths</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span>- <span style=color:#204a87;font-weight:700>pathType</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Prefix</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>path</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;/&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>backend</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>service</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-deployment-xnat-web</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>port</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>              </span><span style=color:#204a87;font-weight:700>number</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>80</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>After the creation of the above ingress <code>https://cloud.neura.edu.au/</code> should bring up the XNAT application in the web browser</p>
+<h2 id=reference-links>Reference Links</h2>
+<ul>
+<li>LKE set up using Cloud Manager<br>
+<a href=https://www.linode.com/docs/guides/deploy-and-manage-a-cluster-with-linode-kubernetes-engine-a-tutorial/>https://www.linode.com/docs/guides/deploy-and-manage-a-cluster-with-linode-kubernetes-engine-a-tutorial/</a></li>
+<li>LKE set up using Terraform<br>
+<a href=https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/>https://www.linode.com/docs/guides/how-to-deploy-an-lke-cluster-using-terraform/</a></li>
+<li>Linode Storage Class<br>
+<a href=https://www.linode.com/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver/>https://www.linode.com/docs/guides/deploy-volumes-with-the-linode-block-storage-csi-driver/</a></li>
+<li>Ingress Controller & Loadbalancer<br>
+<a href=https://www.linode.com/docs/guides/how-to-deploy-nginx-ingress-on-linode-kubernetes-engine/>https://www.linode.com/docs/guides/how-to-deploy-nginx-ingress-on-linode-kubernetes-engine/</a></li>
+<li>HTTP to HTTPS using cert-manager<br>
+<a href=https://www.linode.com/docs/guides/how-to-configure-load-balancing-with-tls-encryption-on-a-kubernetes-cluster>https://www.linode.com/docs/guides/how-to-configure-load-balancing-with-tls-encryption-on-a-kubernetes-cluster</a></li>
+</ul>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-August 9, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/39633e88f041f3205755f760a7c2756469f39805>Update Linode-setup.md (39633e8)</a>
+November 9, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/5691a74e005eacefc760b6fc0dd7531bb86d6d6c>Docs: Reformat Linode-setup + change some page titles (5691a74)</a>
 </div>
 </div>
 </main>
