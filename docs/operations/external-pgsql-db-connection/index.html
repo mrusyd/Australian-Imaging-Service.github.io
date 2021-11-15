@@ -24,7 +24,7 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 <meta itemprop=description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
 If the deployment is destroyed the data in the database is lost. This is fine for testing purposes but unsuitable for a production environment.
 Luckily a mechanism was put into the Helm template to allow connecting to an External Postgresql Database.">
-<meta itemprop=wordCount content="461">
+<meta itemprop=wordCount content="462">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="External PGSQL DB Connection">
 <meta name=twitter:description content="Connecting AIS XNAT Helm Deployment to an External Postgresql Database By default, the AIS XNAT Helm Deployment creates a Postgresql database in a separate pod to be run locally on the cluster.
@@ -52,7 +52,7 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b30fb3e0583ef7db857642d97e7944cc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b8f3d5e981e975b1b0f8772fde10f110.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b30fb3e0583ef7db857642d97e7944cc.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b8f3d5e981e975b1b0f8772fde10f110.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -96,6 +96,9 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentazure-setup-full-li>
 <a href=/docs/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentazure-setup-full><span>Azure Setup Full</span></a>
+</li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentistio-setup-li>
+<a href=/docs/deployment/istio-setup/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentistio-setup><span>Istio Setup</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentlinode-setup-li>
 <a href=/docs/deployment/linode-setup/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentlinode-setup><span>Linode setup</span></a>
@@ -237,13 +240,14 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>postgresqlPassword</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlEnabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>true</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>enabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>true</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalIPs</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>  </span>- <span style=color:#0000cf;font-weight:700>139.95.25.8</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>  </span>- <span style=color:#0000cf;font-weight:700>130.95.25.9</span><span style=color:#f8f8f8;text-decoration:underline>
-</span></code></pre></div><p>this line:</p>
-<p><code>postgresqlEnabled: true</code></p>
+</span></code></pre></div><p>these lines:</p>
+<p><code>postgresql: enabled: true</code></p>
 <p>Needs to be changed to <code>false</code> to disable creation of the Postgresql pod and create an external database connection.</p>
 <p>The other details are relatively straightforward - Generally you would only specify either:<br>
 <code>postgresqlExternalName</code> or <code>postgresqlExternalIPs</code><br>
@@ -253,7 +257,8 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>postgresqlPassword</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;yourpassword&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlEnabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>enabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat.randomstring.ap-southeast-2.rds.amazonaws.com&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><h3 id=top-level-valuesyaml>Top level values.yaml</h3>
 <p>This file is also located in <code>charts/releases/xnat</code></p>
@@ -265,7 +270,8 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>#postgresqlPassword: &#34;&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#8f5902;font-style:italic>#servicePort: &#34;&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlEnabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>true</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>enabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>true</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalIPs</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[]</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><p>An example configuration using a sample AWS RDS instance would look like this:</p>
@@ -276,7 +282,8 @@ Luckily a mechanism was put into the Helm template to allow connecting to an Ext
 </span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>postgresqlPassword</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;yourpassword&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>    
 </span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlEnabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresql</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>enabled</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>postgresqlExternalName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat.randomstring.ap-southeast-2.rds.amazonaws.com&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><p>Please change the database, username, password and External DNS (or IP) details to match your environment.</p>
 <h3 id=xnat-web-valuesyaml>xnat-web values.yaml</h3>
@@ -335,8 +342,8 @@ This means updating and rebuilding the XNAT docker image before being deployed t
 </div>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-November 9, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/5691a74e005eacefc760b6fc0dd7531bb86d6d6c>Docs: Reformat Linode-setup + change some page titles (5691a74)</a>
+November 12, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/dbbe6a96051134453e95bdd427ff60c81242ff6e>change postgresqlEnabled to postgresql.enabled in Chart.yaml,values.yaml,service.yaml and documentation (dbbe6a9)</a>
 </div>
 </div>
 </main>
