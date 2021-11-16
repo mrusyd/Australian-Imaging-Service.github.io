@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.89.2"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<meta name=generator content="Hugo 0.89.3"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
 <link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
@@ -24,7 +24,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <meta itemprop=description content="Deploying Istio Service Mesh for our XNAT environment What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
-<meta itemprop=wordCount content="1765">
+<meta itemprop=wordCount content="1773">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Istio Setup">
 <meta name=twitter:description content="Deploying Istio Service Mesh for our XNAT environment What is a Service Mesh? From this article:
@@ -52,7 +52,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b8f3d5e981e975b1b0f8772fde10f110.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.4e5c45e3e5b0b1e6dc462dec82da7d2d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.b8f3d5e981e975b1b0f8772fde10f110.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.4e5c45e3e5b0b1e6dc462dec82da7d2d.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -388,6 +388,8 @@ spec:
    - to:
      - operation:
            methods: [&quot;GET&quot;, &quot;POST&quot;, &quot;HEAD&quot;]
+</code></pre><p>Now re-apply the policy:</p>
+<pre tabindex=0><code>kubectl apply -f istio-auth-policy.yaml
 </code></pre><p>And curl again:</p>
 <pre tabindex=0><code>curl -X POST https://xnat.example.com  
 </code></pre><p>This time it works. OK so we have a working Istio service mesh with correctly applied Mutual TLS and Authorization Policies.<br>
@@ -445,9 +447,9 @@ spec:
 <a href=http://example-elb.ap-southeast-2.elb.amazonaws.com:20001/kiali>http://example-elb.ap-southeast-2.elb.amazonaws.com:20001/kiali</a></p>
 <p>It will then ask you for a Token for the service account to be able to login. Find it out with this command and then copy and paste and you now have a fully running kiali installation:</p>
 <pre tabindex=0><code>kubectl get secret -n istio-system $(kubectl get sa kiali-service-account -n istio-system -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 -d
-</code></pre><p>More detauls about accessing Kiali via Ingress:
+</code></pre><p>More details about accessing Kiali via Ingress:
 <a href=https://kiali.io/docs/installation/installation-guide/accessing-kiali/>https://kiali.io/docs/installation/installation-guide/accessing-kiali/</a></p>
-<p>At this point I tried to set the AWS Elastic Load Balancer to use SSL and a proper certificate but after 4 hours of investigation it turns out that Kiali ingress requires &ldquo;class_name&rdquo; and AWS ELB doesn&rsquo;t have one so that doesn&rsquo;t work. Rather frustratingly I ended up manually updating the LoadBalancer lister details to be SSL over TCP and to specify the SSL Cipher policy and Certificate Manager. You should also point your FQDN to this Load Balancer to work with your custom certificate. No doubt an integration of Nginx and AWS ELB would fix this - Nginx being Kiali&rsquo;s default ingres method.</p>
+<p>At this point I tried to set the AWS Elastic Load Balancer to use SSL and a proper certificate but after 4 hours of investigation it turns out that Kiali ingress requires &ldquo;class_name&rdquo; and AWS ELB doesn&rsquo;t have one so that doesn&rsquo;t work. Rather frustratingly I ended up manually updating the LoadBalancer lister details to be SSL over TCP and to specify the SSL Cipher policy and Certificate Manager. You should also point your FQDN to this Load Balancer to work with your custom certificate. No doubt an integration of Nginx and AWS ELB would fix this - Nginx being Kiali&rsquo;s default ingress method.</p>
 <h3 id=troubleshooting-istio>Troubleshooting Istio</h3>
 <p>Use these commands for our XNAT environment to help debugging:</p>
 <pre tabindex=0><code>istioctl proxy-status
@@ -458,7 +460,7 @@ kubectl logs pod/xnat-xnat-web-0 -c istio-proxy -nxnat
 kubectl get peerauthentication --all-namespaces
 kubectl get destinationrule --all-namespaces
 </code></pre><h4 id=more-articles-on-troubleshooting-istio>More Articles on Troubleshooting Istio:</h4>
-<p><a href=https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/>https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/</a>
+<p><a href=https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/>https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/</a><br>
 <a href=https://istio.io/latest/docs/ops/common-problems/security-issues/>https://istio.io/latest/docs/ops/common-problems/security-issues/</a></p>
 <h3 id=further-reading>Further Reading</h3>
 <p>Istio AuthorizationPolicy testing / config:<br>
@@ -467,12 +469,12 @@ kubectl get destinationrule --all-namespaces
 <a href=https://kiali.io/docs/features/security/>https://kiali.io/docs/features/security/</a></p>
 <p>Istio Workshop:<br>
 <a href=https://www.istioworkshop.io>https://www.istioworkshop.io</a></p>
-<p>Istio MTLS Example Setup:<br>
+<p>Istio mTLS Example Setup:<br>
 <a href=https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-November 12, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/dbbe6a96051134453e95bdd427ff60c81242ff6e>change postgresqlEnabled to postgresql.enabled in Chart.yaml,values.yaml,service.yaml and documentation (dbbe6a9)</a>
+November 16, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/d87ab45b9a4e90d971a23cb07d8ac06e7b30ba57>Fix some typos and tidy up Istio-Setup documentation (d87ab45)</a>
 </div>
 </div>
 </main>
