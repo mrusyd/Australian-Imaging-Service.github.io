@@ -15,19 +15,19 @@
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
 <title>Kustomize | Australian Imaging Service</title>
 <meta name=description content><meta property="og:title" content="Kustomize">
-<meta property="og:description" content="Using Kustomize as a Post renderer for the AIS Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
+<meta property="og:description" content="Using Kustomize as a Post renderer for the AIS XNAT Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
 They can be updated from the upstream repo with a single line of code and for any customisations you want to add into the deployment you specify it in a values.yaml file.
 Or at least that&rsquo;s how it should work.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://australian-imaging-service.github.io/docs/deployment/kustomize/"><meta property="article:section" content="docs">
 <meta itemprop=name content="Kustomize">
-<meta itemprop=description content="Using Kustomize as a Post renderer for the AIS Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
+<meta itemprop=description content="Using Kustomize as a Post renderer for the AIS XNAT Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
 They can be updated from the upstream repo with a single line of code and for any customisations you want to add into the deployment you specify it in a values.yaml file.
 Or at least that&rsquo;s how it should work.">
-<meta itemprop=wordCount content="1772">
+<meta itemprop=wordCount content="1774">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Kustomize">
-<meta name=twitter:description content="Using Kustomize as a Post renderer for the AIS Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
+<meta name=twitter:description content="Using Kustomize as a Post renderer for the AIS XNAT Helm Chart Kustomize Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.
 They can be updated from the upstream repo with a single line of code and for any customisations you want to add into the deployment you specify it in a values.yaml file.
 Or at least that&rsquo;s how it should work.">
 <link rel=preload href=/scss/main.min.2d9c4decd76e333e7b4c06f7eebe05ad37b2a71daa5073ae08f431cb802c2a6e.css as=style>
@@ -52,7 +52,7 @@ Or at least that&rsquo;s how it should work.">
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.97f3e22f6f0091b867272c4c4e410a87.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.f0b3abda16f80f412720cd891ad30921.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ Or at least that&rsquo;s how it should work.">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.97f3e22f6f0091b867272c4c4e410a87.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.f0b3abda16f80f412720cd891ad30921.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -200,10 +200,10 @@ Or at least that&rsquo;s how it should work.">
 <li><a href=#install-kustomize>Install Kustomize</a>
 <ul>
 <li><a href=#how-kustomize-works>How Kustomize works</a></li>
-<li><a href=#1-in-order-to-extract-all-of-the-helm-chart-information-you-can-use-the-helm-template-command-in-the-case-of-our-xnatais-helm-chart-to-extract-all-of-this-data-into-a-file-called-allyaml-can-be-any-filename-you-would-run-this-command>1. In order to extract all of the Helm chart information, you can use the <em><strong>helm template</strong></em> command. In the case of our XNAT/AIS Helm chart, to extract all of this data into a file called all.yaml (can be any filename) you would run this command:</a></li>
-<li><a href=#2-the-next-step-is-a-kustomizationyaml-file-this-file-must-be-called-kustomizationyaml-or-kustomize-doesnt-work>2. The next step is a kustomization.yaml file. This file must be called kustomization.yaml or Kustomize doesn&rsquo;t work.</a></li>
-<li><a href=#3-the-patch-file>3. The Patch file.</a></li>
-<li><a href=#4-the-script-to-bring-this-all-together>4. The script to bring this all together</a></li>
+<li><a href=#1>1.</a></li>
+<li><a href=#2>2.</a></li>
+<li><a href=#3>3.</a></li>
+<li><a href=#4>4.</a></li>
 <li><a href=#5-deploy-the-helm-chart-with-kustomize-post-renderer>5. Deploy the Helm Chart with Kustomize post-renderer</a></li>
 </ul>
 </li>
@@ -229,7 +229,7 @@ Or at least that&rsquo;s how it should work.">
 <h1>Kustomize</h1>
 <header class=article-meta>
 </header>
-<h1 id=using-kustomize-as-a-post-renderer-for-the-ais-helm-chart>Using Kustomize as a Post renderer for the AIS Helm Chart</h1>
+<h1 id=using-kustomize-as-a-post-renderer-for-the-ais-xnat-helm-chart>Using Kustomize as a Post renderer for the AIS XNAT Helm Chart</h1>
 <h2 id=kustomize>Kustomize</h2>
 <p>Using a Helm Chart is a pretty awesome way to deploy Kubernetes infrastructure in a neatly packaged, release versioned way.<br>
 They can be updated from the upstream repo with a single line of code and for any customisations you want to add into the deployment you specify it in a values.yaml file.</p>
@@ -247,16 +247,18 @@ This allows you to continue to use the Helm Charts from the repo AND customise t
 <a href=https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/>https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/</a></p>
 <p>Direct install:</p>
 <pre tabindex=0><code>curl -s &quot;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot;  | bash
-</code></pre><p>This downloads to whatever directory you are in for whatever Operatin System you are using. Copy it to /usr/local/bin to use it system wide:</p>
+</code></pre><p>This downloads to whatever directory you are in for whatever Operating System you are using. Copy it to /usr/local/bin to use it system wide:</p>
 <pre tabindex=0><code>sudo cp kustomize /usr/local/bin
 </code></pre><h3 id=how-kustomize-works>How Kustomize works</h3>
 <p>When using Kustomize as a post renderer, Kustomize inputs all of the Helm Charts configuration data for a particular Chart in conjunction with the values file you specify with your cluster specific details and then amends the templates and applies them on the fly afterwards. This is why it is called a post renderer.</p>
 <p>Let&rsquo;s break this down.</p>
-<h3 id=1-in-order-to-extract-all-of-the-helm-chart-information-you-can-use-the-helm-template-command-in-the-case-of-our-xnatais-helm-chart-to-extract-all-of-this-data-into-a-file-called-allyaml-can-be-any-filename-you-would-run-this-command>1. In order to extract all of the Helm chart information, you can use the <em><strong>helm template</strong></em> command. In the case of our XNAT/AIS Helm chart, to extract all of this data into a file called all.yaml (can be any filename) you would run this command:</h3>
+<h3 id=1>1.</h3>
+<p>In order to extract all of the Helm chart information, you can use the <em><strong>helm template</strong></em> command. In the case of our XNAT/AIS Helm chart, to extract all of this data into a file called all.yaml (can be any filename) you would run this command:</p>
 <pre tabindex=0><code>helm template xnat ais/xnat &gt; all.yaml
 </code></pre><p>You now have the complete configuration of your Helm Chart including all template files in one file - all.yaml.</p>
-<h3 id=2-the-next-step-is-a-kustomizationyaml-file-this-file-must-be-called-kustomizationyaml-or-kustomize-doesnt-work>2. The next step is a kustomization.yaml file. This file must be called kustomization.yaml or Kustomize doesn&rsquo;t work.</h3>
-<p>You create this and in it you specify your resources (inputs) - in our example, the resource will be all.yaml. The fantastic thing about Kustomize is you can add more inputs in as well which combines with the Helm Chart to streamline deployment.</p>
+<h3 id=2>2.</h3>
+<p>The next step is a kustomization.yaml file. This file must be called kustomization.yaml or Kustomize doesn&rsquo;t work.<br>
+You create this and in it you specify your resources (inputs) - in our example, the resource will be all.yaml. The fantastic thing about Kustomize is you can add more resources in as well which combines with the Helm Chart to streamline deployment.</p>
 <p>For instance, in my kustomization.yaml file I also specify a pv.yaml as another resource. This has information about creating Persistent Volumes for the XNAT deployment and creates the volumes with the deployment so I don&rsquo;t have to apply this separately. You can do this for any resources you want to add to your deployment not included in the Helm chart.<br>
 Example using all.yaml and pv.yaml in the kustomization.yaml file:</p>
 <pre tabindex=0><code>apiVersion: kustomize.config.k8s.io/v1beta1
@@ -322,8 +324,9 @@ spec:
     {{- include &quot;xnat-web.selectorLabels&quot; . | nindent 4 }}
   sessionAffinity: &quot;ClientIP&quot;
 {{- end }}
-</code></pre><h3 id=3-the-patch-file>3. The Patch file.</h3>
-<p>OK, so let&rsquo;s have a look at our patch file and see what it is actually doing. Contents of service-patch.yaml:</p>
+</code></pre><h3 id=3>3.</h3>
+<p>The Patch file.<br>
+OK, so let&rsquo;s have a look at our patch file and see what it is actually doing. Contents of service-patch.yaml:</p>
 <pre tabindex=0><code>- op: remove
   path: &quot;/spec/sessionAffinity&quot;
 </code></pre><p>Pretty simple really. <em><strong>- op: remove</strong></em> just removes whatever we tell it to in our service.yaml file. If we look through our file, we find <em><strong>spec</strong></em> and then under that we find <em><strong>sessionAffinity</strong></em> and then remove that.<br>
@@ -478,7 +481,8 @@ patches:
     name: xnat-xnat-web 
     version: v1beta1
 </code></pre><p>We are now ready to apply our kustomizations!</p>
-<h3 id=4-the-script-to-bring-this-all-together>4. The script to bring this all together</h3>
+<h3 id=4>4.</h3>
+<p>The script to bring this all together</p>
 <p>Create a new fle called whatever you like - and make it executable, in my case we will call it hook.sh.</p>
 <pre tabindex=0><code>vi hook.sh
 chmod 755 hook.sh
@@ -487,18 +491,18 @@ chmod 755 hook.sh
 cat &lt;&amp;0 &gt; all.yaml
 kustomize build &amp;&amp; rm all.yaml
 </code></pre><p>This takes the contents of all.yaml and kustomizes it using the kustomization.yaml file with the resources and patches I have previously described. Finally, it deletes all.yaml.<br>
-When you run <em><strong>kustomize build</strong></em> it will look for a file called kustomization.yaml to apply the transformations. As the kustomization.yaml file is in the same directory as hook.sh only <em><strong>kustomize build</strong></em> command is needed, no further directive is required.</p>
+When you run <em><strong>kustomize build</strong></em> it will look for a file called kustomization.yaml to apply the transformations. As the kustomization.yaml file is in the same directory as hook.sh only the <em><strong>kustomize build</strong></em> command is needed, no further directive is required.</p>
 <h3 id=5-deploy-the-helm-chart-with-kustomize-post-renderer>5. Deploy the Helm Chart with Kustomize post-renderer</h3>
 <p>OK to bring it all together and upgrade the XNAT AIS helm chart with your values file as values.yaml in the namespace xnat, run this command:</p>
 <pre tabindex=0><code>helm template xnat ais/xnat &gt; all.yaml &amp;&amp; helm upgrade xnat ais/xnat -i -f values.yaml -nxnat --post-renderer=./hook.sh
-</code></pre><p>In this case, you need to make sure that the following files are in the same directory:<br>
-values.yaml
-hook.sh
-kustomization.yaml
+</code></pre><p>In this case, you need to make sure that the following files are in the same directory:</p>
+<pre tabindex=0><code>values.yaml  
+hook.sh  
+kustomization.yaml  
 ingress-patch.yaml
 service-patch.yaml
-pv.yaml</p>
-<h2 id=further-reading>Further Reading</h2>
+pv.yaml
+</code></pre><h2 id=further-reading>Further Reading</h2>
 <p>There are a lot of configuration options for Kustomize and this just touched on the basics.<br>
 Kustomize is also really useful for creating dev, staging and production implementations using the same chart. See these articles:</p>
 <p><a href=https://austindewey.com/2020/07/27/patch-any-helm-chart-template-using-a-kustomize-post-renderer/>https://austindewey.com/2020/07/27/patch-any-helm-chart-template-using-a-kustomize-post-renderer/</a>
@@ -508,7 +512,7 @@ Kustomize is also really useful for creating dev, staging and production impleme
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
 November 18, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/381af1d38cf78f7235f5ed09638c7894d8c3ef67>Create Kustomize documentation (381af1d)</a>
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/ca8d796ea6da4716d39511f45fb8df24fdd818d4>Fix some style errors and typos for Kustomize documentation (ca8d796)</a>
 </div>
 </div>
 </main>
