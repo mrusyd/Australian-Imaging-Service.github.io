@@ -13,23 +13,23 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>Istio Setup | Australian Imaging Service</title>
-<meta name=description content><meta property="og:title" content="Istio Setup">
-<meta property="og:description" content="Deploying Istio Service Mesh for our XNAT environment What is a Service Mesh? From this article:
+<title>Deploying Istio Service Mesh for our XNAT environment | Australian Imaging Service</title>
+<meta name=description content><meta property="og:title" content="Deploying Istio Service Mesh for our XNAT environment">
+<meta property="og:description" content="What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
-&ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
+ &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://australian-imaging-service.github.io/docs/deployment/istio-setup/"><meta property="article:section" content="docs">
-<meta itemprop=name content="Istio Setup">
-<meta itemprop=description content="Deploying Istio Service Mesh for our XNAT environment What is a Service Mesh? From this article:
+<meta itemprop=name content="Deploying Istio Service Mesh for our XNAT environment">
+<meta itemprop=description content="What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
-&ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
-<meta itemprop=wordCount content="1773">
+ &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
+<meta itemprop=wordCount content="1643">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Istio Setup">
-<meta name=twitter:description content="Deploying Istio Service Mesh for our XNAT environment What is a Service Mesh? From this article:
+<meta name=twitter:title content="Deploying Istio Service Mesh for our XNAT environment">
+<meta name=twitter:description content="What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
-&ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
+ &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
 <link rel=preload href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css as=style>
 <link href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
@@ -52,7 +52,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.7cff0a6db7d5b05d6199f1ba86c96496.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.4379f641ea6b5c264fb09e4bc6062d31.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.7cff0a6db7d5b05d6199f1ba86c96496.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.4379f641ea6b5c264fb09e4bc6062d31.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -98,10 +98,10 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <a href=/docs/deployment/azure-setup-full/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentazure-setup-full><span>Azure Setup Full</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsdeploymentistio-setup-li>
-<a href=/docs/deployment/istio-setup/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentistio-setup><span class=td-sidebar-nav-active-item>Istio Setup</span></a>
+<a href=/docs/deployment/istio-setup/ title="Deploying Istio Service Mesh for our XNAT environment" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentistio-setup><span class=td-sidebar-nav-active-item>Istio Setup</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentkustomize-li>
-<a href=/docs/deployment/kustomize/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentkustomize><span>Kustomize</span></a>
+<a href=/docs/deployment/kustomize/ title="Using Kustomize as a Post renderer for the AIS XNAT Helm Chart" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentkustomize><span>Kustomize</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdeploymentlinode-setup-li>
 <a href=/docs/deployment/linode-setup/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdeploymentlinode-setup><span>Linode setup</span></a>
@@ -192,11 +192,11 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href=https://github.com/Australian-Imaging-Service/charts/edit/main/docs/Charts/Deployment/Istio-Setup.md target=_blank><i class="fa fa-edit fa-fw"></i> Edit this page</a>
 <a href="https://github.com/Australian-Imaging-Service/charts/new/main/docs/Charts/Deployment/Istio-Setup.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i> Create child page</a>
-<a href="https://github.com/Australian-Imaging-Service/charts/issues/new?title=Istio%20Setup" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/Australian-Imaging-Service/charts/issues/new?title=Deploying%20Istio%20Service%20Mesh%20for%20our%20XNAT%20environment" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 </div>
 <div class=td-toc><nav id=TableOfContents>
 <ul>
-<li><a href=#deploying-istio-service-mesh-for-our-xnat-environment>Deploying Istio Service Mesh for our XNAT environment</a>
+<li>
 <ul>
 <li><a href=#what-is-a-service-mesh>What is a Service Mesh?</a></li>
 <li><a href=#install-istio>Install Istio</a></li>
@@ -225,14 +225,15 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 </ol>
 </nav>
 <div class=td-content>
-<h1>Istio Setup</h1>
+<h1>Deploying Istio Service Mesh for our XNAT environment</h1>
 <header class=article-meta>
 </header>
-<h2 id=deploying-istio-service-mesh-for-our-xnat-environment>Deploying Istio Service Mesh for our XNAT environment</h2>
 <h3 id=what-is-a-service-mesh>What is a Service Mesh?</h3>
 <p>From this article:<br>
 <a href=https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh>https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh</a></p>
+<blockquote>
 <p>&ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.&rdquo;</p>
+</blockquote>
 <p>OK so a service mesh helps secure our environment and the communication between different namespaces and apps in our cluster (or clusters).</p>
 <p>Istio is one of the most popular Service Mesh software providers so we will deploy and configure this for our environment.<br>
 OK so let&rsquo;s get to work.</p>
@@ -241,163 +242,179 @@ Following this guide to perform the helm install:<br>
 <a href=https://istio.io/latest/docs/setup/install/helm/>https://istio.io/latest/docs/setup/install/helm/</a></p>
 <p>For our installation we won&rsquo;t be installing the Istio Ingress Gateway or Istio Egress Gateway controller for our AWS environment. <br>
 This is because AWS Cluster Autoscaler requires Application Load Balancer type to be IP whereas the Ingress Gateway controller does not work with that target type - only target type: Instance.<br>
-This catch 22 forces us to use only istio and istiod to perform the service mesh and keep our existing AWS ALB Ingress controller. The standard install of Istio is to create an Istio Ingress Gateway, point it to a virtual service and then that virtual service points to your actual service.</p>
+This catch 22 forces us to use only <code>istio</code> and <code>istiod</code> to perform the service mesh and keep our existing AWS ALB Ingress controller. The standard install of Istio is to create an Istio Ingress Gateway, point it to a virtual service and then that virtual service points to your actual service.</p>
 <p>For more information on how to install and configure the Istio Ingress Gateway please follow this guide:<br>
 <a href=https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/>https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/</a></p>
 <h3 id=install-istio>Install Istio</h3>
-<p>Download Latest version of istioctl:</p>
-<pre tabindex=0><code>curl -L https://istio.io/downloadIstio | sh -
-</code></pre><p>Copy binary to /usr/local/bin (change to istio-install directory first - i.e. istio-1.11.X):</p>
-<pre tabindex=0><code>sudo cp bin/istioctl /usr/local/bin/
-</code></pre><p>Confirm it is working:</p>
-<pre tabindex=0><code>istioctl version
-</code></pre><p>Create namespace:</p>
-<pre tabindex=0><code>kubectl create ns istio-system
-</code></pre><p>Install Istio base (must be in istio install directory):</p>
-<pre tabindex=0><code>helm install istio-base manifests/charts/base -n istio-system
-</code></pre><p>Install Istiod:</p>
-<pre tabindex=0><code>helm install istiod manifests/charts/istio-control/istio-discovery \
-    -n istio-system
-</code></pre><p>Now Istio is installed, we need to apply the configuration to our XNAT namespace to add the Istio sidecars - this is how Istio applies the policies.<br>
+<p>Download Latest version of <code>istioctl</code>:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -L https://istio.io/downloadIstio <span style=color:#000;font-weight:700>|</span> sh -
+</code></pre></div><p>Copy binary to <code>/usr/local/bin</code> (change to istio install directory first - i.e. <code>istio-1.11.X</code>):</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo cp bin/istioctl /usr/local/bin/
+</code></pre></div><p>Confirm it is working:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>istioctl version
+</code></pre></div><p>Create namespace:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create ns istio-system
+</code></pre></div><p>Install Istio base (must be in istio install directory):</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istio-base manifests/charts/base -n istio-system
+</code></pre></div><p>Install <code>istiod</code>:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istiod manifests/charts/istio-control/istio-discovery <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>    -n istio-system
+</code></pre></div><p>Now Istio is installed, we need to apply the configuration to our XNAT namespace to add the Istio sidecars - this is how Istio applies the policies.<br>
+<div class="alert alert-primary" role=alert>
 For more information on Sidecars, see this article:<br>
-<a href=https://istio.io/latest/docs/reference/config/networking/sidecar/>https://istio.io/latest/docs/reference/config/networking/sidecar/</a></p>
+<a href=https://istio.io/latest/docs/reference/config/networking/sidecar/>https://istio.io/latest/docs/reference/config/networking/sidecar/</a>
+</div>
+</p>
 <p>Label the namespaces you want the Istio sidecars to install into - in our case XNAT:</p>
-<pre tabindex=0><code>kubectl label namespace xnat istio-injection=enabled
-</code></pre><p>Confirm it has been successfully applied:</p>
-<pre tabindex=0><code>kubectl get ns xnat --show-labels
-</code></pre><p>At this point you may need to redeploy your pods if there are no sidecars present. When Istio is properly deployed, instead of xnat pods saying 1/1 they will say 2/2 - example:</p>
-<pre tabindex=0><code>kubectl get -nxnat all
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl label namespace xnat istio-injection<span style=color:#ce5c00;font-weight:700>=</span>enabled
+</code></pre></div><p>Confirm it has been successfully applied:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get ns xnat --show-labels
+</code></pre></div><p>At this point you may need to redeploy your pods if there are no sidecars present. When Istio is properly deployed, instead of xnat pods saying <code>1/1</code> they will say <code>2/2</code> - example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get -nxnat all
 NAME                    READY   STATUS    RESTARTS   AGE
-pod/xnat-postgresql-0   2/2     Running   0          160m
-pod/xnat-xnat-web-0     2/2     Running   0          160m
-</code></pre><h3 id=note-about-cluster-austoscaler--horizontal-pod-autoscaler-as-it-applies-to-istio>Note about Cluster Austoscaler / Horizontal Pod Autoscaler as it applies to Istio</h3>
-<p>When using Kubernetes Horizontal Pod Autoscaling (HPA) to scale out pods automatically, you need to make adjustments for Istio. After enabling Istio for some deployments HPA wasn’t scaling as expected and in some cases not at all.<br>
-It turns out that HPA uses the sum of all CPU requests for a pod when determining using CPU metrics when to scale. By adding a istio-proxy sidecar to a pod we were changing the total amount of CPU & memory requests thereby effectively skewing the scale out point. So for example, if you have HPA configured to scale at 70% targetCPUUtilizationPercentage and your application requests 100m, you are scaling at 70m. When Istio comes into the picture, by default it requests 100m as well. So with istio-proxy injected now your scale out point is 140m ((100m + 100m) * 70% ) , which you may never reach. We have found that istio-proxy consumes about 10m in our environment. Even with an extra 10m being consumed by istio-proxy combined with the previous scale up trigger of 70m on the application container is well short (10m + 70m) of the new target of 140m
-We solved this by calculating the correct scale out point and setting targetAverageValue to it.</p>
+pod/xnat-postgresql-0   2/2     Running   <span style=color:#0000cf;font-weight:700>0</span>          160m
+pod/xnat-xnat-web-0     2/2     Running   <span style=color:#0000cf;font-weight:700>0</span>          160m
+</code></pre></div><h3 id=note-about-cluster-austoscaler--horizontal-pod-autoscaler-as-it-applies-to-istio>Note about Cluster Austoscaler / Horizontal Pod Autoscaler as it applies to Istio</h3>
+<p>When using Kubernetes Horizontal Pod Autoscaling (HPA) to scale out pods automatically, you need to make adjustments for Istio. After enabling Istio for some deployments HPA wasn’t scaling as expected and in some cases not at all.</p>
+<p>It turns out that HPA uses the sum of all CPU requests for a pod when determining using CPU metrics when to scale. By adding a <code>istio-proxy</code> sidecar to a pod we were changing the total amount of CPU & memory requests thereby effectively skewing the scale out point. So for example, if you have HPA configured to scale at 70% <code>targetCPUUtilizationPercentage</code> and your application requests <code>100m</code>, you are scaling at <code>70m</code>. When Istio comes into the picture, by default it requests 100m as well. So with istio-proxy injected now your scale out point is <code>140m ((100m + 100m) * 70% )</code> , which you may never reach. We have found that <code>istio-proxy</code> consumes about <code>10m</code> in our environment. Even with an extra 10m being consumed by <code>istio-proxy</code> combined with the previous scale up trigger of <code>70m</code> on the application container is well short <code>(10m + 70m)</code> of the new target of <code>140m</code></p>
+<p>We solved this by calculating the correct scale out point and setting <code>targetAverageValue</code> to it.</p>
 <p>Referenced from this article:<br>
 <a href=https://engineering.hellofresh.com/everything-we-learned-running-istio-in-production-part-2-ff4c26844bfb>https://engineering.hellofresh.com/everything-we-learned-running-istio-in-production-part-2-ff4c26844bfb</a></p>
 <h3 id=apply-our-istio-policies>Apply our Istio Policies</h3>
 <h4 id=mtls>mTLS</h4>
 <p>We are going to enable Mutual TLS for the entire mesh.<br>
-This policy will do that - call it istio-mtls.yaml:</p>
-<pre tabindex=0><code>apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: istio-system
-spec:
-  mtls:
-    mode: STRICT
-</code></pre><p>Now apply the policy:</p>
-<pre tabindex=0><code>kubectl apply -f istio-mtls.yaml
-</code></pre><p>Check that mTLS is enabled for all namespaces:</p>
-<pre tabindex=0><code>kubectl get peerauthentication --all-namespaces
+This policy will do that - call it <code>istio-mtls.yaml</code>:</p>
+<div class=code-file>
+<pre class=filename>istio-mtls.yaml</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>security.istio.io/v1beta1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>PeerAuthentication</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>default</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>istio-system</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>mtls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>STRICT</span></code></pre></div>
+</div>
+<p>Now apply the policy:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f istio-mtls.yaml
+</code></pre></div><p>Check that mTLS is enabled for all namespaces:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get peerauthentication --all-namespaces
 NAMESPACE      NAME      MODE     AGE
 default        default   STRICT   16h
 istio-system   default   STRICT   28m
 xnat           default   STRICT   16h
-</code></pre><p>Now if we try to access our XNAT server we will get 502 Bad Gateway as the XNAT app can&rsquo;t perform mTLS. Please substitute your XNAT URL below:</p>
-<pre tabindex=0><code>curl -X GET https://xnat.example.com
+</code></pre></div><p>Now if we try to access our XNAT server we will get <code>502 Bad Gateway</code> as the XNAT app can&rsquo;t perform mTLS. Please substitute your XNAT URL below:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X GET https://xnat.example.com
 &lt;html&gt;
 &lt;head&gt;&lt;title&gt;502 Bad Gateway&lt;/title&gt;&lt;/head&gt;
 &lt;body&gt;
 &lt;center&gt;&lt;h1&gt;502 Bad Gateway&lt;/h1&gt;&lt;/center&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>So next we want to allow traffic on port 8080 going to our xnat-xnat-web app only and apply mTLS for everything else, so amend istio-mtls.yaml:</p>
-<pre tabindex=0><code>apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: istio-system
-spec:
-  mtls:
-      mode: STRICT
----
-apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: xnat
-spec:
-  selector:
-    matchLabels:
-      app: xnat-web
-  mtls:
-    mode: STRICT
-  portLevelMtls:
-    8080:
-      mode: DISABLE
-</code></pre><p>Now apply again:</p>
-<pre tabindex=0><code>kubectl apply -f istio-mtls.yaml
-</code></pre><p>If we now run our curl command again:</p>
-<pre tabindex=0><code>curl -X GET https://xnat.example.com
-</code></pre><p>It completes successfully.</p>
+</code></pre></div><p>So next we want to allow traffic on port <code>8080</code> going to our <code>xnat-xnat-web</code> app only and apply mTLS for everything else, so amend <code>istio-mtls.yaml</code>:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>security.istio.io/v1beta1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>PeerAuthentication</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>default</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>istio-system</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>mtls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>STRICT</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#000>---</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>security.istio.io/v1beta1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>PeerAuthentication</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>default</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>selector</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>matchLabels</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>app</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-web</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>mtls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>STRICT</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>portLevelMtls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>8080</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>DISABLE</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>Now apply again:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f istio-mtls.yaml
+</code></pre></div><p>If we now run our curl command again:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X GET https://xnat.example.com
+</code></pre></div><p>It completes successfully.</p>
 <h4 id=authorization-policy>Authorization Policy</h4>
-<p>You can also specify what commands we can run on our xnat-xnat-web app with Authorization policies and even specify via source from specific namespaces and even apps. This gives you the ability to completely lock down the environment.<br>
+<p>You can also specify what commands we can run on our <code>xnat-xnat-web</code> app with Authorization policies and even specify via source from specific namespaces and even apps. This gives you the ability to completely lock down the environment.<br>
 You can for instance allow a certain source POST access whilst another source only has GET and HEAD access.</p>
-<p>Let&rsquo;s create the following Authorization policy to allow all GET and HEAD commands to our xnat-xnat-web app called istio-auth-policy.yaml:</p>
-<pre tabindex=0><code>apiVersion: &quot;security.istio.io/v1beta1&quot;
-kind: &quot;AuthorizationPolicy&quot;
-metadata:
-     name: &quot;xnat-all&quot;
-     namespace: xnat
-spec:
-    selector:
-      matchLabels:
-           app: xnat-web
-   rules:
-   - to:
-     - operation:
-           methods: [&quot;GET&quot;, &quot;HEAD&quot;]
-</code></pre><p>If you wanted to specify a source you would add a from value under rules and source.<br>
-Please follow this guide for more details:<br>
+<p>Let&rsquo;s create the following Authorization policy to allow all GET and HEAD commands to our <code>xnat-xnat-web</code> app called <code>istio-auth-policy.yaml</code>:</p>
+<div class=code-file>
+<pre class=filename>istio-auth-policy.yaml</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;security.istio.io/v1beta1&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;AuthorizationPolicy&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat-all&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>selector</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>matchLabels</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>app</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-web</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>   </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>   </span>- <span style=color:#204a87;font-weight:700>to</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span>- <span style=color:#204a87;font-weight:700>operation</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>]</span></code></pre></div>
+</div>
+<div class="alert alert-primary" role=alert>
+<p>If you wanted to specify a source you would add a from value under rules and source.</p>
+<p>Please follow this guide for more details:<br>
 <a href=https://istio.io/latest/docs/tasks/security/authorization/authz-http/>https://istio.io/latest/docs/tasks/security/authorization/authz-http/</a></p>
-<p>Before you apply the policy, we need to add a destination rule to allow the traffic out. Create a file called istio-destination.yaml:</p>
-<pre tabindex=0><code>apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-   name: &quot;xnat-xnat-web&quot;
-spec:
-    host: xnat-xnat-web.xnat.svc.cluster.local
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
-    portLevelSettings:
-    - port:
-        number: 8080
-      tls:
-        mode: DISABLE
-</code></pre><p>Apply both policies:</p>
-<pre tabindex=0><code>kubectl apply -f istio-auth-policy.yaml
+</div>
+<p>Before you apply the policy, we need to add a destination rule to allow the traffic out. Create a file called <code>istio-destination.yaml</code>:</p>
+<div class=code-file>
+<pre class=filename>istio-destination.yaml</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>networking.istio.io/v1alpha3</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>DestinationRule</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>   </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat-xnat-web&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>host</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-xnat-web.xnat.svc.cluster.local</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>trafficPolicy</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>tls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>ISTIO_MUTUAL</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>portLevelSettings</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>- <span style=color:#204a87;font-weight:700>port</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>number</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>8080</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>tls</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span><span style=color:#204a87;font-weight:700>mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>DISABLE</span></code></pre></div>
+</div>
+<p>Apply both policies:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f istio-auth-policy.yaml
 kubectl apply -f istio-destination.yaml
-</code></pre><p>Now let&rsquo;s see it in action.</p>
-<pre tabindex=0><code>curl -X GET https://xnat.example.com  
-</code></pre><p>This completes fine. Now let&rsquo;s try wtih a POST command not included in the authorization policy:</p>
-<pre tabindex=0><code>curl -X POST https://xnat.example.com  
+</code></pre></div><p>Now let&rsquo;s see it in action.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X GET https://xnat.example.com  
+</code></pre></div><p>This completes fine. Now let&rsquo;s try wtih a POST command not included in the authorization policy:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X POST https://xnat.example.com  
 RBAC: access denied
-</code></pre><p>So our policy is working correctly. However, as XNAT relies rather heavily on POST we will add it in to the policy and try again.<br>
+</code></pre></div><p>So our policy is working correctly. However, as XNAT relies rather heavily on POST we will add it in to the policy and try again.<br>
 Amend the yaml file to this:</p>
-<pre tabindex=0><code>apiVersion: &quot;security.istio.io/v1beta1&quot;
-kind: &quot;AuthorizationPolicy&quot;
-metadata:
-     name: &quot;xnat-all&quot;
-     namespace: xnat
-spec:
-    selector:
-      matchLabels:
-           app: xnat-web
-   rules:
-   - to:
-     - operation:
-           methods: [&quot;GET&quot;, &quot;POST&quot;, &quot;HEAD&quot;]
-</code></pre><p>Now re-apply the policy:</p>
-<pre tabindex=0><code>kubectl apply -f istio-auth-policy.yaml
-</code></pre><p>And curl again:</p>
-<pre tabindex=0><code>curl -X POST https://xnat.example.com  
-</code></pre><p>This time it works. OK so we have a working Istio service mesh with correctly applied Mutual TLS and Authorization Policies.<br>
-This is only a tiny fraction of what Istio can do, so please go to their website for more information.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;security.istio.io/v1beta1&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;AuthorizationPolicy&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;xnat-all&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>selector</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>matchLabels</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>app</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>xnat-web</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>   </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>   </span>- <span style=color:#204a87;font-weight:700>to</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span>- <span style=color:#204a87;font-weight:700>operation</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;POST&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>]</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>Now re-apply the policy:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f istio-auth-policy.yaml
+</code></pre></div><p>And curl again:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X POST https://xnat.example.com  
+</code></pre></div><p>This time it works. OK so we have a working Istio service mesh with correctly applied Mutual TLS and Authorization Policies.</p>
+<div class="alert alert-primary" role=alert>
+<p>This is only a tiny fraction of what Istio can do, so please go to their website for more information.</p>
 <p><a href=https://istio.io/latest/docs/>https://istio.io/latest/docs/</a></p>
+</div>
 <h3 id=kiali-installation>Kiali Installation</h3>
 <p>Kiali is a fantastic visualisation tool for Istio that helps you see at a glance what your namespaces are up to, if they are protected and allows you to add and update Istio configuration policies right through the web GUI.<br>
 In combination with Prometheus and Jaeger, it allows to show traffic metrics, tracing and much more.</p>
@@ -407,62 +424,70 @@ In combination with Prometheus and Jaeger, it allows to show traffic metrics, tr
 <p>Once you have installed Istio and Istiod, follow this guide to guide to install via helm:<br>
 <a href=https://kiali.io/docs/installation/installation-guide/example-install/>https://kiali.io/docs/installation/installation-guide/example-install/</a></p>
 <h4 id=install-the-operator-via-helm-and-create-namespace>Install the Operator via Helm and create Namespace:</h4>
-<pre tabindex=0><code>helm repo add kiali https://kiali.org/helm-charts
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm repo add kiali https://kiali.org/helm-charts
 helm repo update kiali
 helm repo update 
 helm install --namespace kiali-operator --create-namespace kiali-operator kiali/kiali-operator
-</code></pre><p>Check everything came up properly:</p>
-<pre tabindex=0><code>kubectl get -nkiali-operator all
-</code></pre><h4 id=install-prometheus-and-jaeger-into-istio-system-namespace-to-show-metrics-and-tracing-from-your-istio-installation-directory-ie-istio-111x>Install Prometheus and Jaeger into Istio-System namespace to show metrics and tracing. From your Istio installation directory (i.e. istio-1.11.X):</h4>
-<pre tabindex=0><code>kubectl apply -f samples/addons/jaeger.yaml
+</code></pre></div><p>Check everything came up properly:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get -nkiali-operator all
+</code></pre></div><h4 id=install-prometheus-and-jaeger-into-istio-system-namespace-to-show-metrics-and-tracing-from-your-istio-installation-directory-ie-istio-111x>Install Prometheus and Jaeger into Istio-System namespace to show metrics and tracing. From your Istio installation directory (i.e. istio-1.11.X):</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f samples/addons/jaeger.yaml
 kubectl apply -f samples/addons/prometheus.yaml
-</code></pre><p>Check they are correctly installed:</p>
-<pre tabindex=0><code>kubectl get -nistio-system all
-</code></pre><h4 id=create-kiali-cr-with-authentication-strategy-token-and-set-to-service-type-loadbalancer-to-be-able-to-access-outside-of-the-cluster>Create Kiali-CR with authentication strategy token and set to service type LoadBalancer to be able to access outside of the cluster:</h4>
-<p>vi kiali_cr.yaml</p>
-<pre tabindex=0><code>apiVersion: kiali.io/v1alpha1
-kind: Kiali
-metadata:
-  name: kiali
-  namespace: istio-system
-spec:
-  auth:
-    strategy: &quot;token&quot;
-  deployment:
-    service_type: &quot;LoadBalancer&quot;
-    view_only_mode: false
-  server:
-     web_root: &quot;/kiali&quot;
-</code></pre><p>Read more about Token authentication here:<br>
-<a href=https://kiali.io/docs/configuration/rbac/>https://kiali.io/docs/configuration/rbac/</a></p>
+</code></pre></div><p>Check they are correctly installed:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get -nistio-system all
+</code></pre></div><h4 id=create-kiali-cr-with-authentication-strategy-token-and-set-to-service-type-loadbalancer-to-be-able-to-access-outside-of-the-cluster>Create Kiali-CR with authentication strategy token and set to service type LoadBalancer to be able to access outside of the cluster:</h4>
+<div class=code-file>
+<pre class=filename>kiali_cr.yaml</pre>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>kiali.io/v1alpha1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>Kiali</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>kiali</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>namespace</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>istio-system</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>auth</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>strategy</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;token&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>deployment</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>service_type</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;LoadBalancer&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span><span style=color:#204a87;font-weight:700>view_only_mode</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>server</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>     </span><span style=color:#204a87;font-weight:700>web_root</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;/kiali&#34;</span></code></pre></div>
+</div>
+<div class="alert alert-primary" role=alert>
+Read more about Token authentication here:<br>
+<a href=https://kiali.io/docs/configuration/rbac/>https://kiali.io/docs/configuration/rbac/</a>
+</div>
 <p>Apply the file:</p>
-<pre tabindex=0><code>kubectl apply -f kiali_cr.yaml
-</code></pre><p>Watch it complete setup:</p>
-<pre tabindex=0><code>kubectl get kiali kiali -n istio-system -o jsonpath='{.status}' | jq
-</code></pre><p>and:</p>
-<pre tabindex=0><code>kubectl get -nistio-system all
-</code></pre><p>Run:</p>
-<pre tabindex=0><code>kubectl get -nistio-system svc kiali
-</code></pre><p>to find the ELB address.</p>
-<p>In your browser, type in the copied and pasted details - for example: <br>
-<a href=http://example-elb.ap-southeast-2.elb.amazonaws.com>http://example-elb.ap-southeast-2.elb.amazonaws.com</a></p>
-<p>Then add :20001/kiali to the end:<br>
-<a href=http://example-elb.ap-southeast-2.elb.amazonaws.com:20001/kiali>http://example-elb.ap-southeast-2.elb.amazonaws.com:20001/kiali</a></p>
-<p>It will then ask you for a Token for the service account to be able to login. Find it out with this command and then copy and paste and you now have a fully running kiali installation:</p>
-<pre tabindex=0><code>kubectl get secret -n istio-system $(kubectl get sa kiali-service-account -n istio-system -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 -d
-</code></pre><p>More details about accessing Kiali via Ingress:
-<a href=https://kiali.io/docs/installation/installation-guide/accessing-kiali/>https://kiali.io/docs/installation/installation-guide/accessing-kiali/</a></p>
-<p>At this point I tried to set the AWS Elastic Load Balancer to use SSL and a proper certificate but after 4 hours of investigation it turns out that Kiali ingress requires &ldquo;class_name&rdquo; and AWS ELB doesn&rsquo;t have one so that doesn&rsquo;t work. Rather frustratingly I ended up manually updating the LoadBalancer lister details to be SSL over TCP and to specify the SSL Cipher policy and Certificate Manager. You should also point your FQDN to this Load Balancer to work with your custom certificate. No doubt an integration of Nginx and AWS ELB would fix this - Nginx being Kiali&rsquo;s default ingress method.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f kiali_cr.yaml
+</code></pre></div><p>Watch it complete setup:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get kiali kiali -n istio-system -o <span style=color:#000>jsonpath</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&#39;{.status}&#39;</span> <span style=color:#000;font-weight:700>|</span> jq
+</code></pre></div><p>and:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get -nistio-system all
+</code></pre></div><p>To find the ELB address, run:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get -nistio-system svc kiali
+</code></pre></div><p>In your browser, type in the copied and pasted details - for example:</p>
+<pre tabindex=0><code>http://example-elb.ap-southeast-2.elb.amazonaws.com  
+</code></pre><p>Then add <code>:20001/kiali</code> to the end:</p>
+<pre tabindex=0><code>http://example-elb.ap-southeast-2.elb.amazonaws.com:20001/kiali  
+</code></pre><p>It will then ask you for a Token for the service account to be able to login. Find it out with this command and then copy and paste and you now have a fully running kiali installation:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl get secret -n istio-system <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>  <span style=color:#204a87;font-weight:700>$(</span>kubectl get sa kiali-service-account -n istio-system -o <span style=color:#000>jsonpath</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&#39;{.secrets[0].name}&#39;</span><span style=color:#204a87;font-weight:700>)</span> <span style=color:#4e9a06>\
+</span><span style=color:#4e9a06></span>  -o <span style=color:#000>jsonpath</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>&#39;{.data.token}&#39;</span> <span style=color:#000;font-weight:700>|</span> base64 -d
+</code></pre></div>
+<div class="alert alert-primary" role=alert>
+More details about accessing Kiali via Ingress:<br>
+<a href=https://kiali.io/docs/installation/installation-guide/accessing-kiali/>https://kiali.io/docs/installation/installation-guide/accessing-kiali/</a>
+</div>
+<p>At this point I tried to set the AWS Elastic Load Balancer to use SSL and a proper certificate but after 4 hours of investigation it turns out that Kiali ingress requires <code>"class_name"</code> and AWS ELB doesn&rsquo;t have one so that doesn&rsquo;t work. Rather frustratingly I ended up manually updating the LoadBalancer lister details to be SSL over TCP and to specify the SSL Cipher policy and Certificate Manager. You should also point your FQDN to this Load Balancer to work with your custom certificate. No doubt an integration of Nginx and AWS ELB would fix this - Nginx being Kiali&rsquo;s default ingress method.</p>
 <h3 id=troubleshooting-istio>Troubleshooting Istio</h3>
 <p>Use these commands for our XNAT environment to help debugging:</p>
-<pre tabindex=0><code>istioctl proxy-status
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>istioctl proxy-status
 istioctl x describe pod xnat-xnat-web-0.xnat
 istioctl proxy-config listeners xnat-xnat-web-0.xnat 
 istioctl x authz check xnat-xnat-web-0.xnat
 kubectl logs pod/xnat-xnat-web-0 -c istio-proxy -nxnat
 kubectl get peerauthentication --all-namespaces
 kubectl get destinationrule --all-namespaces
-</code></pre><h4 id=more-articles-on-troubleshooting-istio>More Articles on Troubleshooting Istio:</h4>
+</code></pre></div><h4 id=more-articles-on-troubleshooting-istio>More Articles on Troubleshooting Istio:</h4>
 <p><a href=https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/>https://www.istioworkshop.io/12-debugging/01-istioctl-debug-command/</a><br>
 <a href=https://istio.io/latest/docs/ops/common-problems/security-issues/>https://istio.io/latest/docs/ops/common-problems/security-issues/</a></p>
 <h3 id=further-reading>Further Reading</h3>
@@ -476,8 +501,8 @@ kubectl get destinationrule --all-namespaces
 <a href=https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-November 17, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/f4d807312bff15069d0bd872d9a96e16c0703c22>Update Istio documentation now I fixed the 0.6.3 release to update the App name (f4d8073)</a>
+November 19, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/e7d15448663e352ee0d1dc7c92f63f4e7dac1d16>docs: Reformat Istio and Kustomize pages (e7d1544)</a>
 </div>
 </div>
 </main>
