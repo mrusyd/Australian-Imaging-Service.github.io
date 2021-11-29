@@ -17,21 +17,21 @@
 <meta name=description content><meta property="og:title" content="PostgreSQL Database Tuning">
 <meta property="og:description" content="XNAT Database Tuning Settings for PostgreSQL If XNAT is performing poorly, such as very long delays when adding a Subjects tab, it may be due to the small default Postgres memory configuration.
 To change the Postgres memory configuration to better match the available system memory, add/edit the following settings in /etc/postgresql/10/opex/postgresql.conf
-maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
+work_mem = 50MB maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
  https://wiki.xnat.org/workshop-2016/step-8-of-8-postgres-tuning-29032963.html  ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://australian-imaging-service.github.io/docs/operations/postgresql-db-tuning/"><meta property="article:section" content="docs">
 <meta itemprop=name content="PostgreSQL Database Tuning">
 <meta itemprop=description content="XNAT Database Tuning Settings for PostgreSQL If XNAT is performing poorly, such as very long delays when adding a Subjects tab, it may be due to the small default Postgres memory configuration.
 To change the Postgres memory configuration to better match the available system memory, add/edit the following settings in /etc/postgresql/10/opex/postgresql.conf
-maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
+work_mem = 50MB maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
  https://wiki.xnat.org/workshop-2016/step-8-of-8-postgres-tuning-29032963.html  ">
-<meta itemprop=wordCount content="62">
+<meta itemprop=wordCount content="65">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="PostgreSQL Database Tuning">
 <meta name=twitter:description content="XNAT Database Tuning Settings for PostgreSQL If XNAT is performing poorly, such as very long delays when adding a Subjects tab, it may be due to the small default Postgres memory configuration.
 To change the Postgres memory configuration to better match the available system memory, add/edit the following settings in /etc/postgresql/10/opex/postgresql.conf
-maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
+work_mem = 50MB maintenance_work_mem = 128MB effective_cache_size = 256MB For further information see:
  https://wiki.xnat.org/workshop-2016/step-8-of-8-postgres-tuning-29032963.html  ">
 <link rel=preload href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css as=style>
 <link href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css rel=stylesheet integrity>
@@ -55,7 +55,7 @@ maintenance_work_mem = 128MB effective_cache_size = 256MB For further informatio
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.8e8ebd4a6a04f205ecda6c54a7251270.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2dc9c1e6b522675cd0603f6ff5012c5a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -65,7 +65,7 @@ maintenance_work_mem = 128MB effective_cache_size = 256MB For further informatio
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.8e8ebd4a6a04f205ecda6c54a7251270.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2dc9c1e6b522675cd0603f6ff5012c5a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -225,7 +225,8 @@ tab, it may be due to the small default Postgres memory configuration.</p>
 <p>To change the Postgres memory configuration to better match the available
 system memory, add/edit the following settings in
 <code>/etc/postgresql/10/opex/postgresql.conf</code></p>
-<pre tabindex=0><code class=language-work_mem data-lang=work_mem>maintenance_work_mem = 128MB
+<pre tabindex=0><code>work_mem = 50MB
+maintenance_work_mem = 128MB
 effective_cache_size = 256MB
 </code></pre><p>For further information see:</p>
 <ul>
@@ -234,7 +235,7 @@ effective_cache_size = 256MB
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
 November 29, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/87f311d4ed529ca18b9e3de2c2df74fe8906a6a5>add prosgres tuning doc (87f311d)</a>
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/cfc8ec4af70c31bd0dffc56ee15c75cb50d818fa>formatting fix for prosgres tuning doc (cfc8ec4)</a>
 </div>
 </div>
 </main>
