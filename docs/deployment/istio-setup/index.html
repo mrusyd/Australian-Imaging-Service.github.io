@@ -24,7 +24,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <meta itemprop=description content="What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
  &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
-<meta itemprop=wordCount content="1643">
+<meta itemprop=wordCount content="1657">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Deploying Istio Service Mesh for our XNAT environment">
 <meta name=twitter:description content="What is a Service Mesh? From this article:
@@ -52,7 +52,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2dc9c1e6b522675cd0603f6ff5012c5a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.8a4809a96f385fbacda3be7a489293ec.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.2dc9c1e6b522675cd0603f6ff5012c5a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.8a4809a96f385fbacda3be7a489293ec.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -346,7 +346,7 @@ xnat           default   STRICT   16h
 <h4 id=authorization-policy>Authorization Policy</h4>
 <p>You can also specify what commands we can run on our <code>xnat-xnat-web</code> app with Authorization policies and even specify via source from specific namespaces and even apps. This gives you the ability to completely lock down the environment.<br>
 You can for instance allow a certain source POST access whilst another source only has GET and HEAD access.</p>
-<p>Let&rsquo;s create the following Authorization policy to allow all GET and HEAD commands to our <code>xnat-xnat-web</code> app called <code>istio-auth-policy.yaml</code>:</p>
+<p>Let&rsquo;s create the following Authorization policy to allow all GET, HEAD, PUT, DELETE and OPTIONS commands to our <code>xnat-web</code> app called <code>istio-auth-policy.yaml</code>:</p>
 <div class=code-file>
 <pre class=filename>istio-auth-policy.yaml</pre>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;security.istio.io/v1beta1&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
@@ -361,7 +361,7 @@ You can for instance allow a certain source POST access whilst another source on
 </span><span style=color:#f8f8f8;text-decoration:underline>   </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>   </span>- <span style=color:#204a87;font-weight:700>to</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>     </span>- <span style=color:#204a87;font-weight:700>operation</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>]</span></code></pre></div>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;PUT&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;DELETE&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;OPTIONS&#34;</span><span style=color:#000;font-weight:700>]</span></code></pre></div>
 </div>
 <div class="alert alert-primary" role=alert>
 <p>If you wanted to specify a source you would add a from value under rules and source.</p>
@@ -408,14 +408,14 @@ Amend the yaml file to this:</p>
 </span><span style=color:#f8f8f8;text-decoration:underline>   </span><span style=color:#204a87;font-weight:700>rules</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>   </span>- <span style=color:#204a87;font-weight:700>to</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
 </span><span style=color:#f8f8f8;text-decoration:underline>     </span>- <span style=color:#204a87;font-weight:700>operation</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
-</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;POST&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>]</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>           </span><span style=color:#204a87;font-weight:700>methods</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000;font-weight:700>[</span><span style=color:#4e9a06>&#34;GET&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;POST&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;HEAD&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;PUT&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;DELETE&#34;</span><span style=color:#000;font-weight:700>,</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;OPTIONS&#34;</span><span style=color:#000;font-weight:700>]</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></code></pre></div><p>Now re-apply the policy:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl apply -f istio-auth-policy.yaml
 </code></pre></div><p>And curl again:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X POST https://xnat.example.com  
 </code></pre></div><p>This time it works. OK so we have a working Istio service mesh with correctly applied Mutual TLS and Authorization Policies.</p>
 <div class="alert alert-primary" role=alert>
-<p>This is only a tiny fraction of what Istio can do, so please go to their website for more information.</p>
+<p>This is only a tiny fraction of what Istio can do, so please go to their website for more information. You should try to lock down permissions further than specified above.</p>
 <p><a href=https://istio.io/latest/docs/>https://istio.io/latest/docs/</a></p>
 </div>
 <h3 id=kiali-installation>Kiali Installation</h3>
@@ -504,8 +504,8 @@ kubectl get destinationrule --all-namespaces
 <a href=https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-November 19, 2021
-: <a href=https://github.com/Australian-Imaging-Service/charts/commit/e7d15448663e352ee0d1dc7c92f63f4e7dac1d16>docs: Reformat Istio and Kustomize pages (e7d1544)</a>
+December 7, 2021
+: <a href=https://github.com/Australian-Imaging-Service/charts/commit/cfe38240fb3a25400935f703c4e152b2a298e99a>Updated Istio documentation after testing for AIS 1.0 and finding permission errors (cfe3824)</a>
 </div>
 </div>
 </main>
