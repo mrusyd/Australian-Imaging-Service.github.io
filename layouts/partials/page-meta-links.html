@@ -1,51 +1,49 @@
-{{ if .Path }}
-  {{ replace .Path "\\" "/" | .Scratch.Set "pathFormatted" }}
-  {{ if (hasPrefix .File.FileInfo.Meta.Module "github.com") }}
-    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" | .Scratch.Set "gh_repo" }}
-    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | after 3) "/" | .Scratch.Set "gh_subdir" }}
-    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module }}
-    {{ if reflect.IsMap $repo_filemap }}
-      {{ .Scratch.Set "gh_branch" $repo_filemap.branch }}
-      {{ trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" | .Scratch.Set "pathFormatted" }}
-    {{ end }}
-  {{ else }}
-    {{ $.Param "github_repo" | .Scratch.Set "gh_repo" }}
-    {{ $.Param "github_subdir" | .Scratch.Set "gh_subdir" }}
-    {{ .Scratch.Set "gh_subdir" "content" }}
-    {{ default "master" ($.Param "github_branch") | .Scratch.Set "gh_branch" }}
-  {{ end }}
-  {{ $pathFormatted := .Scratch.Get "pathFormatted" }}
-  {{ $gh_repo := .Scratch.Get "gh_repo" }}
-  {{ $gh_subdir := .Scratch.Get "gh_subdir" }}
-  {{ $gh_branch := .Scratch.Get "gh_branch" }}
-  {{ $gh_url := ($.Param "github_url") }}
-  {{ $gh_project_repo := ($.Param "github_project_repo") }}
+{{ if .Path -}}
+  {{ replace .Path "\\" "/" | .Scratch.Set "pathFormatted" -}}
+  {{ if (hasPrefix .File.FileInfo.Meta.Module "github.com") -}}
+    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" | .Scratch.Set "gh_repo" -}}
+    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | after 3) "/" | .Scratch.Set "gh_subdir" -}}
+    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module -}}
+    {{ if reflect.IsMap $repo_filemap -}}
+      {{ .Scratch.Set "gh_branch" $repo_filemap.branch -}}
+      {{ trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" | .Scratch.Set "pathFormatted" -}}
+    {{ end -}}
+  {{ else -}}
+    {{ $.Param "github_repo" | .Scratch.Set "gh_repo" -}}
+    {{ $.Param "github_subdir" | .Scratch.Set "gh_subdir" -}}
+    {{ .Scratch.Set "gh_subdir" "content" -}}
+    {{ default "master" ($.Param "github_branch") | .Scratch.Set "gh_branch" -}}
+  {{ end -}}
+  {{ $pathFormatted := .Scratch.Get "pathFormatted" -}}
+  {{ $gh_repo := .Scratch.Get "gh_repo" -}}
+  {{ $gh_subdir := .Scratch.Get "gh_subdir" -}}
+  {{ $gh_branch := .Scratch.Get "gh_branch" -}}
+  {{ $gh_url := ($.Param "github_url") -}}
+  {{ $gh_project_repo := ($.Param "github_project_repo") -}}
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-  {{ if $gh_url }}
+  {{ if $gh_url -}}
      <a href="{{ $gh_url }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>     
-  {{ else if $gh_repo }}
-    {{ $gh_repo_path := printf "%s/%s" $gh_branch $pathFormatted }}
-    {{ if $gh_subdir }}
-      {{ $gh_repo_path = printf "%s/%s/%s" $gh_branch $gh_subdir $pathFormatted }}
-    {{ end }}
-    {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path }}
-    {{ $createURL := printf "%s/edit/%s" $gh_repo $gh_repo_path }}
+  {{ else if $gh_repo -}}
+    {{ $gh_repo_path := printf "%s/%s" $gh_branch $pathFormatted -}}
+    {{ if $gh_subdir -}}
+      {{ $gh_repo_path = printf "%s/%s/%s" $gh_branch $gh_subdir $pathFormatted -}}
+    {{ end -}}
+    {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path -}}
+    {{ $createURL := printf "%s/edit/%s" $gh_repo $gh_repo_path -}}
     {{ $issuesURL := printf "%s/issues/new?title=%s" $gh_repo (safeURL $.Title )}}
-    {{ $newPageStub := resources.Get "stubs/new-page-template.md" }}
-    {{ $newPageQS := querify "value" $newPageStub.Content "filename" "change-me.md" | safeURL }}
-    {{ $newPageURL := printf "%s/new/%s?%s"  $gh_repo $gh_repo_path $newPageQS }}
-
+    {{ $newPageStub := resources.Get "stubs/new-page-template.md" -}}
+    {{ $newPageQS := querify "value" $newPageStub.Content "filename" "change-me.md" | safeURL -}}
+    {{ $newPageURL := printf "%s/new/%s?%s"  $gh_repo $gh_repo_path $newPageQS -}}
     <a href="{{ $editURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>
     <a href="{{ $newPageURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_create_child_page" }}</a>
     <a href="{{ $issuesURL }}" target="_blank"><i class="fab fa-github fa-fw"></i> {{ T "post_create_issue" }}</a>
-    {{ if $gh_project_repo }}
-      {{ $project_issueURL := printf "%s/issues/new" $gh_project_repo }}
+    {{ if $gh_project_repo -}}
+      {{ $project_issueURL := printf "%s/issues/new" $gh_project_repo -}}
       <a href="{{ $project_issueURL }}" target="_blank"><i class="fas fa-tasks fa-fw"></i> {{ T "post_create_project_issue" }}</a>
-    {{ end }}
-
-  {{ end }}
-  {{ with .CurrentSection.AlternativeOutputFormats.Get "print" }}
+    {{ end -}}
+  {{ end -}}
+  {{ with .CurrentSection.AlternativeOutputFormats.Get "print" -}}
     <a id="print" href="{{ .Permalink | safeURL }}"><i class="fa fa-print fa-fw"></i> {{ T "print_entire_section" }}</a>
-  {{ end }}
+  {{ end -}}
   </div>
-{{ end }}
+{{ end -}}

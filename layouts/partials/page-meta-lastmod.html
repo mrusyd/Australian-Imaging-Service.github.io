@@ -1,27 +1,27 @@
 <div class="text-muted mt-5 pt-3 border-top">
-{{ if .GitInfo }}
+{{ if .GitInfo -}}
     {{ T "post_last_mod"}}
-    {{ .Lastmod.Format .Site.Params.time_format_default }}
-    {{ if .Site.Params.github_repo }}
-    {{ with .GitInfo }}: <a  href="{{ $.Site.Params.github_repo }}/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{ end }}
-    {{ end }}
-{{ else if hasPrefix .File.FileInfo.Meta.Module "github.com" }}
-    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module }}
-    {{ if reflect.IsMap $repo_filemap }}
-        {{ $repo_filemap := $repo_filemap.files }}
-        {{ $path_key := trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" }}
-        {{ $commit_info := index $repo_filemap $path_key }}
-        {{ if $commit_info }}
-            {{ $hash_full := index $commit_info 0 }}
-            {{ $hash_short := index $commit_info 1 }}
-            {{ $commit_msg := index $commit_info 2 }}
-            {{ $commit_time := index $commit_info 5 | time }}
-            {{ $gh_repo := delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
+    {{ .Lastmod.Format .Site.Params.time_format_default -}}
+    {{ if .Site.Params.github_repo -}}
+    {{ with .GitInfo }}: <a  href="{{ $.Site.Params.github_repo }}/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{ end -}}
+    {{ end -}}
+{{ else if hasPrefix .File.FileInfo.Meta.Module "github.com" -}}
+    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module -}}
+    {{ if reflect.IsMap $repo_filemap -}}
+        {{ $repo_filemap := $repo_filemap.files -}}
+        {{ $path_key := trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" -}}
+        {{ $commit_info := index $repo_filemap $path_key -}}
+        {{ if $commit_info -}}
+            {{ $hash_full := index $commit_info 0 -}}
+            {{ $hash_short := index $commit_info 1 -}}
+            {{ $commit_msg := index $commit_info 2 -}}
+            {{ $commit_time := index $commit_info 5 | time -}}
+            {{ $gh_repo := delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" -}}
             
             {{ T "post_last_mod" }}
-            {{ $commit_time.Format .Site.Params.time_format_default }}
+            {{ $commit_time.Format .Site.Params.time_format_default -}}
             : <a href="{{ $gh_repo }}/commit/{{ $hash_full }}">{{ $commit_msg }} ({{ $hash_short }})</a>
-        {{ end }}
-    {{ end }}
-{{ end }}
+        {{ end -}}
+    {{ end -}}
+{{ end -}}
 </div>
