@@ -1,12 +1,12 @@
 {{ if .Path }}
   {{ replace .Path "\\" "/" | .Scratch.Set "pathFormatted" }}
-  {{ if (hasPrefix .FileInfo.Meta.Module "github.com") }}
-    {{ delimit (split (.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" | .Scratch.Set "gh_repo" }}
-    {{ delimit (split (.FileInfo.Meta.Module) "/" | after 3) "/" | .Scratch.Set "gh_subdir" }}
-    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .FileInfo.Meta.Module }}
+  {{ if (hasPrefix .File.FileInfo.Meta.Module "github.com") }}
+    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" | .Scratch.Set "gh_repo" }}
+    {{ delimit (split (.File.FileInfo.Meta.Module) "/" | after 3) "/" | .Scratch.Set "gh_subdir" }}
+    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module }}
     {{ if reflect.IsMap $repo_filemap }}
       {{ .Scratch.Set "gh_branch" $repo_filemap.branch }}
-      {{ trim (substr .FileInfo.Meta.Filename (.FileInfo.Meta.BaseDir | len )) "/" | .Scratch.Set "pathFormatted" }}
+      {{ trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" | .Scratch.Set "pathFormatted" }}
     {{ end }}
   {{ else }}
     {{ $.Param "github_repo" | .Scratch.Set "gh_repo" }}

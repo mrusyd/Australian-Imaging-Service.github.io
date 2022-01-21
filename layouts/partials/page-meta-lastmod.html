@@ -5,18 +5,18 @@
     {{ if .Site.Params.github_repo }}
     {{ with .GitInfo }}: <a  href="{{ $.Site.Params.github_repo }}/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{ end }}
     {{ end }}
-{{ else if hasPrefix .FileInfo.Meta.Module "github.com" }}
-    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .FileInfo.Meta.Module }}
+{{ else if hasPrefix .File.FileInfo.Meta.Module "github.com" }}
+    {{ $repo_filemap := index (readFile "git_info.json" | transform.Unmarshal) .File.FileInfo.Meta.Module }}
     {{ if reflect.IsMap $repo_filemap }}
         {{ $repo_filemap := $repo_filemap.files }}
-        {{ $path_key := trim (substr .FileInfo.Meta.Filename (.FileInfo.Meta.BaseDir | len )) "/" }}
+        {{ $path_key := trim (substr .File.FileInfo.Meta.Filename (.File.FileInfo.Meta.BaseDir | len )) "/" }}
         {{ $commit_info := index $repo_filemap $path_key }}
         {{ if $commit_info }}
             {{ $hash_full := index $commit_info 0 }}
             {{ $hash_short := index $commit_info 1 }}
             {{ $commit_msg := index $commit_info 2 }}
             {{ $commit_time := index $commit_info 5 | time }}
-            {{ $gh_repo := delimit (split (.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
+            {{ $gh_repo := delimit (split (.File.FileInfo.Meta.Module) "/" | first 3) "/" | printf "https://%s" }}
             
             {{ T "post_last_mod" }}
             {{ $commit_time.Format .Site.Params.time_format_default }}
