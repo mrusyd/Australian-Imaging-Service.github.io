@@ -98,6 +98,17 @@ enable = false
 # Empty category required
 [params.links]
 
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^rst2html$']
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$']
+  [security.funcs]
+    getenv = ['^HUGO_']
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
+
 [module]
  [[module.imports]]
     path = "github.com/Australian-Imaging-Service/charts/docs"
