@@ -24,6 +24,14 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
           path: charts
 
+      - name: Checkout pipelines repo docs branch
+        uses: actions/checkout@v2
+        with:
+          repository: 'Australian-Imaging-Service/pipelines'
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          path: pipelines
+          ref: docs
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.4.13
         with:
