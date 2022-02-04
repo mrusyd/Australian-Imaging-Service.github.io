@@ -13,19 +13,17 @@
 <link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
 <link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
 <link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
-<title>CTP | Australian Imaging Service</title>
-<meta name=description content><meta property="og:title" content="CTP">
-<meta property="og:description" content="Page description for heading and indexes.">
+<title>fmriprep | Australian Imaging Service</title>
+<meta name=description content><meta property="og:title" content="fmriprep">
+<meta property="og:description" content="Info    Key Value     Version 0.1   App version    Image :   Maintainer thomas.close@sydney.edu.au   Info URL    Frequency Session    Inputs    Name Bids path Data type     T1w anat/T1w niftix_gz   T2w anat/T2w niftix_gz   fMRI func/bold niftix_gz   dMRI dwi/dwi niftix_gz    Outputs    Name Data type     fmriprep directory    Parameters None">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://australian-imaging-service.github.io/user_docs/facility-guides/ctp/"><meta property="article:section" content="user_docs">
-<meta property="article:modified_time" content="2021-10-08T14:18:39+11:00">
-<meta itemprop=name content="CTP">
-<meta itemprop=description content="Page description for heading and indexes.">
-<meta itemprop=dateModified content="2021-10-08T14:18:39+11:00">
-<meta itemprop=wordCount content="1">
+<meta property="og:url" content="https://australian-imaging-service.github.io/user_docs/pipelines/fmriprep/"><meta property="article:section" content="user_docs">
+<meta itemprop=name content="fmriprep">
+<meta itemprop=description content="Info    Key Value     Version 0.1   App version    Image :   Maintainer thomas.close@sydney.edu.au   Info URL    Frequency Session    Inputs    Name Bids path Data type     T1w anat/T1w niftix_gz   T2w anat/T2w niftix_gz   fMRI func/bold niftix_gz   dMRI dwi/dwi niftix_gz    Outputs    Name Data type     fmriprep directory    Parameters None">
+<meta itemprop=wordCount content="41">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="CTP">
-<meta name=twitter:description content="Page description for heading and indexes.">
+<meta name=twitter:title content="fmriprep">
+<meta name=twitter:description content="Info    Key Value     Version 0.1   App version    Image :   Maintainer thomas.close@sydney.edu.au   Info URL    Frequency Session    Inputs    Name Bids path Data type     T1w anat/T1w niftix_gz   T2w anat/T2w niftix_gz   fMRI func/bold niftix_gz   dMRI dwi/dwi niftix_gz    Outputs    Name Data type     fmriprep directory    Parameters None">
 <link rel=preload href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css as=style>
 <link href=/scss/main.min.0e2d2f1aad30144f0d0ed4d049501e36226838b2c829c421afa864b6a3c63911.css rel=stylesheet integrity>
 <script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
@@ -75,21 +73,21 @@
 </li>
 </ul>
 </li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-user_docsfacility-guides-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-user_docsfacility-guides-li>
 <a href=/user_docs/facility-guides/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-user_docsfacility-guides><span>Facility guides</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docsfacility-guidesconnect-machines-li>
 <a href=/user_docs/facility-guides/connect-machines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docsfacility-guidesconnect-machines><span>Connect machines</span></a>
 </li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-user_docsfacility-guidesctp-li>
-<a href=/user_docs/facility-guides/ctp/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-user_docsfacility-guidesctp><span class=td-sidebar-nav-active-item>CTP</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docsfacility-guidesctp-li>
+<a href=/user_docs/facility-guides/ctp/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docsfacility-guidesctp><span>CTP</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docsfacility-guidesxnat-li>
 <a href=/user_docs/facility-guides/xnat/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docsfacility-guidesxnat><span>XNat</span></a>
 </li>
 </ul>
 </li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-user_docspipelines-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-user_docspipelines-li>
 <a href=/user_docs/pipelines/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-user_docspipelines><span>Pipelines</span></a>
 <ul class="ul-2 foldable">
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docspipelinesants_cortical_thickness-li>
@@ -98,8 +96,8 @@
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docspipelinesfibre_density_and_crosssection-li>
 <a href=/user_docs/pipelines/fibre_density_and_crosssection/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docspipelinesfibre_density_and_crosssection><span>fibre_density_and_crosssection</span></a>
 </li>
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docspipelinesfmriprep-li>
-<a href=/user_docs/pipelines/fmriprep/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docspipelinesfmriprep><span>fmriprep</span></a>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-user_docspipelinesfmriprep-li>
+<a href=/user_docs/pipelines/fmriprep/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-user_docspipelinesfmriprep><span class=td-sidebar-nav-active-item>fmriprep</span></a>
 </li>
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-user_docspipelinesfreesurfer-li>
 <a href=/user_docs/pipelines/freesurfer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-user_docspipelinesfreesurfer><span>freesurfer</span></a>
@@ -120,10 +118,22 @@
 </aside>
 <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href=https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/edit/master/content/user_docs/Facility%20Guides/ctp.md target=_blank><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/new/master/content/user_docs/Facility%20Guides/ctp.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i> Create child page</a>
-<a href="https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/issues/new?title=CTP" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href=https://github.com/Australian-Imaging-Service/pipelines/edit/docs/australianimagingservice/mri/neuro/fmriprep.py target=_blank><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/Australian-Imaging-Service/pipelines/new/docs/australianimagingservice/mri/neuro/fmriprep.py?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/Australian-Imaging-Service/pipelines/issues/new?title=fmriprep" target=_blank><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 </div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#info>Info</a></li>
+<li><a href=#inputs>Inputs</a></li>
+<li><a href=#outputs>Outputs</a></li>
+<li><a href=#parameters>Parameters</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
 </aside>
 <main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
 <nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
@@ -132,24 +142,105 @@
 <a href=https://australian-imaging-service.github.io/user_docs/>User Documentation</a>
 </li>
 <li class=breadcrumb-item>
-<a href=https://australian-imaging-service.github.io/user_docs/facility-guides/>Facility guides</a>
+<a href=https://australian-imaging-service.github.io/user_docs/pipelines/>Pipelines</a>
 </li>
 <li class="breadcrumb-item active" aria-current=page>
-<a href=https://australian-imaging-service.github.io/user_docs/facility-guides/ctp/>CTP</a>
+<a href=https://australian-imaging-service.github.io/user_docs/pipelines/fmriprep/>fmriprep</a>
 </li>
 </ol>
 </nav>
 <div class=td-content>
-<h1>CTP</h1>
-<div class=lead>Page description for heading and indexes.</div>
+<h1>fmriprep</h1>
 <header class=article-meta>
 </header>
-<div class="pageinfo pageinfo-primary">
-<p>Placeholder</p>
-</div>
+<h3 id=info>Info</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>App version</td>
+<td></td>
+</tr>
+<tr>
+<td>Image</td>
+<td><code>:</code></td>
+</tr>
+<tr>
+<td>Maintainer</td>
+<td><a href=mailto:thomas.close@sydney.edu.au>thomas.close@sydney.edu.au</a></td>
+</tr>
+<tr>
+<td>Info URL</td>
+<td></td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>Session</td>
+</tr>
+</tbody>
+</table>
+<h3 id=inputs>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Bids path</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T1w</code></td>
+<td><code>anat/T1w</code></td>
+<td><code>niftix_gz</code></td>
+</tr>
+<tr>
+<td><code>T2w</code></td>
+<td><code>anat/T2w</code></td>
+<td><code>niftix_gz</code></td>
+</tr>
+<tr>
+<td><code>fMRI</code></td>
+<td><code>func/bold</code></td>
+<td><code>niftix_gz</code></td>
+</tr>
+<tr>
+<td><code>dMRI</code></td>
+<td><code>dwi/dwi</code></td>
+<td><code>niftix_gz</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id=outputs>Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fmriprep</code></td>
+<td><code>directory</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id=parameters>Parameters</h3>
+<p>None</p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-October 8, 2021: <a href=https://github.com/Australian-Imaging-Service/Australian-Imaging-Service.github.io/commit/8a0784edc9a5b69fd3ea0a21e6602cc5f04d84f1>Move facility guides and getting started to user docs section (8a0784e)</a></div>
+February 2, 2022: <a href=https://github.com/Australian-Imaging-Service/pipelines/commit/c6f9877b468e964260555cb6affc26bfb30610c5>deploy: 181ae02c93a38c348aa74e425194ba7daab286f9 (c6f9877)</a>
+</div>
 </div>
 </main>
 </div>
