@@ -24,7 +24,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <meta itemprop=description content="What is a Service Mesh? From this article:
 https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
  &ldquo;A service mesh, like the open source project Istio, is a way to control how different parts of an application share data with one another. Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. This visible infrastructure layer can document how well (or not) different parts of an app interact, so it becomes easier to optimize communication and avoid downtime as an app grows.">
-<meta itemprop=wordCount content="1657">
+<meta itemprop=wordCount content="1669">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Deploying Istio Service Mesh for our XNAT environment">
 <meta name=twitter:description content="What is a Service Mesh? From this article:
@@ -52,7 +52,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.25b498ca1fd20040726f98cd8fb9b6c4.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a2c3f2592f56bb65e8a4766fe62bec04.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.25b498ca1fd20040726f98cd8fb9b6c4.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a2c3f2592f56bb65e8a4766fe62bec04.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -257,11 +257,13 @@ This catch 22 forces us to use only <code>istio</code> and <code>istiod</code> t
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>istioctl version
 </code></pre></div><p>Create namespace:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create ns istio-system
+</code></pre></div><p>Install the Helm repo:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
 </code></pre></div><p>Install Istio base (must be in istio install directory):</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istio-base manifests/charts/base -n istio-system
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istio-base istio/base -n istio-system
 </code></pre></div><p>Install <code>istiod</code>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istiod manifests/charts/istio-control/istio-discovery <span style=color:#4e9a06>\
-</span><span style=color:#4e9a06></span>    -n istio-system
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>helm install istiod istio/istiod -n istio-system --wait
 </code></pre></div><p>Now Istio is installed, we need to apply the configuration to our XNAT namespace to add the Istio sidecars - this is how Istio applies the policies.<br>
 <div class="alert alert-primary" role=alert>
 For more information on Sidecars, see this article:<br>
@@ -504,7 +506,7 @@ kubectl get destinationrule --all-namespaces
 <a href=https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/>https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/</a></p>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-December 7, 2021: <a href=https://github.com/Australian-Imaging-Service/charts/commit/cfe38240fb3a25400935f703c4e152b2a298e99a>Updated Istio documentation after testing for AIS 1.0 and finding permission errors (cfe3824)</a>
+February 7, 2022: <a href=https://github.com/Australian-Imaging-Service/charts/commit/9ee830a98ef4cdae52edc65c8a5d5ada78583d95>Updated Istio-Setup.md to include new Helm install instructions from Istio official docs (9ee830a)</a>
 </div>
 </div>
 </main>
