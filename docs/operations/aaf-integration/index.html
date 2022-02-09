@@ -52,7 +52,7 @@ They will ask you these questions:
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a2c3f2592f56bb65e8a4766fe62bec04.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.5f894564a65d5268120fd58e939860b0.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -62,7 +62,7 @@ They will ask you these questions:
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.a2c3f2592f56bb65e8a4766fe62bec04.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.5f894564a65d5268120fd58e939860b0.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -326,8 +326,8 @@ These are fake details but an example – no “ (quotation marks) required.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.userAutoVerified</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>false</span>
 </code></pre></div><p>Property names to use when creating users</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#c4a000>openid.aaf.emailProperty</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>email  </span>
-<span style=color:#c4a000>openid.aaf.givenNameProperty</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>name  </span>
-<span style=color:#c4a000>openid.aaf.familyNameProperty</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>deliberately_unknown_property  </span>
+<span style=color:#c4a000>openid.aaf.givenNameProperty</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>given_name  </span>
+<span style=color:#c4a000>openid.aaf.familyNameProperty</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#4e9a06>family_name  </span>
 </code></pre></div><p>If you create your openid-provider.properties file with the above information, tailored to your environment, along with the plugin:<br>
 <code>/data/xnat/home/plugins/xnat-openid-auth-plugin-all-1.0.2.jar</code></p>
 <p>You should only need to restart Tomcat to enable login. This assumes you have a valid AAF organisation login.</p>
@@ -393,7 +393,7 @@ In order for this to work, you will need to point your domain name and SSL certi
 </ol>
 <div class="text-muted mt-5 pt-3 border-top">
 Last modified
-August 6, 2021: <a href=https://github.com/Australian-Imaging-Service/charts/commit/36a9880f8d3d5f2542fa9e1017c70717add59f40>Docs: Add alert+warnings blocks and minor reformatting (36a9880)</a>
+February 10, 2022: <a href=https://github.com/Australian-Imaging-Service/charts/commit/07f25a5e66fbd2c7e6244292f6a4d9c641ad709b>Map user fields to AAF OpenID Connect properties (07f25a5)</a>
 </div>
 </div>
 </main>
