@@ -46,14 +46,14 @@ Before we begin One thing that you need to know when we want to create new ALB f
 </li><li class="nav-item mr-4 mb-2 mb-lg-0">
 <a class=nav-link href=/user_docs/ target=_blank><span>User Documentation</span></a>
 </li></ul></div><div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.098ecc145dbf5456431dace4580c24fb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.ee1a7b95a73280972f2f95fbd1b2a751.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div></nav></header><div class="container-fluid td-outer">
 <div class=td-main>
 <div class="row flex-xl-nowrap">
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.098ecc145dbf5456431dace4580c24fb.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.ee1a7b95a73280972f2f95fbd1b2a751.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form><nav class="collapse td-sidebar-nav" id=td-section-nav>
@@ -234,12 +234,13 @@ You can read more about it here:<br>
 </span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>alb.ingress.kubernetes.io/certificate-arn</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;arn:aws:acm:XXXXXXX:certificate/XXXXXX&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>alb.ingress.kubernetes.io/ssl-policy</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;ELBSecurityPolicy-TLS-1-2-Ext-2018-06&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>alb.ingress.kubernetes.io/target-group-attributes</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=1800,load_balancing.algorithm.type=least_outstanding_requests&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></span></span><span style=display:flex><span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>alb.ingress.kubernetes.io/load-balancer-attributes</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#4e9a06>&#34;idle_timeout.timeout_seconds=300&#34;</span><span style=color:#f8f8f8;text-decoration:underline>
 </span></span></span></code></pre></div><p>Further Reading:</p><ul>
 <li><a href=https://medium.com/devops-dudes/running-the-latest-aws-load-balancer-controller-in-your-aws-eks-cluster-9d59cdc1db98>https://medium.com/devops-dudes/running-the-latest-aws-load-balancer-controller-in-your-aws-eks-cluster-9d59cdc1db98</a></li></ul><p>Troubleshooting EKS Load Balancers:</p><ul>
 <li><a href=https://aws.amazon.com/premiumsupport/knowledge-center/eks-load-balancers-troubleshooting/>https://aws.amazon.com/premiumsupport/knowledge-center/eks-load-balancers-troubleshooting/</a></li><li><a href=https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120>https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120</a></li></ul><p>ALB annotations:</p><ul>
 <li><a href=https://kubernetes-sigs.github.io/aws-load-balancer-controller/guide/ingress/annotations/>https://kubernetes-sigs.github.io/aws-load-balancer-controller/guide/ingress/annotations/</a></li></ul><div class="text-muted mt-5 pt-3 border-top">
 Last modified
-March 7, 2022: <a href=https://github.com/Australian-Imaging-Service/charts/commit/4eaba31c72851c630840a0ce503ec6df9f5a838e>Update ALB doc to add gateway timeout fix (4eaba31)</a>
+March 7, 2022: <a href=https://github.com/Australian-Imaging-Service/charts/commit/6028e09a995911f265dfbb2282a632408883cba7>Add extra line in ALB doc for complete annotation (6028e09)</a>
 </div></div></main></div></div></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script>
 <script src=/js/main.min.7fa9e3e39f56ebd66798993ef3c080218d9696c971a28ef8872d750b7416a435.js integrity="sha256-f6nj459W69ZnmJk+88CAIY2Wlslxoo74hy11C3QWpDU=" crossorigin=anonymous></script>
