@@ -76,6 +76,8 @@ github_repo = "https://github.com/Australian-Imaging-Service/Australian-Imaging-
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 #github_project_repo = "https://github.com/google/docsy"
 
+rss_sections = ["news"]
+
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.
