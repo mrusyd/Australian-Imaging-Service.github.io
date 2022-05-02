@@ -114,5 +114,5 @@ pygmentsStyle = "tango"
     path = "github.com/Australian-Imaging-Service/charts/docs"
     disable = false
   [[module.imports]]
-    path = "github.com/Australian-Imaging-Service/pipelines/docs"
+    path = "github.com/Australian-Imaging-Service/pipelines-core/docs"
     disable = false

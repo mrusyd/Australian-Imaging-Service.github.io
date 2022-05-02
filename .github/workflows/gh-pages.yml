@@ -24,12 +24,12 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
           path: charts
 
-      - name: Checkout pipelines repo docs branch
+      - name: Checkout pipelines-core repo docs branch
         uses: actions/checkout@v2
         with:
-          repository: 'Australian-Imaging-Service/pipelines'
+          repository: 'Australian-Imaging-Service/pipelines-core'
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-          path: pipelines
+          path: pipelines-core
           ref: docs
 
       - name: Setup Hugo

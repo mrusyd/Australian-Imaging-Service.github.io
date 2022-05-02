@@ -12,7 +12,7 @@ go 1.12
 replace github.com/Australian-Imaging-Service/charts/docs => ../charts/docs
 require github.com/Australian-Imaging-Service/charts/docs v0.0.0
 
-replace github.com/Australian-Imaging-Service/pipelines/docs => ../pipelines/docs
-require github.com/Australian-Imaging-Service/pipelines/docs v0.0.0
+replace github.com/Australian-Imaging-Service/pipelines-core/docs => ../pipelines-core/docs
+require github.com/Australian-Imaging-Service/pipelines-core/docs v0.0.0
 
 require github.com/google/docsy v0.2.0 // indirect
